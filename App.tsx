@@ -38,13 +38,7 @@ import RektoretVite from './pages/famullia/RektoretVite';
 import OraretMeshave from './pages/famullia/OraretMeshave';
 import Kalendari from './pages/famullia/Kalendari';
 
-// Mjediset Imports
-import LaboratoriBiologjise from './pages/shkolla/mjediset/LaboratoriBiologjise';
-import LaboratoriKimiseFizikes from './pages/shkolla/mjediset/LaboratoriKimiseFizikes';
-import LaboratoretShkencor from './pages/shkolla/mjediset/LaboratoretShkencor';
-import GjuhetEHuaja from './pages/shkolla/mjediset/GjuhetEHuaja';
-import EdukimiFizik from './pages/shkolla/mjediset/EdukimiFizik';
-import SallaIT from './pages/shkolla/mjediset/SallaIT';
+// Mjediset Imports - Files deleted
 
 const App: React.FC = () => {
   return (
@@ -70,14 +64,7 @@ const App: React.FC = () => {
           <Route path="/shkolla/plani-akademik" element={<Navigate to="/shkolla/plani-akademik/9-vjecare" replace />} />
           <Route path="/shkolla/plani-akademik/:level" element={<PlaniAkademik />} />
 
-          {/* Mjediset Routes */}
-          <Route path="/shkolla/mjediset/science-labs/biologji" element={<LaboratoriBiologjise />} />
-          <Route path="/shkolla/mjediset/science-labs/kimi-fizike" element={<LaboratoriKimiseFizikes />} />
-
-          <Route path="/shkolla/mjediset/laboratoret-shkencor" element={<LaboratoretShkencor />} />
-          <Route path="/shkolla/mjediset/gjuhet-e-huaja-shkolla" element={<GjuhetEHuaja />} />
-          <Route path="/shkolla/mjediset/edukimi-fizik" element={<EdukimiFizik />} />
-          <Route path="/shkolla/mjediset/salla-it" element={<SallaIT />} />
+          {/* Mjediset Routes - Files deleted */}
 
           <Route path="/oratori" element={<Oratori />} />
           <Route path="/oratori/aktiviteti" element={<Aktiviteti />} />

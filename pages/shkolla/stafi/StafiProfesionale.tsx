@@ -4,40 +4,58 @@ import { motion } from 'framer-motion';
 const StafiProfesionale: React.FC = () => {
     const staffMembers = [
         {
-            name: "Ing. Arben Meta",
-            role: "Koordinator TIK",
-            image: "/stafi/profesionale/arben-meta.jpg",
-            description: "Ekspert në rrjetat kompjuterike dhe sigurinë kibernetike"
+            name: "Don Luiggi Martucci",
+            role: "Drejtori",
+            image: "/stafi_profesionale/Don_Luiggi_Martucci(Drejtori).jpeg",
+            description: "Drejtori i shkollës"
         },
         {
-            name: "Msc. Klajdi Prifti",
-            role: "Mësues Cisco Networking",
-            image: "/stafi/profesionale/klajdi-prifti.jpg",
-            description: "Instruktor i certifikuar Cisco CCNA dhe CCNP"
+            name: "Dritan Bushi",
+            role: "Nën-Drejtor",
+            image: "/stafi_profesionale/Dritan_Bushi(Nen-Drejtor).png",
+            description: "Nën-drejtor i shkollës"
         },
         {
-            name: "Ing. Ermal Deda",
-            role: "Mësues Cyber Security",
-            image: "/stafi/profesionale/ermal-deda.jpg",
-            description: "Specialist në sigurinë e rrjeteve dhe etikën haker"
+            name: "Deleda Psikologe",
+            role: "Psikologe",
+            image: "/stafi_9-vjecare/Deleda_Psikologe.png",
+            description: "Psikologe e shkollës"
         },
         {
-            name: "Msc. Jonida Gjoni",
-            role: "Mësuese Software Development",
-            image: "/stafi/profesionale/jonida-gjoni.jpg",
-            description: "Eksperte në zhvillimin web dhe mobile applications"
+            name: "Rosela Psikologe",
+            role: "Psikologe",
+            image: "/stafi_9-vjecare/Rosela_psikologe.png",
+            description: "Psikologe e shkollës"
         },
         {
-            name: "Ing. Denis Hoxha",
-            role: "Mësues Hardware & IoT",
-            image: "/stafi/profesionale/denis-hoxha.jpg",
-            description: "Specialist në sisteme të ngulitura dhe Internet of Things"
+            name: "Kristian Psikolog",
+            role: "Psikolog",
+            image: "/stafi_9-vjecare/Kristian-psikolog.png",
+            description: "Psikolog i shkollës"
         },
         {
-            name: "Msc. Anila Kola",
-            role: "Mësuese Database",
-            image: "/stafi/profesionale/anila-kola.jpg",
-            description: "Eksperte në menaxhimin e bazave të të dhënave dhe Big Data"
+            name: "Daniela Bali",
+            role: "Mësuese Profesionale",
+            image: "/stafi_profesionale/Daniela_Bali.png",
+            description: "Eksperte në fushën e saj profesionale"
+        },
+        {
+            name: "Fatos Gjoka",
+            role: "Mësues Profesional",
+            image: "/stafi_profesionale/Fatos_Gjoka.png",
+            description: "Specialist në lëndën e tij"
+        },
+        {
+            name: "Julian Priska",
+            role: "Mësues Profesional",
+            image: "/stafi_profesionale/Julian_Priska.jpg",
+            description: "Specialist në fushën e tij"
+        },
+        {
+            name: "Kristi Lamaj",
+            role: "Mësues Profesional",
+            image: "/stafi_profesionale/Kristi_Lamaj.jpg",
+            description: "Ekspert në specializimin e tij"
         }
     ];
 

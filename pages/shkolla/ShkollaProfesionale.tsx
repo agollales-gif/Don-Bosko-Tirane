@@ -85,9 +85,9 @@ const ShkollaProfesionale: React.FC = () => {
                 heroImage="/shkolla_profesionale.jpg"
                 statNumber="70%"
                 statLabel="Praktikë"
-                coordinatorName="Ing. Arben Meta"
+                coordinatorName="Indrit Qehajaj"
                 coordinatorTitle="Koordinator"
-                coordinatorImage="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80"
+                coordinatorImage="/stafi_mesem/Indrit_Qehajaj.png"
                 quote='Edukatori duhet të jetë "aty", i pranishëm në jetën e të riut, duke ndarë gëzimet dhe vështirësitë e tij.'
                 quoteAuthor="Shën Gjon Bosko"
                 valueCards={[
@@ -95,22 +95,19 @@ const ShkollaProfesionale: React.FC = () => {
                         id: "01", 
                         title: "Cisco Networking", 
                         desc: "Trajnim zyrtar CCNA për administrimin e sistemeve të rrjetit.", 
-                        icon: <Network />,
-                        link: "/shkolla/mjediset/salla-it"
+                        icon: <Network />
                     },
                     { 
                         id: "02", 
                         title: "Cyber Security", 
                         desc: "Siguria e rrjeteve moderne dhe mbrojtja e të dhënave.", 
-                        icon: <ShieldCheck />,
-                        link: "/shkolla/mjediset/salla-it"
+                        icon: <ShieldCheck />
                     },
                     { 
                         id: "03", 
                         title: "Software Dev", 
                         desc: "Zhvillim WEB, Mobile dhe bazat e sistemeve Database.", 
-                        icon: <Code />,
-                        link: "/shkolla/mjediset/salla-it"
+                        icon: <Code />
                     },
                     { 
                         id: "04", 

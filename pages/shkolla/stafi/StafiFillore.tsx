@@ -4,40 +4,142 @@ import { motion } from 'framer-motion';
 const StafiFillore: React.FC = () => {
     const staffMembers = [
         {
-            name: "Margarita Hoxha",
-            role: "Mësuese Klasa 1",
-            image: "/stafi/fillore/margarita-hoxha.jpg",
-            description: "Specialiste në pedagogji fillore me 15 vite eksperiencë"
+            name: "Don Luiggi Martucci",
+            role: "Drejtori",
+            image: "/stafi_fillore/Don_Luiggi_Martucci(Drejtori).jpeg",
+            description: "Drejtori i shkollës"
         },
         {
-            name: "Arben Krasniqi",
-            role: "Mësues Matematikë",
-            image: "/stafi/fillore/arben-krasniqi.jpg",
-            description: "Ekspert në metodologji të matematikës për fëmijë"
+            name: "Dritan Bushi",
+            role: "Nën-Drejtor",
+            image: "/stafi_fillore/Dritan_Bushi(Nen-Drejtor).png",
+            description: "Nën-drejtor i shkollës"
         },
         {
-            name: "Elena Marku",
-            role: "Mësuese Shqip",
-            image: "/stafi/fillore/elena-marku.jpg",
-            description: "Pasionante për letërsinë dhe gjuhën shqipe"
+            name: "Deleda Psikologe",
+            role: "Psikologe",
+            image: "/stafi_9-vjecare/Deleda_Psikologe.png",
+            description: "Psikologe e shkollës"
         },
         {
-            name: "Robert Gjoka",
-            role: "Mësues Anglisht",
-            image: "/stafi/fillore/robert-gjoka.jpg",
-            description: "Certifikuar ndërkombëtarisht për mësimin e anglishtes"
+            name: "Rosela Psikologe",
+            role: "Psikologe",
+            image: "/stafi_9-vjecare/Rosela_psikologe.png",
+            description: "Psikologe e shkollës"
         },
         {
-            name: "Ana Leka",
-            role: "Mësuese Edukim Artistik",
-            image: "/stafi/fillore/ana-leka.jpg",
-            description: "Artistike dhe kreative me fokus në zhvillimin e talentit"
+            name: "Kristian Psikolog",
+            role: "Psikolog",
+            image: "/stafi_9-vjecare/Kristian-psikolog.png",
+            description: "Psikolog i shkollës"
         },
         {
-            name: "Mark Nika",
-            role: "Mësues Edukim Fizik",
-            image: "/stafi/fillore/mark-nika.jpg",
-            description: "Trajner i certifikuar me eksperiencë në sporte të ndryshme"
+            name: "Aleksandra Carka",
+            role: "Mësuese",
+            image: "/stafi_fillore/Aleksandra_Carka.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Amarilda Cava",
+            role: "Mësuese",
+            image: "/stafi_fillore/Amarilda_Cava.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Anila Maloku",
+            role: "Mësuese",
+            image: "/stafi_fillore/Anila_Maloku.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Brunilda Mata",
+            role: "Mësuese",
+            image: "/stafi_fillore/Brunilda_Mata.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Eftimi Sylari",
+            role: "Mësues",
+            image: "/stafi_fillore/Eftimi_Sylari.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Elisabeta Xhanari",
+            role: "Mësuese",
+            image: "/stafi_fillore/Elisabeta_Xhanari.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Elizabeta Methoxha",
+            role: "Mësuese",
+            image: "/stafi_fillore/Elizabeta_Methoxha.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Florida Lleshaj",
+            role: "Mësuese",
+            image: "/stafi_fillore/Florida_Lleshaj.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Gresa Pelinku",
+            role: "Mësuese",
+            image: "/stafi_fillore/Gresa_Pelinku.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Joana Kici",
+            role: "Mësuese",
+            image: "/stafi_fillore/Joana_Kici.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Laureta Nikolli",
+            role: "Mësuese",
+            image: "/stafi_fillore/Laureta_Nikolli.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Lirika Toska",
+            role: "Mësuese",
+            image: "/stafi_fillore/Lirika_Toska.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Liza Gegaj",
+            role: "Mësuese",
+            image: "/stafi_fillore/Liza_Gegaj.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "MArgarita Preka",
+            role: "Mësuese",
+            image: "/stafi_fillore/MArgarita_Preka.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Majlinda Tartari",
+            role: "Mësuese",
+            image: "/stafi_fillore/Majlinda_Tartari.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Megi Sinani",
+            role: "Mësuese",
+            image: "/stafi_fillore/Megi_Sinani.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Mimoza Molishti",
+            role: "Mësuese",
+            image: "/stafi_fillore/Mimoza_Molishti.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Valbona Gjergjani",
+            role: "Mësuese",
+            image: "/stafi_fillore/Valbona Gjergjani.png",
+            description: "Mësuese e kualifikuar"
         }
     ];
 

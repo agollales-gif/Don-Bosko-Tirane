@@ -4,40 +4,160 @@ import { motion } from 'framer-motion';
 const Stafi9Vjecare: React.FC = () => {
     const staffMembers = [
         {
-            name: "Prof. Diana Kola",
-            role: "Mësuese Shqip",
-            image: "/stafi/9vjecare/diana-kola.jpg",
-            description: "Specialiste në letërsi shqipe dhe gjuhësi me 20 vite eksperiencë"
+            name: "Don Luiggi Martucci",
+            role: "Drejtori",
+            image: "/stafi_9-vjecare/Don_Luiggi_Martucci(Drejtori).jpeg",
+            description: "Drejtori i shkollës"
         },
         {
-            name: "Prof. Artur Deda",
-            role: "Mësues Matematikë",
-            image: "/stafi/9vjecare/artur-deda.jpg",
-            description: "Ekspert në matematikë dhe përgatitje për olimpiada"
+            name: "Dritan Bushi",
+            role: "Nën-Drejtor",
+            image: "/stafi_9-vjecare/Dritan_Bushi(Nen-Drejtor).png",
+            description: "Nën-drejtor i shkollës"
         },
         {
-            name: "Msc. Elona Hysi",
-            role: "Mësuese Angleze",
-            image: "/stafi/9vjecare/elona-hysi.jpg",
-            description: "Certifikuar CELTA me fokus në komunikim dhe gjuhë biznesi"
+            name: "Deleda Psikologe",
+            role: "Psikologe",
+            image: "/stafi_9-vjecare/Deleda_Psikologe.png",
+            description: "Psikologe e shkollës"
         },
         {
-            name: "Prof. Besnik Prifti",
-            role: "Mësues Histori",
-            image: "/stafi/9vjecare/besnik-prifti.jpg",
-            description: "Hulumtues i historisë ballkanike dhe arkeologjisë"
+            name: "Rosela Psikologe",
+            role: "Psikologe",
+            image: "/stafi_9-vjecare/Rosela_psikologe.png",
+            description: "Psikologe e shkollës"
         },
         {
-            name: "Msc. Jonida Bega",
-            role: "Mësuese Biologji",
-            image: "/stafi/9vjecare/jonida-bega.jpg",
-            description: "Specialiste në biologji humane dhe ekologji"
+            name: "Kristian Psikolog",
+            role: "Psikolog",
+            image: "/stafi_9-vjecare/Kristian-psikolog.png",
+            description: "Psikolog i shkollës"
         },
         {
-            name: "Ing. Denis Meta",
-            role: "Mësues TIK",
-            image: "/stafi/9vjecare/denis-meta.jpg",
-            description: "Ekspert në algoritme bazë dhe programim per fillestarë"
+            name: "Adi Shehu",
+            role: "Mësues",
+            image: "/stafi_9-vjecare/Adi_Shehu.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Anxhela Bollguri",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Anxhela_Bollguri.jpeg",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Arluen Bega",
+            role: "Mësues",
+            image: "/stafi_9-vjecare/Arluen_Bega.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Brunilda Halili",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Brunilda_Halili.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Edison Macaj",
+            role: "Mësues",
+            image: "/stafi_9-vjecare/Edison_Macaj.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Enkelejda LLeshaj",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Enkelejda_LLeshaj.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Eva Jaku",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Eva_Jaku.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Flori Shtjefni",
+            role: "Mësues",
+            image: "/stafi_9-vjecare/Flori_Shtjefni.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Jesmina Meti",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Jesmina_Meti.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Juna Mema",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Juna_Mema.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Klodiana Shehu",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Klodiana_Shehu.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Lefterie Xhelollari",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Lefterie_Xhelollari.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Reonard Shimi",
+            role: "Mësues",
+            image: "/stafi_9-vjecare/Reonard_Shimi.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Rigels Cullhaj",
+            role: "Mësues",
+            image: "/stafi_9-vjecare/Rigels_Cullhaj.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Romina Caushaj",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Romina_Caushaj.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Sixhej Cukaj",
+            role: "Mësues",
+            image: "/stafi_9-vjecare/Sixhej_Cukaj.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Sofi",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Sofi.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Suada Heta",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Suada_Heta.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Valentina Zhivani",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Valentina_Zhivani.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Zamir Vukzaj",
+            role: "Mësues",
+            image: "/stafi_9-vjecare/Zamir_Vukzaj.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Zana Simoni",
+            role: "Mësuese",
+            image: "/stafi_9-vjecare/Zana_Simoni.png",
+            description: "Mësuese e kualifikuar"
         }
     ];
 

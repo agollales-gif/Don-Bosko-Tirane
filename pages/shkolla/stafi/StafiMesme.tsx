@@ -4,40 +4,172 @@ import { motion } from 'framer-motion';
 const StafiMesme: React.FC = () => {
     const staffMembers = [
         {
-            name: "Dr. Pashk Radoja",
-            role: "Koordinator Gjimnaz",
-            image: "/stafi/mesme/pashk-radoja.jpg",
-            description: "Ekspert në drejtimin akademik dhe zhvillimin e programeve edukative"
+            name: "Don Luiggi Martucci",
+            role: "Drejtori",
+            image: "/stafi_mesem/Don_Luiggi_Martucci(Drejtori).jpeg",
+            description: "Drejtori i shkollës"
         },
         {
-            name: "Prof. Anita Kola",
-            role: "Mësuese Matematikë",
-            image: "/stafi/mesme/anita-kola.jpg",
-            description: "Specialiste në matematikë të aplikuar dhe përgatitje për Maturën Shtetërore"
+            name: "Dritan Bushi",
+            role: "Nën-Drejtor",
+            image: "/stafi_mesem/Dritan_Bushi(Nen-Drejtor).png",
+            description: "Nën-drejtor i shkollës"
         },
         {
-            name: "Dr. Artur Luka",
-            role: "Mësues Fizikë",
-            image: "/stafi/mesme/artur-luka.jpg",
-            description: "Hulumtues në fushën e fizikës me eksperiencë ndërkombëtare"
+            name: "Ing. Arben Meta",
+            role: "Koordinator",
+            image: "/stafi_mesem/Indrit_Qehajaj.png",
+            description: "Koordinator i shkollës"
         },
         {
-            name: "Msc. Elona Hoxha",
-            role: "Mësuese Kimi",
-            image: "/stafi/mesme/elona-hoxha.jpg",
-            description: "Eksperte në kiminë organike dhe eksperimente laboratorike"
+            name: "Deleda Psikologe",
+            role: "Psikologe",
+            image: "/stafi_9-vjecare/Deleda_Psikologe.png",
+            description: "Psikologe e shkollës"
         },
         {
-            name: "Prof. Marsela Bega",
-            role: "Mësuese Biologji",
-            image: "/stafi/mesme/marsela-bega.jpg",
-            description: "Specialiste në biologji molekulare dhe gjenetikë"
+            name: "Rosela Psikologe",
+            role: "Psikologe",
+            image: "/stafi_9-vjecare/Rosela_psikologe.png",
+            description: "Psikologe e shkollës"
         },
         {
-            name: "Dr. Besnik Hysa",
-            role: "Mësues Informatikë",
-            image: "/stafi/mesme/besnik-hysa.jpg",
-            description: "Ekspert në algoritme dhe struktura të dhënash"
+            name: "Kristian Psikolog",
+            role: "Psikolog",
+            image: "/stafi_9-vjecare/Kristian-psikolog.png",
+            description: "Psikolog i shkollës"
+        },
+        {
+            name: "Adela Xhanari",
+            role: "Mësuese",
+            image: "/stafi_mesem/Adela_Xhanari.webp",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Aida Alimena",
+            role: "Mësuese",
+            image: "/stafi_mesem/Aida_Alimena.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Alma Balashi",
+            role: "Mësuese",
+            image: "/stafi_mesem/Alma_BALASHI.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Argent Karaj",
+            role: "Mësues",
+            image: "/stafi_mesem/Argent_Karaj.jpg",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Diana Luli",
+            role: "Mësuese",
+            image: "/stafi_mesem/Diana_Luli.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Edison Macaj",
+            role: "Mësues",
+            image: "/stafi_mesem/Edison_Macaj.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Edlira Cobani",
+            role: "Mësuese",
+            image: "/stafi_mesem/Edlira_Cobani.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Elona Kalesha",
+            role: "Mësuese",
+            image: "/stafi_mesem/Elona_Kalesha.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Eri Zagani",
+            role: "Mësues",
+            image: "/stafi_mesem/Eri_Zagani.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Ermelinda Skenderaj",
+            role: "Mësuese",
+            image: "/stafi_mesem/Ermelinda_Skenderaj.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Evis Myftaraj",
+            role: "Mësues",
+            image: "/stafi_mesem/Evis_Myftaraj.webp",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Ini Hoxha",
+            role: "Mësuese",
+            image: "/stafi_mesem/Ini_Hoxha.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Jesmina Meti",
+            role: "Mësuese",
+            image: "/stafi_mesem/Jesmina_Meti.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Jorgjie Dodani",
+            role: "Mësuese",
+            image: "/stafi_mesem/Jorgjie_Dodani.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Kristjana Hajdaraj",
+            role: "Mësuese",
+            image: "/stafi_mesem/Kristjana_Hajdaraj.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Neritana Kraja",
+            role: "Mësuese",
+            image: "/stafi_mesem/Neritana_Kraja.jpeg",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Reonard Shimi",
+            role: "Mësues",
+            image: "/stafi_mesem/Reonard_Shimi.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Rigels Cullhaj",
+            role: "Mësues",
+            image: "/stafi_mesem/Rigels_Cullhaj.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Rregjina Paluca",
+            role: "Mësuese",
+            image: "/stafi_mesem/Rregjina_Paluca.png",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Rozeta Kallembi",
+            role: "Mësuese",
+            image: "/stafi_mesem/Rozeta_Kallembi.jpeg",
+            description: "Mësuese e kualifikuar"
+        },
+        {
+            name: "Sixhej Cukaj",
+            role: "Mësues",
+            image: "/stafi_mesem/Sixhej_Cukaj.png",
+            description: "Mësues i kualifikuar"
+        },
+        {
+            name: "Viola Mendoja",
+            role: "Mësuese",
+            image: "/stafi_mesem/Viola_Mendoja.png",
+            description: "Mësuese e kualifikuar"
         }
     ];
 

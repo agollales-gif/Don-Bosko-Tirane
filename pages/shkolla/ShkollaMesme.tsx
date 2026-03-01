@@ -79,13 +79,13 @@ const ShkollaMesme: React.FC = () => {
                 subtitle="Standarde elitare për studentët e ardhshëm"
                 description="Gjimnazi ynë është i orientuar drejt përgatitjes rigoroze për Maturën Shtetërore dhe studimet universitare. Ruajmë një fokus të lartë në lëndët STEM dhe zhvillimin e mendimit kritik."
                 heroImage="/shkolla_mesme.jpg"
-                statNumber="20+"
+                statNumber="30+"
                 statLabel="Vite Eksperiencë"
                 
                 // Ruajmë të dhënat e koordinatorit si në kodin tënd origjinal
-                coordinatorName="Dr. Pashk Radoja"
+                               coordinatorName="Indrit Qehajaj"
                 coordinatorTitle="Koordinator"
-                coordinatorImage="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80"
+                coordinatorImage="/stafi_mesem/Indrit_Qehajaj.png"
                 
                 quote='Edukatori duhet të jetë "aty", i pranishëm në jetën e të riut, duke ndarë gëzimet dhe vështirësitë e tij.'
                 quoteAuthor="Shën Gjon Bosko"
@@ -95,8 +95,7 @@ const ShkollaMesme: React.FC = () => {
                         id: "01", 
                         title: "STEM Fokus", 
                         desc: "Laboratore kërkimore të avancuara për shkencat ekzakte.", 
-                        icon: <Microscope />,
-                        link: "/shkolla/mjediset/laboratoret-shkencor"
+                        icon: <Microscope />
                     },
                     { 
                         id: "02", 

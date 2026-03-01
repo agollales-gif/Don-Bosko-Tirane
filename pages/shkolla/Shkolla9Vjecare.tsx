@@ -79,14 +79,14 @@ const Shkolla9Vjecare: React.FC = () => {
                 subtitle="Themelet e karakterit dhe dijes"
                 description="Përqendrohemi në ndërtimin e themeleve akademike përmes 'Sistemit Parandalues' të Don Boskos, duke përgatitur nxënësit me dije të solidat dhe vlera njerëzore të forta."
                 heroImage="/shkolla_9vjecare.jpg"
-                statNumber="20+"
+                statNumber="30+"
                 statLabel="Vite Eksperiencë"
                 
                 quote='Edukatori duhet të jetë "aty", i pranishëm në jetën e të riut, duke ndarë gëzimet dhe vështirësitë e tij.'
                 quoteAuthor="Shën Gjon Bosko"
                 
                 valueCards={[
-                    { id: "01", title: "Laboratoret Shkencor", desc: "Eksperimentet e para në Kimi dhe Fizikë për një mësimdhënie praktike.", icon: <Microscope />, link: "/shkolla/mjediset/laboratoret-shkencor" },
+                    { id: "01", title: "Laboratoret Shkencor", desc: "Eksperimentet e para në Kimi dhe Fizikë për një mësimdhënie praktike.", icon: <Microscope /> },
                     { id: "02", title: "Gjuhët e Huaja", desc: "Programe të avancuara të gjuhës Angleze dhe Italisht.", icon: <Globe /> },
                     { id: "03", title: "Sporte", desc: "Ekipet e Futbollit, Volejbollit dhe Basketbollit.", icon: <Trophy /> },
                     { id: "04", title: "Qytetaria", desc: "Edukim me vlerat e bashkëjetesës shoqërore.", icon: <CheckCircle /> }

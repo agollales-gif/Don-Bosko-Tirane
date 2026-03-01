@@ -102,8 +102,9 @@ const Footer: React.FC = () => {
       <div className="bg-[#0f172a] py-10 px-6 border-t border-white/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 text-[10px] font-bold uppercase tracking-[0.2em] text-white/30">
           <div className="text-center md:text-left">
-            <p>© {new Date().getFullYear()} Qendra Sociale Don Bosko Tiranë. Të gjitha të drejtat e rezervuara.</p>
+            <p> {new Date().getFullYear()} Qendra Sociale Don Bosko Tiranë. Të gjitha të drejtat e rezervuara.</p>
             <p className="mt-2 text-primary-red/50">{t.vatNumber}</p>
+            <p className="mt-2">Realizuar nga Alesjo Agolli.</p>
             <div className="flex items-center space-x-8">
               <a href="/privacy-policy" className="hover:text-white transition-colors">Politika e Privatësisë</a>
               <span className="w-1 h-1 bg-white/10 rounded-full"></span>

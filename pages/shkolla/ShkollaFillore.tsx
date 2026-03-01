@@ -82,7 +82,7 @@ const ShkollaFillore: React.FC = () => {
                 subtitle="Themelet e karakterit dhe dijes"
                 description="Përqendrohemi në ndërtimin e themeleve të para të dijes përmes lojës, kuriozitetit dhe 'Sistemit Parandalues' të Don Boskos, duke krijuar një mjedis ku çdo fëmijë ndihet i dashur dhe i vlerësuar."
                 heroImage="/shkolla_fillore.jpg"
-                statNumber="20+"
+                statNumber="30+"
                 statLabel="Vite Eksperiencë"
                 
                 // KËTU U HOQËN TË DHËNAT E KOORDINATORES
@@ -90,7 +90,7 @@ const ShkollaFillore: React.FC = () => {
                 quote='Edukatori duhet të jetë "aty", i pranishëm në jetën e të riut, duke ndarë gëzimet dhe vështirësitë e tij.'
                 quoteAuthor="Shën Gjon Bosko"
                 valueCards={[
-                    { id: "01", title: "Laboratoret Shkencor", desc: "Eksperimente të sigurta për Kimi dhe Fizikë që në fillore.", icon: <Microscope />, link: "/shkolla/mjediset/laboratoret-shkencor" },
+                    { id: "01", title: "Laboratoret Shkencor", desc: "Eksperimente të sigurta për Kimi dhe Fizikë që në fillore.", icon: <Microscope /> },
                     { id: "02", title: "Gjuhët e Huaja", desc: "Integrim i hershëm i gjuhës Angleze dhe Italisht.", icon: <Languages /> },
                     { id: "03", title: "Sporte", desc: "Klasa të dedikuara Futbolli, Volejbolli dhe Basketbolli.", icon: <Trophy /> },
                     { id: "04", title: "Kercim", desc: "Zhvillimi i fizikut dhe shpirtit përmes aktiviteteve rekreative dhe sportive.", icon: <CheckCircle /> }

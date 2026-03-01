@@ -165,7 +165,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
             <div className="p-10 border-t border-slate-100">
               <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6 text-center">Na ndiqni</p>
               <div className="flex justify-center space-x-6">
-                {['facebook', 'instagram', 'youtube'].map((social) => (
+                {['facebook', 'instagram'].map((social) => (
                   <a
                     key={social}
                     href="#"

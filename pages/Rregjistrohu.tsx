@@ -80,6 +80,9 @@ const Rregjistrohu: React.FC = () => {
     niveli: '',
     mesazh: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
+  const [submissionError, setSubmissionError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -90,41 +93,11 @@ const Rregjistrohu: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Show loading state
-    const submitButton = e.target as HTMLFormElement;
-    const button = submitButton.querySelector('button[type="submit"]') as HTMLButtonElement;
-    const originalText = button.textContent;
-    button.textContent = 'Duke dërguar...';
-    button.disabled = true;
+    setIsSubmitting(true);
+    setShowFallback(false);
+    setSubmissionError('');
 
     try {
-      // Create email content
-      const emailContent = {
-        to: 'qfp_donbosko@yahoo.it',
-        subject: `Kërkesë Regjistrimi - ${formData.emri} ${formData.mbiemri}`,
-        body: `
-KËRKESË PËR REGJISTRIM
-=====================
-
-TË DHËNA PERSONALE:
-Emri: ${formData.emri}
-Mbiemri: ${formData.mbiemri}
-Email: ${formData.email}
-Telefon: ${formData.telefon}
-Datëlindja: ${formData.datelindja}
-Adresa: ${formData.adresa || 'Nuk është specifikuar'}
-
-SHKOLLA E INTERESUAR:
-${formData.shkolla}
-
-MESAZH:
-${formData.mesazh || 'Nuk ka mesazh shtesë'}
-
-Data e dërgimit: ${new Date().toLocaleString('sq-AL')}
-        `.trim()
-      };
-
       // Try to send via FormSubmit.co (free service)
       const formDataToSend = new FormData();
       formDataToSend.append('name', `${formData.emri} ${formData.mbiemri}`);
@@ -164,10 +137,16 @@ Data e dërgimit: ${new Date().toLocaleString('sq-AL')}
       
     } catch (error) {
       console.error('Gabim gjatë dërgimit:', error);
-      
-      // Fallback: Open email client with pre-filled content
-      const subject = encodeURIComponent(`Kërkesë Regjistrimi - ${formData.emri} ${formData.mbiemri}`);
-      const body = encodeURIComponent(`
+      setSubmissionError('Dërgimi automatik dështoi. Ju lutemi provoni metodën alternative.');
+      setShowFallback(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleEmailFallback = () => {
+    const subject = encodeURIComponent(`Kërkesë Regjistrimi - ${formData.emri} ${formData.mbiemri}`);
+    const body = encodeURIComponent(`
 KËRKESË PËR REGJISTRIM
 =====================
 
@@ -186,15 +165,9 @@ MESAZH:
 ${formData.mesazh || 'Nuk ka mesazh shtesë'}
 
 Data e dërgimit: ${new Date().toLocaleString('sq-AL')}
-      `);
-      
-      window.open(`mailto:qfp_donbosko@yahoo.it?subject=${subject}&body=${body}`, '_blank');
-      alert('Email klienti u hap. Ju lutemi dërgoni emailin manualisht për të përfunduar regjistrimin.');
-    } finally {
-      // Restore button state
-      button.textContent = originalText;
-      button.disabled = false;
-    }
+    `);
+    
+    window.open(`mailto:qfp_donbosko@yahoo.it?subject=${subject}&body=${body}`, '_blank');
   };
 
   return (
@@ -363,13 +336,51 @@ Data e dërgimit: ${new Date().toLocaleString('sq-AL')}
                   />
                 </div>
 
+                {/* Fallback Error Message */}
+                {showFallback && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg"
+                  >
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <div className="ml-3">
+                        <h3 className="text-sm font-medium text-red-800">
+                          {submissionError}
+                        </h3>
+                        <div className="mt-2">
+                          <div className="text-sm text-red-700">
+                            <p>Ju lutemi përdorni butonin më poshtë për të dërguar regjistrimin përmes email client.</p>
+                          </div>
+                        </div>
+                        <div className="mt-4">
+                          <button
+                            type="button"
+                            onClick={handleEmailFallback}
+                            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
+                          >
+                            <Mail className="mr-2" size={16} />
+                            Dërgo përmes Email
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+
                 {/* Butoni Submit */}
                 <div className="flex justify-center">
                   <button
                     type="submit"
-                    className="w-full max-w-md py-4 bg-red-600 text-white font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-xl shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 hover:bg-red-700"
+                    disabled={isSubmitting}
+                    className="w-full max-w-md py-4 bg-red-600 text-white font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-xl shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
-                    Kërko Regjistrimin
+                    {isSubmitting ? 'Duke dërguar...' : 'Kërko Regjistrimin'}
                   </button>
                 </div>
               </form>
