@@ -263,7 +263,7 @@ const DitetTona: React.FC = () => {
 
                     <div className="w-full h-[500px] rounded-[48px] overflow-hidden shadow-2xl border-8 border-white">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.539366624958!2d19.8037!3d41.3322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13503106720f75b7%3A0xe5a3c0e5b720f75b!2sDon%20Bosko%2C%20Tirana%2C%20Albania!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2995.539366624958!2d19.8018949!3d41.3382668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135031b100d207ef:0xf2cd3e8513fded97!2sOratori+Don+Bosko+Tiran%C3%AB!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}
