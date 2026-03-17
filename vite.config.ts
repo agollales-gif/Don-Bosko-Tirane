@@ -4,8 +4,12 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, '.', '');
+  const env = loadEnv(mode, process.cwd(), '');
   return {
+    build: {
+      outDir: 'dist',
+    },
+    base: '/',
     server: {
       port: 9999,
       host: '0.0.0.0',
