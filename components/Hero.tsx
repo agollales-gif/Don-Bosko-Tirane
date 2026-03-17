@@ -6,6 +6,12 @@ const Hero: React.FC = () => {
   const language = 'AL';
   const t = TRANSLATIONS[language];
 
+  // Check if mobile view
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const videoSrc = isMobile 
+    ? "https://www.youtube.com/embed/lVEj2ZdeQgw?autoplay=1&mute=1&loop=1&playlist=lVEj2ZdeQgw&controls=0&showinfo=0&rel=0&modestbranding=1"
+    : "https://www.youtube.com/embed/TFB5PTNF3rw?autoplay=1&mute=1&loop=1&playlist=TFB5PTNF3rw&controls=0&showinfo=0&rel=0&modestbranding=1";
+
   // Teksti kryesor i shkurtër
   const mainTitle = "EDUKIMI I FËMIJËS TUAJ, PRIORITETI YNË";
   // Teksti i dytë që kërkove me kapitale
@@ -16,18 +22,17 @@ const Hero: React.FC = () => {
       {/* Background Video Container */}
       <div className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-gray-900">
         <iframe
-          src="https://www.youtube.com/embed/TFB5PTNF3rw?autoplay=1&mute=1&loop=1&playlist=TFB5PTNF3rw&controls=0&showinfo=0&rel=0&modestbranding=1"
-          className="absolute inset-0 w-full h-full"
+          src={videoSrc}
+          className="absolute inset-0 w-full h-full scale-[200%]"
           style={{ 
             border: 'none',
             width: '100vw',
             height: '100vh',
-            position: 'fixed',
+            position: 'absolute',
             top: '0',
             left: '0',
             zIndex: '0',
-            objectFit: 'cover',
-            transform: 'scale(1.2)'
+            objectFit: 'cover'
           }}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
