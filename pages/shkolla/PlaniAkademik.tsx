@@ -562,10 +562,16 @@ const PlaniAkademik: React.FC = () => {
 
                         <div className="space-y-4 md:space-y-6 relative z-10">
                             {!isGjimnaz && (
-                                <a
-                                    href="/docs/PF Shkolla 9-vjecare Don Bosko 2025-2026 Shtator 2025.pdf"
-                                    download
-                                    className="flex items-start gap-3 p-3 md:p-0 rounded-lg md:rounded-none bg-white/5 md:bg-transparent hover:bg-white/10 md:hover:bg-transparent transition-colors touch-manipulation"
+                                <button
+                                    onClick={() => {
+                                        const link = document.createElement('a');
+                                        link.href = '/docs/PF Shkolla 9-vjecare Don Bosko 2025-2026 Shtator 2025.pdf';
+                                        link.download = 'PF Shkolla 9-vjecare Don Bosko 2025-2026 Shtator 2025.pdf';
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
+                                    }}
+                                    className="flex items-start gap-3 p-3 md:p-0 rounded-lg md:rounded-none bg-white/5 md:bg-transparent hover:bg-white/10 md:hover:bg-transparent transition-colors touch-manipulation cursor-pointer"
                                 >
                                     <span className="inline-flex h-10 w-10 md:h-8 md:w-8 flex-shrink-0 items-center justify-center rounded-full bg-white/10">
                                         <Download size={18} className="md:w-4 md:h-4" />
@@ -573,13 +579,19 @@ const PlaniAkademik: React.FC = () => {
                                     <span className="text-white/90 hover:text-white text-sm md:text-base break-words leading-relaxed">
                                         PF Shkolla 9-vjecare Don Bosko 2025-2026 Shtator 2025.pdf
                                     </span>
-                                </a>
+                                </button>
                             )}
                             {isGjimnaz && (
-                                <a
-                                    href="/docs/PF Shkolla e Mesme Don Bosko 2025-2026 Shtator 2025.pdf"
-                                    download
-                                    className="flex items-start gap-3 p-3 md:p-0 rounded-lg md:rounded-none bg-white/5 md:bg-transparent hover:bg-white/10 md:hover:bg-transparent transition-colors touch-manipulation"
+                                <button
+                                    onClick={() => {
+                                        const link = document.createElement('a');
+                                        link.href = '/docs/PF Shkolla e Mesme Don Bosko 2025-2026 Shtator 2025.pdf';
+                                        link.download = 'PF Shkolla e Mesme Don Bosko 2025-2026 Shtator 2025.pdf';
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
+                                    }}
+                                    className="flex items-start gap-3 p-3 md:p-0 rounded-lg md:rounded-none bg-white/5 md:bg-transparent hover:bg-white/10 md:hover:bg-transparent transition-colors touch-manipulation cursor-pointer"
                                 >
                                     <span className="inline-flex h-10 w-10 md:h-8 md:w-8 flex-shrink-0 items-center justify-center rounded-full bg-white/10">
                                         <Download size={18} className="md:w-4 md:h-4" />
@@ -587,7 +599,7 @@ const PlaniAkademik: React.FC = () => {
                                     <span className="text-white/90 hover:text-white text-sm md:text-base break-words leading-relaxed">
                                         PF Shkolla e Mesme Don Bosko 2025-2026 Shtator 2025.pdf
                                     </span>
-                                </a>
+                                </button>
                             )}
                             <p className="text-white/90 text-sm md:text-base leading-relaxed">Plani Formativ i plotë (i depozituar në sekretari)</p>
                             <p className="text-white/90 text-sm md:text-base leading-relaxed">Rregullorja e Brendshme</p>

@@ -132,8 +132,8 @@ const QendraDitore: React.FC = () => {
                                 className="relative overflow-hidden rounded-2xl shadow-lg group"
                             >
                                 <img
-                                    src="/qendra_ditore/classroom_presentation.jpg"
-                                    alt="Presentation Session"
+                                    src="/qendra_ditore/qendra ditore foto (1).jpg"
+                                    alt="Qendra Ditore Aktivitet 1"
                                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -151,8 +151,8 @@ const QendraDitore: React.FC = () => {
                                 className="relative overflow-hidden rounded-2xl shadow-lg group"
                             >
                                 <img
-                                    src="/qendra_ditore/classroom_display.jpg"
-                                    alt="Creative Display"
+                                    src="/qendra_ditore/qendra ditore foto (2).jpg"
+                                    alt="Qendra Ditore Aktivitet 2"
                                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -187,7 +187,7 @@ const QendraDitore: React.FC = () => {
                             className="rounded-3xl overflow-hidden shadow-xl"
                         >
                             <img
-                                src="/qendra_ditore/classroom_presentation.jpg"
+                                src="/qendra_ditore/qendra ditore foto (1).jpg"
                                 alt="Learning Activities"
                                 className="w-full h-80 object-cover"
                             />
@@ -214,7 +214,7 @@ const QendraDitore: React.FC = () => {
                             className="rounded-3xl overflow-hidden shadow-xl"
                         >
                             <img
-                                src="/qendra_ditore/classroom_display.jpg"
+                                src="/qendra_ditore/qendra ditore foto (3).jpg"
                                 alt="Creative Display"
                                 className="w-full h-80 object-cover"
                             />

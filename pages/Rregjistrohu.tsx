@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, Variants } from 'framer-motion';
-import { User, Mail, Phone, Calendar, MapPin, GraduationCap, Edit3, CheckCircle, Users, Upload } from 'lucide-react';
+import { User, Mail, Phone, Calendar, MapPin, GraduationCap, Edit3, CheckCircle, Users, Upload, Users2, Baby } from 'lucide-react';
 
 // --- KOMPONENTI HERO I PERSONALIZUAR PËR REGJISTRIM ---
 const RregjistrohuHero: React.FC = () => {
@@ -70,18 +70,27 @@ const RregjistrohuHero: React.FC = () => {
 
 const Rregjistrohu: React.FC = () => {
   const [formData, setFormData] = useState({
-    emri: '',
-    mbiemri: '',
-    email: '',
-    telefon: '',
-    datelindja: '',
-    adresa: '',
+    // Të dhënat e prindit
+    emriPrindit: '',
+    mbiemriPrindit: '',
+    emailPrindit: '',
+    telefonPrindit: '',
+    adresaPrindit: '',
+    
+    // Të dhënat e fëmijës
+    emriFemijes: '',
+    mbiemriFemijes: '',
+    datelindjaFemijes: '',
+    gjiniaFemijes: '',
+    
+    // Shkolla e interesuar
     shkolla: '',
     niveli: '',
+    
+    // Mesazh shtesë
     mesazh: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showFallback, setShowFallback] = useState(false);
   const [submissionError, setSubmissionError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -94,80 +103,83 @@ const Rregjistrohu: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setShowFallback(false);
     setSubmissionError('');
 
     try {
-      // Try to send via FormSubmit.co (free service)
-      const formDataToSend = new FormData();
-      formDataToSend.append('name', `${formData.emri} ${formData.mbiemri}`);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('phone', formData.telefon);
-      formDataToSend.append('birth_date', formData.datelindja);
-      formDataToSend.append('address', formData.adresa);
-      formDataToSend.append('school', formData.shkolla);
-      formDataToSend.append('message', formData.mesazh);
-      formDataToSend.append('submission_date', new Date().toLocaleString('sq-AL'));
+      // Validate form data
+      if (!formData.emriPrindit || !formData.mbiemriPrindit || !formData.emailPrindit || !formData.telefonPrindit || !formData.emriFemijes || !formData.mbiemriFemijes || !formData.datelindjaFemijes || !formData.shkolla) {
+        setSubmissionError('Ju lutemi plotësoni të gjitha fushat e kërkuara.');
+        return;
+      }
 
-      const response = await fetch('https://formsubmit.co/ajax/qfp_donbosko@yahoo.it', {
-        method: 'POST',
-        body: formDataToSend
-      });
+      // Create email content using user's email client
+      const subject = encodeURIComponent(`Kerkese per Regjistrim - ${formData.emriFemijes} ${formData.mbiemriFemijes}`);
+      const body = encodeURIComponent(`
+Te nderuar stafi i Shkolles Don Bosko,
 
-      if (response.ok) {
-        const result = await response.json();
-        console.log('Email sent successfully:', result);
-        alert('Faleminderit! Kërkesa juaj për regjistrim u dërgua me sukses. Do të kontaktohemi shpejt.');
+Ju dergohet kjo kerkese per regjistrim nga sistemi online i shkolles.
+
+Te dhenat e prindit:
+--------------------
+Emri dhe Mbiemri: ${formData.emriPrindit} ${formData.mbiemriPrindit}
+Email: ${formData.emailPrindit}
+Telefon: ${formData.telefonPrindit}
+Adresa: ${formData.adresaPrindit || 'Nuk eshte specifikuar'}
+
+Te dhenat e femijes:
+--------------------
+Emri dhe Mbiemri: ${formData.emriFemijes} ${formData.mbiemriFemijes}
+Datelindja: ${formData.datelindjaFemijes}
+Gjinia: ${formData.gjiniaFemijes === 'mashkull' ? 'Mashkull' : formData.gjiniaFemijes === 'femer' ? 'Femer' : 'Nuk eshte specifikuar'}
+
+Interesi akademik:
+------------------
+Lloji i Shkolles: ${formData.shkolla === '9-vjecare' ? 'Shkolle 9-vjecare' : formData.shkolla === 'e-mesme' ? 'Shkolle e Mesme' : formData.shkolla === 'profesionale' ? 'Shkolle Profesionale' : formData.shkolla}
+
+Data e dergimit: ${new Date().toLocaleDateString('sq-AL', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+
+Mesazhi shtese:
+---------------
+${formData.mesazh || 'Nuk ka mesazh shtese'}
+
+Ju lutem te konsideroni kerkesen dhe te na kontaktoni per hapa te mëtejshëm.
+
+Me respekt,
+${formData.emriPrindit} ${formData.mbiemriPrindit}
+Email: ${formData.emailPrindit}
+Telefon: ${formData.telefonPrindit}
+      `);
+      
+      // Open user's email client with pre-filled content
+      window.open(`mailto:qfp_donbosko@yahoo.it?subject=${subject}&body=${body}`, '_blank');
+      
+      // Show success message and reset form
+      setTimeout(() => {
+        alert('Faleminderit! Email client u hap. Ju lutemi dërgoni emailin për të përfunduar regjistrimin.');
         
         // Reset form
         setFormData({
-          emri: '',
-          mbiemri: '',
-          email: '',
-          telefon: '',
-          datelindja: '',
-          adresa: '',
+          emriPrindit: '',
+          mbiemriPrindit: '',
+          emailPrindit: '',
+          telefonPrindit: '',
+          adresaPrindit: '',
+          emriFemijes: '',
+          mbiemriFemijes: '',
+          datelindjaFemijes: '',
+          gjiniaFemijes: '',
           shkolla: '',
           niveli: '',
           mesazh: ''
         });
-      } else {
-        throw new Error('Form submission failed');
-      }
+        setIsSubmitting(false);
+      }, 500);
       
     } catch (error) {
-      console.error('Gabim gjatë dërgimit:', error);
-      setSubmissionError('Dërgimi automatik dështoi. Ju lutemi provoni metodën alternative.');
-      setShowFallback(true);
-    } finally {
+      console.error('Gabim gjatë përgatitjes së emailit:', error);
+      setSubmissionError('Gabim gjatë përgatitjes së emailit. Ju lutemi provoni përsëri.');
       setIsSubmitting(false);
     }
-  };
-
-  const handleEmailFallback = () => {
-    const subject = encodeURIComponent(`Kërkesë Regjistrimi - ${formData.emri} ${formData.mbiemri}`);
-    const body = encodeURIComponent(`
-KËRKESË PËR REGJISTRIM
-=====================
-
-TË DHËNA PERSONALE:
-Emri: ${formData.emri}
-Mbiemri: ${formData.mbiemri}
-Email: ${formData.email}
-Telefon: ${formData.telefon}
-Datëlindja: ${formData.datelindja}
-Adresa: ${formData.adresa || 'Nuk është specifikuar'}
-
-SHKOLLA E INTERESUAR:
-${formData.shkolla}
-
-MESAZH:
-${formData.mesazh || 'Nuk ka mesazh shtesë'}
-
-Data e dërgimit: ${new Date().toLocaleString('sq-AL')}
-    `);
-    
-    window.open(`mailto:qfp_donbosko@yahoo.it?subject=${subject}&body=${body}`, '_blank');
   };
 
   return (
@@ -184,107 +196,179 @@ Data e dërgimit: ${new Date().toLocaleString('sq-AL')}
             >
               <form onSubmit={handleSubmit} className="space-y-8">
             
-                {/* Informata Personale */}
+                {/* Të dhënat e prindit */}
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
-                    <User className="mr-3 text-red-600" size={28} />
-                    Informata Personale
+                    <Users className="mr-3 text-red-600" size={28} />
+                    Të dhënat e prindit
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="emri" className="block text-sm font-medium text-gray-700 mb-2">
-                        Emri *
+                      <label htmlFor="emriPrindit" className="block text-sm font-medium text-gray-700 mb-2">
+                        Emri i prindit *
                       </label>
                       <input
                         type="text"
-                        id="emri"
-                        name="emri"
+                        id="emriPrindit"
+                        name="emriPrindit"
                         required
-                        value={formData.emri}
+                        value={formData.emriPrindit}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
-                        placeholder="Shkruaj emrin tënd"
+                        placeholder="Shkruaj emrin e prindit"
                       />
                     </div>
                     <div>
-                      <label htmlFor="mbiemri" className="block text-sm font-medium text-gray-700 mb-2">
-                        Mbiemri *
+                      <label htmlFor="mbiemriPrindit" className="block text-sm font-medium text-gray-700 mb-2">
+                        Mbiemri i prindit *
                       </label>
                       <input
                         type="text"
-                        id="mbiemri"
-                        name="mbiemri"
+                        id="mbiemriPrindit"
+                        name="mbiemriPrindit"
                         required
-                        value={formData.mbiemri}
+                        value={formData.mbiemriPrindit}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
-                        placeholder="Shkruaj mbiemrin tënd"
+                        placeholder="Shkruaj mbiemrin e prindit"
                       />
                     </div>
                   </div>
                 </div>
 
-                {/* Kontakti */}
+                {/* Informata kontakti të prindit */}
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
                     <Mail className="mr-3 text-red-600" size={28} />
-                    Informata Kontakti
+                    Informata kontakti të prindit
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
+                      <label htmlFor="emailPrindit" className="block text-sm font-medium text-gray-700 mb-2">
+                        Email i prindit *
                       </label>
                       <input
                         type="email"
-                        id="email"
-                        name="email"
+                        id="emailPrindit"
+                        name="emailPrindit"
                         required
-                        value={formData.email}
+                        value={formData.emailPrindit}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                         placeholder="email@shembull.com"
                       />
                     </div>
                     <div>
-                      <label htmlFor="telefon" className="block text-sm font-medium text-gray-700 mb-2">
-                        Telefon *
+                      <label htmlFor="telefonPrindit" className="block text-sm font-medium text-gray-700 mb-2">
+                        Telefon i prindit *
                       </label>
                       <input
                         type="tel"
-                        id="telefon"
-                        name="telefon"
+                        id="telefonPrindit"
+                        name="telefonPrindit"
                         required
-                        value={formData.telefon}
+                        value={formData.telefonPrindit}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                         placeholder="+355 XX XXX XXXX"
                       />
                     </div>
                   </div>
+                  <div className="mt-6">
+                    <label htmlFor="adresaPrindit" className="block text-sm font-medium text-gray-700 mb-2">
+                      Adresa e prindit
+                    </label>
+                    <input
+                      type="text"
+                      id="adresaPrindit"
+                      name="adresaPrindit"
+                      value={formData.adresaPrindit}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      placeholder="Rruga, Qyteti"
+                    />
+                  </div>
                 </div>
 
-                {/* Detaje Shtesë */}
+                {/* Të dhënat e fëmijës */}
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
-                    <GraduationCap className="mr-3 text-red-600" size={28} />
-                    Detaje Shtesë
+                    <Baby className="mr-3 text-red-600" size={28} />
+                    Të dhënat e fëmijës
                   </h2>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="datelindja" className="block text-sm font-medium text-gray-700 mb-2">
-                        Datëlindja *
+                      <label htmlFor="emriFemijes" className="block text-sm font-medium text-gray-700 mb-2">
+                        Emri i fëmijës *
+                      </label>
+                      <input
+                        type="text"
+                        id="emriFemijes"
+                        name="emriFemijes"
+                        required
+                        value={formData.emriFemijes}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                        placeholder="Shkruaj emrin e fëmijës"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="mbiemriFemijes" className="block text-sm font-medium text-gray-700 mb-2">
+                        Mbiemri i fëmijës *
+                      </label>
+                      <input
+                        type="text"
+                        id="mbiemriFemijes"
+                        name="mbiemriFemijes"
+                        required
+                        value={formData.mbiemriFemijes}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                        placeholder="Shkruaj mbiemrin e fëmijës"
+                      />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                      <label htmlFor="datelindjaFemijes" className="block text-sm font-medium text-gray-700 mb-2">
+                        Datëlindja e fëmijës *
                       </label>
                       <input
                         type="date"
-                        id="datelindja"
-                        name="datelindja"
+                        id="datelindjaFemijes"
+                        name="datelindjaFemijes"
                         required
-                        value={formData.datelindja}
+                        value={formData.datelindjaFemijes}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                       />
                     </div>
+                    <div>
+                      <label htmlFor="gjiniaFemijes" className="block text-sm font-medium text-gray-700 mb-2">
+                        Gjinia e fëmijës
+                      </label>
+                      <select
+                        id="gjiniaFemijes"
+                        name="gjiniaFemijes"
+                        value={formData.gjiniaFemijes}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                      >
+                        <option value="">Zgjidh gjininë</option>
+                        <option value="mashkull">Mashkull</option>
+                        <option value="femër">Femër</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Shkolla e interesuar */}
+                <div>
+                  <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                    <GraduationCap className="mr-3 text-red-600" size={28} />
+                    Shkolla e interesuar
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="shkolla" className="block text-sm font-medium text-gray-700 mb-2">
                         Shkolla e interesuar *
@@ -304,20 +388,6 @@ Data e dërgimit: ${new Date().toLocaleString('sq-AL')}
                       </select>
                     </div>
                   </div>
-                  <div className="mt-6">
-                    <label htmlFor="adresa" className="block text-sm font-medium text-gray-700 mb-2">
-                      Adresa
-                    </label>
-                    <input
-                      type="text"
-                      id="adresa"
-                      name="adresa"
-                      value={formData.adresa}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
-                      placeholder="Rruga, Qyteti"
-                    />
-                  </div>
                 </div>
 
                 {/* Mesazh */}
@@ -336,8 +406,8 @@ Data e dërgimit: ${new Date().toLocaleString('sq-AL')}
                   />
                 </div>
 
-                {/* Fallback Error Message */}
-                {showFallback && (
+                {/* Error Message */}
+                {submissionError && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -353,21 +423,6 @@ Data e dërgimit: ${new Date().toLocaleString('sq-AL')}
                         <h3 className="text-sm font-medium text-red-800">
                           {submissionError}
                         </h3>
-                        <div className="mt-2">
-                          <div className="text-sm text-red-700">
-                            <p>Ju lutemi përdorni butonin më poshtë për të dërguar regjistrimin përmes email client.</p>
-                          </div>
-                        </div>
-                        <div className="mt-4">
-                          <button
-                            type="button"
-                            onClick={handleEmailFallback}
-                            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors duration-200"
-                          >
-                            <Mail className="mr-2" size={16} />
-                            Dërgo përmes Email
-                          </button>
-                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -380,7 +435,7 @@ Data e dërgimit: ${new Date().toLocaleString('sq-AL')}
                     disabled={isSubmitting}
                     className="w-full max-w-md py-4 bg-red-600 text-white font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-xl shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] hover:-translate-y-0.5 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
-                    {isSubmitting ? 'Duke dërguar...' : 'Kërko Regjistrimin'}
+                    {isSubmitting ? 'Duke dërguar...' : 'KËRKO REGJISTRIM'}
                   </button>
                 </div>
               </form>

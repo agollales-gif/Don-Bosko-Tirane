@@ -43,7 +43,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     footerContact: "Na Kontaktoni",
     footerAddress: "Rruga Don Bosko, Tiranë",
     legalRights: "Të gjitha të drejtat e rezervuara",
-    vatNumber: "NIPT: K12345678L",
+    vatNumber: "",
   },
   EN: {
     navHome: "Home",

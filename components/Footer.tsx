@@ -76,7 +76,7 @@ const Footer: React.FC = () => {
                 <li key={navItem.label}>
                   <a href={navItem.href} className="text-white/50 hover:text-white flex items-center space-x-2 transition-all group">
                     <span className="w-1.5 h-1.5 bg-primary-red rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    <span>{navItem.label}</span>
+                    <span>{navItem.label}</span> 
                   </a>
                 </li>
               ))}
@@ -105,8 +105,14 @@ const Footer: React.FC = () => {
             <p> {new Date().getFullYear()} Qendra Sociale Don Bosko Tiranë. Të gjitha të drejtat e rezervuara.</p>
             <p className="mt-2 text-primary-red/50">{t.vatNumber}</p>
             <div className="flex items-center space-x-2 mt-2">
-              <span>Realizuar nga Alesjo Agolli.</span>
-              <img src="/Firma-Alesjo-Agolli.png" alt="Alesjo Agolli Signature" className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+              <span className="text-primary-red">Realizuar nga Alesjo Agolli.</span>
+              <img 
+                src="/Firma-Alesjo-Agolli.png" 
+                alt="Alesjo Agolli Signature" 
+                className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity select-none pointer-events-none print:hidden"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+              />
             </div>
             <div className="flex items-center space-x-8">
               <a href="/privacy-policy" className="hover:text-white transition-colors">Politika e Privatësisë</a>

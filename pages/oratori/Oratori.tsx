@@ -128,7 +128,7 @@ const Oratori: React.FC = () => {
     },
     {
       title: "Lojërat Verore (Vera Bashkë)",
-      image: "/aktivitetet_oratorit/lojerat_verore.jpeg",
+      image: "/Lojërat Verore (Vera Bashkë).jpg",
       description: "Ky është kulmi i gjallërisë! Gjatë qershorit dhe korrikut, oratori kthehet në një festë gjigante me turne sportive, gara me skuadra (shpesh të ndara me ngjyra), këngë (bans), punë dore dhe ekskursione.",
       color: "bg-deep-forest-green",
       delay: 0.1
@@ -142,7 +142,7 @@ const Oratori: React.FC = () => {
     },
     {
       title: "Animacioni Kulturor dhe Sportiv",
-      image: "/kisha/kisha1 (1).JPG",
+      image: "/Animacioni Kulturor dhe Sportiv.jpg",
       description: "Ky është elementi që i jep \"shpirt\" çdo feste. Përfshin: Grupet e Muzikës dhe Korin: Mësimi i instrumenteve si kitara apo pianoja. Teatrin: Përgatitja e skeçeve dhe shfaqjeve që prezantohen gjatë festave të Don Boskos. Kërcimin dhe Koreografitë: Që janë pjesë e pandarë e çdo aktiviteti të madh në orator. Sportet: Turne futbolli, basketboll, volejboll dhe ping-pong që organizohen rregullisht. Kurse të ndryshme.",
       color: "bg-deep-forest-green",
       delay: 0.3

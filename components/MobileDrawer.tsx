@@ -165,14 +165,19 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
             <div className="p-10 border-t border-slate-100">
               <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6 text-center">Na ndiqni</p>
               <div className="flex justify-center space-x-6">
-                {['facebook', 'instagram'].map((social) => (
+                {[
+                  { name: 'facebook', url: 'https://www.facebook.com/QendraDBTirane' },
+                  { name: 'instagram', url: 'https://www.instagram.com/qendra_donbosko_tirane/' }
+                ].map((social) => (
                   <a
-                    key={social}
-                    href="#"
+                    key={social.name}
+                    href={social.url}
                     className="p-3 bg-slate-50 rounded-xl text-gray-400 hover:text-primary-red hover:bg-primary-red/5 transition-all transform hover:-translate-y-1 shadow-sm border border-slate-100"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <div className="w-5 h-5 flex items-center justify-center">
-                      <span className="text-[8px] uppercase font-black">{social[0]}</span>
+                      <span className="text-[8px] uppercase font-black">{social.name[0]}</span>
                     </div>
                   </a>
                 ))}
