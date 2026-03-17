@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
   // Check if mobile view
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const videoSrc = isMobile 
-    ? "https://www.youtube.com/embed/lVEj2ZdeQgw?autoplay=1&mute=1&loop=1&playlist=lVEj2ZdeQgw&controls=0&showinfo=0&rel=0&modestbranding=1"
+    ? "https://www.youtube.com/embed/lVEj2ZdeQgw?autoplay=1&mute=1&loop=1&playlist=lVEj2ZdeQgw&controls=0&showinfo=0&rel=0&modestbranding=1&si=mXumYq6MW4yEcs_m"
     : "https://www.youtube.com/embed/TFB5PTNF3rw?autoplay=1&mute=1&loop=1&playlist=TFB5PTNF3rw&controls=0&showinfo=0&rel=0&modestbranding=1";
 
   // Teksti kryesor i shkurtër
