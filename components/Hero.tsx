@@ -17,10 +17,20 @@ const Hero: React.FC = () => {
       <div className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-gray-900">
         <iframe
           src="https://www.youtube.com/embed/TFB5PTNF3rw?autoplay=1&mute=1&loop=1&playlist=TFB5PTNF3rw&controls=0&showinfo=0&rel=0&modestbranding=1"
-          className="absolute inset-0 w-full h-full object-cover object-center scale-105"
+          className="absolute inset-0 w-full h-full"
+          style={{ 
+            border: 'none',
+            width: '100vw',
+            height: '100vh',
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            zIndex: '0',
+            objectFit: 'cover',
+            transform: 'scale(1.2)'
+          }}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
-          style={{ border: 'none' }}
         />
         
         {/* Overlay për lexueshmëri */}
