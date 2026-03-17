@@ -105,7 +105,10 @@ const Footer: React.FC = () => {
             <p> {new Date().getFullYear()} Qendra Sociale Don Bosko Tiranë. Të gjitha të drejtat e rezervuara.</p>
             <p className="mt-2 text-primary-red/50">{t.vatNumber}</p>
             <div className="flex items-center space-x-2 mt-2">
-              <span className="text-primary-red">Realizuar nga Alesjo Agolli.</span>
+              <div className="flex flex-col">
+                <span className="text-primary-red">REALIZUAR NGA ALESJO</span>
+                <span className="text-primary-red">AGOLLI.</span>
+              </div>
               <img 
                 src="/Firma-Alesjo-Agolli.png" 
                 alt="Alesjo Agolli Signature" 
