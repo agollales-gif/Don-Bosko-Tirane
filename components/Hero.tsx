@@ -15,13 +15,12 @@ const Hero: React.FC = () => {
     <section className="relative overflow-hidden w-full">
       {/* Background Video Container */}
       <div className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-gray-900">
-        <video
-          src="/video_of_background.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
+        <iframe
+          src="https://www.youtube.com/embed/TFB5PTNF3rw?autoplay=1&mute=1&loop=1&playlist=TFB5PTNF3rw&controls=0&showinfo=0&rel=0&modestbranding=1"
           className="absolute inset-0 w-full h-full object-cover object-center scale-105"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{ border: 'none' }}
         />
         
         {/* Overlay për lexueshmëri */}
