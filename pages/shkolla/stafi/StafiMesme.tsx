@@ -163,7 +163,7 @@ const StafiMesme: React.FC = () => {
         {
             name: "Rregjina Paluca",
             role: "Mësuese",
-            image: "/stafi_mesem/Rregjina_Paluca.png",
+            image: "/stafi_mesem/Rregjina_Paluca.jpeg",
             description: "Mësuese e kualifikuar"
         },
         {
