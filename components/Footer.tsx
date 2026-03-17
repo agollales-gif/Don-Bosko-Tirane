@@ -20,8 +20,8 @@ const Footer: React.FC = () => {
                 <img src="/logo.png" alt="Logo" className="w-14 h-14 object-contain" />
               </div>
               <div className="flex flex-col">
-                <h3 className="text-2xl font-black uppercase leading-none tracking-tight font-plus-jakarta">Don Bosko</h3>
-                <h4 className="text-xs font-bold text-primary-red uppercase tracking-[0.3em] mt-1">Tiranë</h4>
+                <h3 className="text-2xl font-black uppercase leading-none tracking-tight font-plus-jakarta">DON BOSKO</h3>
+                <h4 className="text-xs font-bold text-primary-red uppercase tracking-[0.3em] mt-1">TIRANË</h4>
               </div>
             </div>
             <p className="text-sm font-medium text-white/60 leading-relaxed max-w-sm">
