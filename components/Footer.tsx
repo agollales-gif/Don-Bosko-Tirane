@@ -110,7 +110,7 @@ const Footer: React.FC = () => {
                 <span className="text-primary-red">AGOLLI.</span>
               </div>
               <img 
-                src="/Firma-Alesjo-Agolli.png" 
+                src="/signature.svg" 
                 alt="Alesjo Agolli Signature" 
                 className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity select-none pointer-events-none print:hidden"
                 draggable="false"
