@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Top Leadership
 const perfaqesuesiLigjor = [
     { 
-        name: "Perfaqëuesi Ligjor", 
-        role: "Perfaqëuesi Ligjor", 
+        name: "Don Luigi Martucci", 
+        role: "Drejtori i Shkollës", 
         image: "/stafi/Don_Luiggi_Martucci(Drejtori).jpeg",
         level: 1,
         description: "Perfaqëuesi Ligjor i institucionit"
