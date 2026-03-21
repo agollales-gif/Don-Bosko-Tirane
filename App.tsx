@@ -22,9 +22,6 @@ import ShkollaMesme from './pages/shkolla/ShkollaMesme';
 import ShkollaProfesionale from './pages/shkolla/ShkollaProfesionale';
 import PlaniAkademik from './pages/shkolla/PlaniAkademik';
 import Staff from './pages/shkolla/Staff';
-import Stafi9Vjecare from './pages/shkolla/stafi/Stafi9Vjecare';
-import StafiGjimnaz from './pages/shkolla/stafi/StafiGjimnaz';
-import StafiLendeveProfesionale from './pages/shkolla/stafi/StafiLendeveProfesionale';
 
 // Oratori Imports
 import Aktiviteti from './pages/oratori/Aktiviteti';
@@ -52,15 +49,12 @@ const App: React.FC = () => {
           <Route path="/stafi" element={<Staff />} />
           <Route path="/shkolla/staff" element={<Staff />} />
 
-          {/* Shkolla Sub-pages (Temporarily placeholders due to missing files) */}
+          {/* Shkolla Sub-pages */}
           <Route path="/shkolla/fillore" element={<ShkollaFillore />} />
-          <Route path="/shkolla/9-vjeqare" element={<Shkolla9Vjecare />} />
+          <Route path="/shkolla/9-vjecare" element={<Shkolla9Vjecare />} />
           <Route path="/shkolla/e-mesme" element={<ShkollaMesme />} />
           <Route path="/shkolla/profesionale" element={<ShkollaProfesionale />} />
           <Route path="/shkolla/staff" element={<Staff />} />
-          <Route path="/shkolla/stafi/9-vjecare" element={<Stafi9Vjecare />} />
-          <Route path="/shkolla/stafi/gjimnaz" element={<StafiGjimnaz />} />
-          <Route path="/shkolla/stafi/profesionale" element={<StafiLendeveProfesionale />} />
           <Route path="/shkolla/plani-akademik" element={<Navigate to="/shkolla/plani-akademik/9-vjecare" replace />} />
           <Route path="/shkolla/plani-akademik/:level" element={<PlaniAkademik />} />
 

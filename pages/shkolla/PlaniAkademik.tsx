@@ -5,7 +5,7 @@ import { BookOpen, Users, Heart, Shield, Calendar, ArrowLeft, CheckCircle, Downl
 
 const LEVEL_CONFIG: Record<string, { label: string; backHref: string }> = {
     fillore: { label: 'Shkolla Fillore Don Bosko', backHref: '/shkolla/fillore' },
-    '9-vjecare': { label: 'Shkolla 9-vjeçare Don Bosko', backHref: '/shkolla/9-vjeqare' },
+    '9-vjecare': { label: 'Shkolla 9-vjeçare Don Bosko', backHref: '/shkolla/9-vjecare' },
     gjimnaz: { label: 'Gjimnaz Don Bosko (i Përgjithshëm & Profesional)', backHref: '/shkolla/e-mesme' },
 };
 

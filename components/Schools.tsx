@@ -100,7 +100,7 @@ const Schools: React.FC = () => {
 
   const mainLevels = [
     { title: "Shkolla Fillore", color: 'bg-primary-red', image: '/shkolla_fillore.jpg', tag: 'Kopshti & Fillorja', href: '/shkolla/fillore' },
-    { title: "Shkolla 9-vjeçare", color: 'bg-deep-forest-green', image: '/shkolla_9vjecare.jpg', tag: 'Cikli i Ulët & Mesëm', href: '/shkolla/9-vjeqare' },
+    { title: "Shkolla 9-vjeçare", color: 'bg-deep-forest-green', image: '/shkolla_9vjecare.jpg', tag: 'Cikli i Ulët & Mesëm', href: '/shkolla/9-vjecare' },
     { title: "Shkolla e Mesme", color: 'bg-primary-red', image: '/shkolla_shortcut.jpg', tag: 'Arsimi i Mesëm', onClick: () => { window.scrollTo({ top: 0, behavior: 'smooth' }); setShowHighSchool(true); } }
   ];
 

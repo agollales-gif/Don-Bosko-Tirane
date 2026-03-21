@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
 import { TRANSLATIONS, GET_NAV_STRUCTURE } from '../constants';
 
 interface HeaderProps {
@@ -9,6 +10,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ onToggleDrawer }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
   const language = 'AL';
   const t = TRANSLATIONS[language];
@@ -56,22 +58,78 @@ const Header: React.FC<HeaderProps> = ({ onToggleDrawer }) => {
         <nav className="hidden lg:flex items-center space-x-1 ml-8">
           {navStructure.map((link) => (
             <div key={link.label} className="relative">
-              <Link
-                to={link.href}
-                className={`
-                  relative px-4 py-2 text-[10px] font-black uppercase tracking-widest transition-all duration-300 flex items-center gap-1.2
-                  ${(location.pathname === link.href) || (link.href === '/shkolla' && location.pathname.startsWith('/shkolla')) ? 'text-primary-red' : 'text-gray-600 hover:text-gray-900'}
-                `}
-              >
-                <span className="relative z-10">{link.label}</span>
-                {(location.pathname === link.href) || (link.href === '/shkolla' && location.pathname.startsWith('/shkolla')) && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute inset-0 bg-primary-red/5 rounded-full -z-0 border border-primary-red/10"
-                    transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
-                  />
-                )}
-              </Link>
+              {link.subItems ? (
+                <div
+                  className="relative"
+                  onMouseEnter={() => setDropdownOpen(true)}
+                  onMouseLeave={() => setDropdownOpen(false)}
+                >
+                  <button
+                    className={`
+                      relative px-4 py-2 text-[10px] font-black uppercase tracking-widest transition-all duration-300 flex items-center gap-1.2
+                      ${link.href === '/shkolla' && location.pathname.startsWith('/shkolla') ? 'text-primary-red' : 'text-gray-600 hover:text-gray-900'}
+                    `}
+                  >
+                    <span className="relative z-10">{link.label}</span>
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                    {link.href === '/shkolla' && location.pathname.startsWith('/shkolla') && (
+                      <motion.div
+                        layoutId="activeTab"
+                        className="absolute inset-0 bg-primary-red/5 rounded-full -z-0 border border-primary-red/10"
+                        transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                      />
+                    )}
+                  </button>
+                  
+                  <AnimatePresence>
+                    {dropdownOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute top-full left-0 mt-2 w-64 bg-white rounded-2xl shadow-2xl border border-white/40 ring-1 ring-black/5 overflow-hidden z-50"
+                      >
+                        <div className="py-2">
+                          {link.subItems.map((subItem) => (
+                            <Link
+                              key={subItem.href}
+                              to={subItem.href}
+                              className={`
+                                block px-6 py-3 text-xs font-medium transition-all duration-200
+                                ${location.pathname === subItem.href 
+                                  ? 'text-primary-red bg-primary-red/5' 
+                                  : 'text-gray-700 hover:text-primary-red hover:bg-gray-50'
+                                }
+                              `}
+                              onClick={() => setDropdownOpen(false)}
+                            >
+                              {subItem.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ) : (
+                <Link
+                  to={link.href}
+                  className={`
+                    relative px-4 py-2 text-[10px] font-black uppercase tracking-widest transition-all duration-300 flex items-center gap-1.2
+                    ${(location.pathname === link.href) || (link.href === '/shkolla' && location.pathname.startsWith('/shkolla')) ? 'text-primary-red' : 'text-gray-600 hover:text-gray-900'}
+                  `}
+                >
+                  <span className="relative z-10">{link.label}</span>
+                  {(location.pathname === link.href) || (link.href === '/shkolla' && location.pathname.startsWith('/shkolla')) && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-0 bg-primary-red/5 rounded-full -z-0 border border-primary-red/10"
+                      transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                    />
+                  )}
+                </Link>
+              )}
             </div>
           ))}
         </nav>

@@ -53,10 +53,10 @@ const RegistrationPopup: React.FC<RegistrationPopupProps> = ({ onClose }) => {
             {/* Message */}
             <div className="space-y-4">
               <h3 className="text-3xl font-bold text-gray-900 leading-tight">
-                Rregjistrimet kane filluar
+                Rregjistrimet kanë filluar
               </h3>
               <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                Nxitoni te rregjistroni femijen tuaj ne shkollen tone
+                Nxitoni të rregjistroni fëmijën tuaj në shkollën tonë
               </p>
             </div>
             

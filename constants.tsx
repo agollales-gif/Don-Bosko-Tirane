@@ -15,7 +15,17 @@ export interface NavItem {
 
 export const GET_NAV_STRUCTURE = (t: Translation): NavItem[] => [
   { label: t.navHome, href: "/" },
-  { label: t.navSchools, href: "/shkolla" },
+  { 
+    label: t.navSchools, 
+    href: "/shkolla",
+    subItems: [
+      { label: "Shkolla Fillore", href: "/shkolla/fillore" },
+      { label: "Shkolla 9-Vjeçare", href: "/shkolla/9-vjecare" },
+      { label: "Gjimnazi Përgjithshëm", href: "/shkolla/mesme" },
+      { label: "Gjimnazi Profesional TIK", href: "/shkolla/profesionale" },
+      { label: "Stafi Akademik", href: "/shkolla/staff" }
+    ]
+  },
   { label: t.navOratori, href: "/oratori" },
   { label: t.navChurch, href: "/famullia" },
   { label: t.navDayCenter, href: "/qendra-ditore" },
