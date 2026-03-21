@@ -27,8 +27,7 @@ const koordinatorSalezian = [
     },
     { 
         name: "Joana Kici", 
-        role: "KKoordinator Shkollor/
-Mësuese Kujdestare Fillore", 
+        role: "Koordinator Shkollor/Mësuese Kujdestare Fillore", 
         image: "/stafi/Joana_Kici-fillore.png",
         level: 4,
         description: "Koordinator Shkollor",
