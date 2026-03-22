@@ -1,12 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./layouts/**/*.{js,ts,jsx,tsx}",
-    "./hooks/**/*.{js,ts,jsx,tsx}",
+    "./**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -27,7 +23,7 @@ module.exports = {
       borderRadius: {
         '2xl': '1rem',
         '3xl': '1.5rem',
-      }
+      },
     },
   },
   plugins: [],

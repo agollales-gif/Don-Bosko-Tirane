@@ -113,36 +113,36 @@ const Rregjistrohu: React.FC = () => {
       }
 
       // Create email content using user's email client
-      const subject = encodeURIComponent(`Kërkesë për Regjistrim - ${formData.emriFemijes} ${formData.mbiemriFemijes}`);
+      const subject = encodeURIComponent(`Kerkese per Regjistrim - ${formData.emriFemijes} ${formData.mbiemriFemijes}`);
       const body = encodeURIComponent(`
-Të nderuar stafi i Shkollës Don Bosko,
+Te nderuar stafi i Shkolles Don Bosko,
 
-Ju dërgohet kjo kërkesë për regjistrim nga sistemi online i shkollës.
+Ju dergohet kjo kerkese per regjistrim nga sistemi online i shkolles.
 
-Të dhënat e prindit:
+Te dhenat e prindit:
 --------------------
 Emri dhe Mbiemri: ${formData.emriPrindit} ${formData.mbiemriPrindit}
 Email: ${formData.emailPrindit}
 Telefon: ${formData.telefonPrindit}
-Adresa: ${formData.adresaPrindit || 'Nuk është specifikuar'}
+Adresa: ${formData.adresaPrindit || 'Nuk eshte specifikuar'}
 
-Të dhënat e fëmijës:
+Te dhenat e femijes:
 --------------------
 Emri dhe Mbiemri: ${formData.emriFemijes} ${formData.mbiemriFemijes}
 Datelindja: ${formData.datelindjaFemijes}
-Gjinia: ${formData.gjiniaFemijes === 'mashkull' ? 'Mashkull' : formData.gjiniaFemijes === 'femër' ? 'Femër' : 'Nuk është specifikuar'}
+Gjinia: ${formData.gjiniaFemijes === 'mashkull' ? 'Mashkull' : formData.gjiniaFemijes === 'femer' ? 'Femer' : 'Nuk eshte specifikuar'}
 
 Interesi akademik:
 ------------------
-Lloji i Shkollës: ${formData.shkolla === '9-vjecare' ? 'Shkollë 9-vjecare' : formData.shkolla === 'e-mesme' ? 'Shkollë e Mesme' : formData.shkolla === 'profesionale' ? 'Shkollë Profesionale' : formData.shkolla}
+Lloji i Shkolles: ${formData.shkolla === '9-vjecare' ? 'Shkolle 9-vjecare' : formData.shkolla === 'e-mesme' ? 'Shkolle e Mesme' : formData.shkolla === 'profesionale' ? 'Shkolle Profesionale' : formData.shkolla}
 
-Data e dërgimit: ${new Date().toLocaleDateString('sq-AL', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+Data e dergimit: ${new Date().toLocaleDateString('sq-AL', { day: '2-digit', month: '2-digit', year: 'numeric' })}
 
-Mesazhi shtesë:
+Mesazhi shtese:
 ---------------
-${formData.mesazh || 'Nuk ka mesazh shtesë'}
+${formData.mesazh || 'Nuk ka mesazh shtese'}
 
-Ju lutemi të konsideroni kërkesën dhe të na kontaktoni për hapa të mëtejshëm.
+Ju lutem te konsideroni kerkesen dhe te na kontaktoni per hapa te mëtejshëm.
 
 Me respekt,
 ${formData.emriPrindit} ${formData.mbiemriPrindit}
@@ -354,7 +354,7 @@ Telefon: ${formData.telefonPrindit}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                       >
-                        <option value="">Zgjidhni gjininë</option>
+                        <option value="">Zgjidh gjininë</option>
                         <option value="mashkull">Mashkull</option>
                         <option value="femër">Femër</option>
                       </select>
@@ -382,9 +382,9 @@ Telefon: ${formData.telefonPrindit}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                       >
                         <option value="">Zgjidh shkollën</option>
-                        <option value="9-vjecare">Shkollë 9-vjecare</option>
+                        <option value="9-vjecare">Shkolla 9-vjecare</option>
                         <option value="e-mesme">Shkolla e Mesme</option>
-                        <option value="profesionale">Shkollë Profesionale</option>
+                        <option value="profesionale">Shkolla Profesionale</option>
                       </select>
                     </div>
                   </div>

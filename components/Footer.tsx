@@ -109,6 +109,13 @@ const Footer: React.FC = () => {
                 <span className="text-primary-red">REALIZUAR NGA ALESJO</span>
                 <span className="text-primary-red">AGOLLI.</span>
               </div>
+              <img 
+                src="/Firma-Alesjo-Agolli.png" 
+                alt="Alesjo Agolli Signature" 
+                className="h-6 w-auto opacity-70 hover:opacity-100 transition-opacity select-none pointer-events-none print:hidden"
+                draggable="false"
+                onContextMenu={(e) => e.preventDefault()}
+              />
             </div>
             <div className="flex items-center space-x-8">
               <a href="/privacy-policy" className="hover:text-white transition-colors">Politika e Privatësisë</a>
