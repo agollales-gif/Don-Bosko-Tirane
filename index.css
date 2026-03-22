@@ -4,7 +4,8 @@
 
 @layer base {
     body {
-        @apply font-montserrat text-gray-900 bg-white;
+        font-family: 'Montserrat', sans-serif;
+        @apply text-gray-900 bg-white;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
@@ -15,7 +16,8 @@
     h4,
     h5,
     h6 {
-        @apply font-plus-jakarta font-bold tracking-tight;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        @apply font-bold tracking-tight;
     }
 }
 
