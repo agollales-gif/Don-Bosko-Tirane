@@ -1,12 +1,40 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-family-montserrat: 'Montserrat', sans-serif;
+  --font-family-plus-jakarta: 'Plus Jakarta Sans', sans-serif;
+  --font-family-script: 'Dancing Script', cursive;
+  
+  --color-primary-red: #9c252d;
+  --color-deep-forest-green: #013220;
+  --color-panna: #f0d890;
+  
+  --border-radius-2xl: 1rem;
+  --border-radius-3xl: 1.5rem;
+  
+  --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 10px -2px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 20px 40px -4px rgba(0, 0, 0, 0.1), 0 10px 20px -4px rgba(0, 0, 0, 0.05);
+}
+
+/* Font utility classes */
+@layer utilities {
+    .font-montserrat {
+        font-family: 'Montserrat', sans-serif;
+    }
+    .font-plus-jakarta {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-script {
+        font-family: 'Dancing Script', cursive;
+    }
+}
 
 @layer base {
     body {
         font-family: 'Montserrat', sans-serif;
-        color: #111827;
-        background-color: white;
+        @apply text-gray-900 bg-white;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
@@ -18,37 +46,22 @@
     h5,
     h6 {
         font-family: 'Plus Jakarta Sans', sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.025em;
+        @apply font-bold tracking-tight;
     }
 }
 
 @layer components {
     .glass-navbar {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        transition: all 0.3s;
-        background-color: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(0.5rem);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        @apply sticky top-0 z-50 transition-all duration-300;
+        @apply bg-white/70 backdrop-blur-md border-b border-white/20;
     }
 
     .glass-drawer {
-        background-color: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(1.5rem);
-        border-left: 1px solid rgba(255, 255, 255, 0.2);
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        @apply bg-white/80 backdrop-blur-xl border-l border-white/20 shadow-2xl;
     }
 
     .card-modern {
-        background-color: white;
-        border-radius: 1.5rem;
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s;
-        overflow: hidden;
-        border: 1px solid rgba(241, 245, 249, 0.5);
-        backdrop-filter: blur(0.25rem);
+        @apply bg-white rounded-3xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 overflow-hidden border border-gray-100/50 backdrop-blur-sm;
         transform: perspective(1000px) translateZ(0);
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
@@ -60,66 +73,15 @@
     }
 
     .btn-primary {
-        background-color: #9c252d;
-        color: white;
-        font-weight: 700;
-        padding: 0.75rem 2.5rem;
-        border-radius: 9999px;
-        transition: all 0.3s;
-        text-transform: uppercase;
-        font-size: 0.875rem;
-        letter-spacing: 0.1em;
-    }
-
-    .btn-primary:hover {
-        filter: brightness(1.1);
-    }
-
-    .btn-primary:active {
-        transform: scale(0.95);
+        @apply bg-primary-red text-white font-bold py-3 px-10 rounded-full transition-all duration-300 hover:brightness-110 active:scale-95 uppercase text-sm tracking-widest;
     }
 
     .btn-outline {
-        border: 2px solid #9c252d;
-        color: #9c252d;
-        font-weight: 700;
-        padding: 0.75rem 2.5rem;
-        border-radius: 9999px;
-        transition: all 0.3s;
-        text-transform: uppercase;
-        font-size: 0.875rem;
-        letter-spacing: 0.1em;
-    }
-
-    .btn-outline:hover {
-        background-color: #9c252d;
-        color: white;
-    }
-
-    .btn-outline:active {
-        transform: scale(0.95);
+        @apply border-2 border-primary-red text-primary-red font-bold py-3 px-10 rounded-full transition-all duration-300 hover:bg-primary-red hover:text-white active:scale-95 uppercase text-sm tracking-widest;
     }
 
     .link-magnetic {
-        position: relative;
-    }
-
-    .link-magnetic::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 0.5rem;
-        background-color: #9c252d;
-        transform: scaleX(0);
-        transform-origin: right;
-        transition: transform 0.5s;
-    }
-
-    .link-magnetic:hover::after {
-        transform: scaleX(1);
-        transform-origin: left;
+        @apply relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary-red after:scale-x-0 after:origin-right after:transition-transform after:duration-500 hover:after:scale-x-100 hover:after:origin-left;
     }
 
     .texture-grain {
@@ -158,17 +120,11 @@
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f8fafc;
+    @apply bg-slate-50;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #cbd5e1;
-    border-radius: 9999px;
-    border: 2px solid #f8fafc;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background-color: #94a3b8;
+    @apply bg-slate-300 rounded-full border-2 border-slate-50 hover:bg-slate-400;
 }
 
 /* Hide scrollbar for slideshow */

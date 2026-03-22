@@ -85,9 +85,7 @@ const ShkollaProfesionale: React.FC = () => {
                 heroImage="/shkolla_profesionale.jpg"
                 statNumber="70%"
                 statLabel="Praktikë"
-                coordinatorName="Indrit Qehajaj"
-                coordinatorTitle="Koordinator"
-                coordinatorImage="/stafi_mesem/Indrit_Qehajaj.png"
+                
                 quote='Edukatori duhet të jetë "aty", i pranishëm në jetën e të riut, duke ndarë gëzimet dhe vështirësitë e tij.'
                 quoteAuthor="Shën Gjon Bosko"
                 valueCards={[

@@ -177,7 +177,7 @@ const Schools: React.FC = () => {
                   </button>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <Link 
-                        to="/shkolla/e-mesme" 
+                        to="/shkolla/mesme" 
                         className="block rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-1 ring-black/5 bg-white"
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       >
