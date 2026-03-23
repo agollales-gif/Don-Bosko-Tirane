@@ -124,7 +124,7 @@ const Mission: React.FC = () => (
         <div className="relative pl-6 border-l-4 border-primary-red">
           <Quote size={20} className="text-primary-red/30 absolute -top-1 -left-1" />
           <p className="text-xl font-script text-gray-700 italic leading-relaxed">
-            "Mjafton që jeni të rinj për t'ju dua shumë."
+            "Nuk ka pasqyrë më të qartë të shpirtit të një shoqërie sesa mënyra se si ajo i trajton fëmijët dhe të rinjtë e saj."
           </p>
           <p className="text-xs font-black uppercase tracking-widest text-primary-red mt-2">— Don Bosko</p>
         </div>
