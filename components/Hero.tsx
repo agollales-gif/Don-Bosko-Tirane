@@ -1,39 +1,67 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TRANSLATIONS } from '../constants';
 
-// YouTube lite-facade: shows a thumbnail + play button, loads iframe only on interaction
-const YoutubeFacade: React.FC<{ videoId: string; title: string }> = ({ videoId, title }) => {
-  const [loaded, setLoaded] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+// Self-hosted video path — drop hero-bg.mp4 (compressed, ~5-10MB) into /public/
+const SELF_HOSTED_VIDEO = '/hero-bg.mp4';
 
-  // Auto-load when the section enters the viewport (IntersectionObserver)
+// YouTube fallback — used only when no self-hosted video exists
+const YT_DESKTOP = 'TFB5PTNF3rw';
+const YT_MOBILE  = 'lVEj2ZdeQgw';
+
+const VideoBackground: React.FC = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [useYoutube, setUseYoutube] = useState(false);
+  const [ytLoaded, setYtLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Try self-hosted first; fall back to YouTube if file doesn't exist
+  const handleVideoError = () => setUseYoutube(true);
+
+  // Lazy-load YouTube only when in viewport
   useEffect(() => {
-    const el = ref.current;
+    if (!useYoutube) return;
+    const el = containerRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setLoaded(true); },
+      ([entry]) => { if (entry.isIntersecting) setYtLoaded(true); },
       { threshold: 0.1 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [useYoutube]);
 
-  const src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1`;
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const ytId = isMobile ? YT_MOBILE : YT_DESKTOP;
+  const ytSrc = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=1&loop=1&playlist=${ytId}&controls=0&showinfo=0&rel=0&modestbranding=1`;
 
   return (
-    <div ref={ref} className="absolute inset-0 w-full h-full">
-      {loaded ? (
+    <div ref={containerRef} className="absolute inset-0 w-full h-full">
+      {!useYoutube ? (
+        // Self-hosted: instant, no external requests, no cookies
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          onError={handleVideoError}
+          className="absolute inset-0 w-full h-full object-cover"
+          aria-hidden="true"
+        >
+          <source src={SELF_HOSTED_VIDEO} type="video/mp4" />
+        </video>
+      ) : ytLoaded ? (
+        // YouTube fallback — only loads when in viewport
         <iframe
-          src={src}
-          title={title}
+          src={ytSrc}
+          title="Video promovuese e Qendrës Sociale Don Bosko Tiranë"
           className="absolute inset-0 w-full h-full scale-[200%]"
           style={{ border: 'none', zIndex: 0 }}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         />
       ) : (
-        // Lightweight placeholder — just a dark bg, no external request
         <div className="absolute inset-0 bg-gray-900" aria-hidden="true" />
       )}
     </div>
@@ -44,20 +72,13 @@ const Hero: React.FC = () => {
   const language = 'AL';
   const t = TRANSLATIONS[language];
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const videoId = isMobile ? 'lVEj2ZdeQgw' : 'TFB5PTNF3rw';
-
   const mainTitle = "EDUKIMI I FËMIJËS TUAJ, PRIORITETI YNË";
   const subTitle  = "DËSHIRONI QË FËMIJA JUAJ TË EDUKOHET NË AMBIENTET TONA?";
 
   return (
     <section className="relative overflow-hidden w-full">
-      {/* Background Video Container */}
       <div className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-gray-900">
-        <YoutubeFacade
-          videoId={videoId}
-          title="Video promovuese e Qendrës Sociale Don Bosko Tiranë"
-        />
+        <VideoBackground />
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/45 z-10" aria-hidden="true" />
