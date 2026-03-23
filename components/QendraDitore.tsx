@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Heart, BookOpen, Utensils, Shield, Users, ArrowRight, Quote } from 'lucide-react';
 
@@ -52,64 +52,58 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number], delay },
 });
 
-// ─── HERO ─────────────────────────────────────────────────────────────────────
+// ─── ORIGINAL HERO (red bg + animated SVG house) ─────────────────────────────
 
-const Hero: React.FC = () => (
-  <section className="relative w-full min-h-[100svh] flex items-end overflow-hidden bg-[#0f172a]">
-    {/* Background image with parallax-like overlay */}
-    <div className="absolute inset-0">
-      <img
-        src="/qendra_ditore/qendra ditore foto (1).jpg"
-        alt=""
-        aria-hidden="true"
-        className="w-full h-full object-cover opacity-40"
-      />
-      {/* Gradient layers */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/60 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/80 via-transparent to-transparent" />
-    </div>
+const Hero: React.FC = () => {
+  const drawVariants = (delay: number): Variants => ({
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: {
+      pathLength: 1,
+      opacity: 1,
+      transition: { delay, duration: 3, ease: 'easeInOut', repeat: 0 }
+    }
+  });
 
-    {/* Decorative red accent */}
-    <div className="absolute top-1/3 right-0 w-[600px] h-[600px] bg-primary-red/20 rounded-full blur-[120px] pointer-events-none" />
+  return (
+    <section className="relative w-full min-h-[100svh] lg:min-h-[85vh] bg-primary-red overflow-hidden flex flex-col lg:flex-row pt-28 lg:pt-0">
 
-    {/* Content */}
-    <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-24 pt-40">
-      <motion.div {...fadeUp(0)} className="max-w-3xl space-y-6">
-        <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-primary-red/20 border border-primary-red/30 text-primary-red font-bold uppercase tracking-widest text-[10px]">
-          <Heart size={10} />
-          Shërbimi Social
-        </span>
-
-        <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-white font-plus-jakarta tracking-tight leading-[0.9]">
-          QENDRA<br />
-          <span className="text-primary-red">DITORE</span>
-        </h1>
-
-        <p className="text-xl sm:text-2xl text-white/70 font-medium max-w-xl leading-relaxed">
-          Një shtëpi larg shtëpisë — ku çdo fëmijë gjen kujdes, dashuri dhe mundësi.
-        </p>
-
-        <div className="flex flex-wrap gap-4 pt-4">
-          <a
-            href="#misioni"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary-red text-white font-bold uppercase text-xs tracking-widest rounded-full hover:bg-red-700 transition-colors duration-300"
-          >
-            Zbulo Misionin <ArrowRight size={14} />
-          </a>
-          <Link
-            to="/kontaktoni-me-ne"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-bold uppercase text-xs tracking-widest rounded-full hover:bg-white/20 transition-colors duration-300 backdrop-blur-sm"
-          >
-            Na Kontaktoni
-          </Link>
+      {/* Text */}
+      <div className="flex-1 flex flex-col justify-center px-6 lg:px-16 container mx-auto relative z-10 lg:w-1/2">
+        <div className="max-w-2xl text-left">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            <span className="inline-block py-1.5 px-4 mb-4 lg:mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white font-semibold uppercase tracking-widest text-[10px] sm:text-xs">
+              Shërbimi Social
+            </span>
+            <h1 className="text-[2.75rem] leading-[1.05] sm:text-6xl lg:text-7xl font-extrabold text-white font-plus-jakarta tracking-tight mb-4 lg:mb-6">
+              QENDRA <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">DITORE</span>
+            </h1>
+            <p className="text-lg lg:text-2xl text-white/95 max-w-xl font-medium leading-snug lg:leading-relaxed mb-3 lg:mb-4">
+              Një Shtëpi larg Shtëpisë
+            </p>
+            <p className="text-sm sm:text-base lg:text-lg text-white/80 max-w-lg font-normal leading-relaxed">
+              Në zemër të Tiranës, Qendra Ditore "Don Bosko" shërben si një pikë referimi dhe shprese për fëmijët në nevojë, duke ofruar kujdes, edukim dhe dashuri.
+            </p>
+          </motion.div>
         </div>
-      </motion.div>
-    </div>
+      </div>
 
-    {/* Bottom fade */}
-    <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent z-20 pointer-events-none" />
-  </section>
-);
+      {/* Animated SVG silhouette */}
+      <div className="relative w-full h-[38vh] min-h-[250px] lg:absolute lg:right-0 lg:top-0 lg:w-1/2 lg:h-full flex items-center justify-center p-6 lg:p-16 pointer-events-none z-0 mt-auto lg:mt-0">
+        <svg viewBox="0 0 24 24" fill="none" className="w-full h-full max-h-[260px] lg:max-h-[60vh] max-w-[85%] lg:max-w-full text-white opacity-[0.35] lg:opacity-[0.18]" xmlns="http://www.w3.org/2000/svg">
+          <motion.path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" stroke="currentColor" strokeWidth="0.3" strokeLinecap="round" strokeLinejoin="round" variants={drawVariants(0)} initial="hidden" animate="visible" />
+          <motion.path d="M9 22V12h6v10" stroke="currentColor" strokeWidth="0.3" strokeLinecap="round" strokeLinejoin="round" variants={drawVariants(0.3)} initial="hidden" animate="visible" />
+        </svg>
+      </div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 w-full h-24 lg:h-32 z-20 pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent" />
+        <div className="absolute inset-0 backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black,transparent)]" />
+      </div>
+    </section>
+  );
+};
 
 // ─── STATS BAR ────────────────────────────────────────────────────────────────
 

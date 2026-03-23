@@ -9,6 +9,7 @@ const perfaqesuesiLigjor = [
 
 const koordinatorSalezian = [
     { name: "Dritan Bushi", role: "Koordinator Salezian", image: "/stafi/Dritan_Bushi(Nen-Drejtor).png", level: 3 },
+    { name: "Klevis Marku", role: "Koordinator Salezian", image: "/stafi/Klevis_Marku.png", level: 3 },
     { name: "Joana Kici", role: "Koordinatore \nMësuese Kujdestare Fillore", image: "/stafi/Joana_Kici-fillore.png", level: 3 },
     { name: "Aleksandra Çarka", role: "Koordinatore \nMësuese Kujdestare Fillore", image: "/stafi/Aleksandra_Carka.png", level: 3 },
     { name: "Brunilda Halili", role: "Koordinatore \nMësuese Kujdestare 9-vjeçare", image: "/stafi/Brunilda_Halili9-vjecare-anglisht.png", level: 4 },
@@ -138,7 +139,7 @@ const Staff: React.FC = () => {
                                     >
                                         <div className="relative flex-shrink-0 mb-6">
                                             <div className={`${getImageSize(member.level)} rounded-full border-4 border-dashed border-gray-300 group-hover:border-solid group-hover:border-[#9c252d] p-3 relative transition-all duration-300`}>
-                                                <div className="w-full h-full rounded-full overflow-hidden shadow-inner bg-gray-50">
+                                                <div className="w-full h-full rounded-full overflow-hidden shadow-inner bg-gray-100 flex items-center justify-center">
                                                     <img
                                                         src={member.image}
                                                         alt={member.name}
@@ -146,7 +147,19 @@ const Staff: React.FC = () => {
                                                         width={160}
                                                         height={160}
                                                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                                        onError={(e) => {
+                                                            const target = e.currentTarget;
+                                                            target.style.display = 'none';
+                                                            const fallback = target.nextElementSibling as HTMLElement;
+                                                            if (fallback) fallback.style.display = 'flex';
+                                                        }}
                                                     />
+                                                    <span
+                                                        style={{ display: 'none' }}
+                                                        className="w-full h-full items-center justify-center text-2xl font-black text-gray-400 uppercase"
+                                                    >
+                                                        {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
