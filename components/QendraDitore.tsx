@@ -11,25 +11,25 @@ const services = [
     icon: BookOpen,
     title: 'Arsimim & Mbështetje',
     desc: 'Ndihmë me detyrat e shtëpisë, kurse plotësuese dhe nxitje drejt edukimit afatgjatë.',
-    color: 'bg-blue-50 text-blue-600',
+    color: 'bg-red-50 text-primary-red',
   },
   {
     icon: Utensils,
     title: 'Ushqim i Shëndetshëm',
     desc: 'Vakte ditore të balancuara për t\'u garantuar fëmijëve energjinë dhe shëndetin e duhur.',
-    color: 'bg-green-50 text-green-600',
+    color: 'bg-red-50 text-primary-red',
   },
   {
     icon: Users,
     title: 'Integrim Social',
     desc: 'Kohë cilësore përmes lojërave, aktiviteteve sportive dhe artit krijues.',
-    color: 'bg-amber-50 text-amber-600',
+    color: 'bg-red-50 text-primary-red',
   },
   {
     icon: Shield,
     title: 'Mbrojtje & Kujdes',
     desc: 'Ambient ku fëmijët ndihen të mbrojtur dhe të dëgjuar nga stafi ynë i dedikuar.',
-    color: 'bg-purple-50 text-purple-600',
+    color: 'bg-red-50 text-primary-red',
   },
 ];
 

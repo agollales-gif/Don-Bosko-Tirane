@@ -7,25 +7,25 @@ const services = [
     icon: Users,
     title: 'Grupet e Formimit',
     desc: 'Të rinjtë mblidhen sipas grupmoshave për të diskutuar vlerat njerëzore dhe rritjen shpirtërore nën udhëheqjen e salezianëve.',
-    color: 'bg-red-50 text-red-600',
+    color: 'bg-red-50 text-primary-red',
   },
   {
     icon: Trophy,
     title: 'Lojërat Verore',
     desc: 'Gjatë verës oratori kthehet në festë me turne sportive, gara me skuadra, këngë, punë dore dhe ekskursione.',
-    color: 'bg-amber-50 text-amber-600',
+    color: 'bg-red-50 text-primary-red',
   },
   {
     icon: Heart,
     title: 'Oratori i Lirë',
     desc: 'Hapësira e përditshme ku dyert janë të hapura për këdo — futboll, ping-pong, miqësi, në një ambient të sigurt dhe edukativ.',
-    color: 'bg-green-50 text-green-600',
+    color: 'bg-red-50 text-primary-red',
   },
   {
     icon: Music,
     title: 'Animacioni Kulturor',
     desc: 'Muzikë, teatër, kërcim dhe sport — elementet që i japin shpirt çdo feste dhe aktiviteti të oratorit.',
-    color: 'bg-purple-50 text-purple-600',
+    color: 'bg-red-50 text-primary-red',
   },
 ];
 
