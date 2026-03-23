@@ -44,6 +44,8 @@ const Header: React.FC<HeaderProps> = ({ onToggleDrawer }) => {
             <img
               src="/logo.png"
               alt="Don Bosko Logo"
+              width={48}
+              height={48}
               className="w-10 h-10 md:w-12 md:h-12 object-contain"
             />
           </motion.div>

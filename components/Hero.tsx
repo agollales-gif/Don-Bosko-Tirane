@@ -23,6 +23,7 @@ const Hero: React.FC = () => {
       <div className="relative w-full h-[100svh] min-h-[600px] overflow-hidden bg-gray-900">
         <iframe
           src={videoSrc}
+          title="Video promovuese e Qendrës Sociale Don Bosko Tiranë"
           className="absolute inset-0 w-full h-full scale-[200%]"
           style={{ 
             border: 'none',
@@ -35,6 +36,7 @@ const Hero: React.FC = () => {
             objectFit: 'cover'
           }}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          loading="lazy"
           allowFullScreen
         />
         

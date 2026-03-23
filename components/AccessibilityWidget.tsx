@@ -20,6 +20,7 @@ const AccessibilityWidget: React.FC = () => {
           <h5 className="font-bold text-gray-800 text-sm uppercase border-b pb-2">Accessibility Options</h5>
           <button 
             onClick={toggleHighContrast}
+            aria-label="Ndrysho kontrastin e lartë"
             className="flex items-center justify-between text-left text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 p-3 rounded-lg"
           >
             <span>High Contrast</span>
@@ -30,12 +31,14 @@ const AccessibilityWidget: React.FC = () => {
           <div className="flex space-x-2">
             <button 
               onClick={() => adjustFontSize(1)}
+              aria-label="Rrit madhësinë e shkronjave"
               className="flex-1 bg-gray-50 hover:bg-gray-100 p-2 rounded-lg font-bold text-gray-700"
             >
               A+
             </button>
             <button 
               onClick={() => adjustFontSize(-1)}
+              aria-label="Zvogëlo madhësinë e shkronjave"
               className="flex-1 bg-gray-50 hover:bg-gray-100 p-2 rounded-lg font-bold text-gray-700"
             >
               A-

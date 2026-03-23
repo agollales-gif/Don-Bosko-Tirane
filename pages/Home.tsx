@@ -43,6 +43,9 @@ const Home: React.FC = () => {
                                         <img
                                             src={item.image}
                                             alt={item.title}
+                                            width={800}
+                                            height={450}
+                                            loading="lazy"
                                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                                         />
                                         {/* Premium Overlay */}

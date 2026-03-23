@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://don-bosko-tirane.vercel.app/sitemap.xml
