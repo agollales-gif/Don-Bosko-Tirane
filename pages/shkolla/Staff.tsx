@@ -128,28 +128,24 @@ const Staff: React.FC = () => {
 
                             <div className="flex flex-wrap justify-center gap-8">
                                 {dept.staff.map((member, index) => (
-                                    <motion.div 
+                                    <motion.div
                                         key={member.name}
-                                        // ANIMACIONI INFINITE FILLON KETU
-                                        animate={{ 
-                                            y: [0, -10, 0], // Lëviz lart e poshtë
-                                        }}
-                                        transition={{ 
-                                            duration: 4, 
-                                            repeat: Infinity, // Nuk mbaron kurrë
-                                            repeatType: "reverse", // Kthehet butësisht
-                                            ease: "easeInOut",
-                                            delay: index * 0.2 // Çdo kartë lëviz pak pas tjetrës
-                                        }}
-                                        className={`bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-500 ${getCardSize(member.level)}`}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
+                                        className={`bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300 ${getCardSize(member.level)}`}
                                     >
                                         <div className="relative flex-shrink-0 mb-6">
                                             <div className={`${getImageSize(member.level)} rounded-full border-4 border-dashed border-gray-300 group-hover:border-solid group-hover:border-[#9c252d] p-3 relative transition-all duration-300`}>
                                                 <div className="w-full h-full rounded-full overflow-hidden shadow-inner bg-gray-50">
-                                                    <img 
-                                                        src={member.image} 
-                                                        alt={member.name} 
-                                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                                                    <img
+                                                        src={member.image}
+                                                        alt={member.name}
+                                                        loading="lazy"
+                                                        width={160}
+                                                        height={160}
+                                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                                     />
                                                 </div>
                                             </div>
