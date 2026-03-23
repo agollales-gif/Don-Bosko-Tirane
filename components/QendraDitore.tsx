@@ -132,12 +132,12 @@ const Mission: React.FC = () => (
 
       {/* Image stack */}
       <motion.div {...fadeUp(0.2)} className="relative">
-        {/* Mobile: stacked images */}
-        <div className="flex flex-col gap-4 lg:hidden">
-          <div className="w-full h-56 rounded-[28px] overflow-hidden shadow-xl">
+        {/* Mobile: side by side */}
+        <div className="grid grid-cols-2 gap-3 lg:hidden">
+          <div className="aspect-[3/4] rounded-[20px] overflow-hidden shadow-lg">
             <img src="/qendra_ditore/qendra ditore foto (2).jpg" alt="Aktivitete" className="w-full h-full object-cover" loading="lazy" />
           </div>
-          <div className="w-full h-56 rounded-[28px] overflow-hidden shadow-xl">
+          <div className="aspect-[3/4] rounded-[20px] overflow-hidden shadow-lg mt-6">
             <img src="/qendra_ditore/qendra ditore foto (3).jpg" alt="Fëmijë" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
