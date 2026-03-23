@@ -8,14 +8,14 @@ const perfaqesuesiLigjor = [
 ];
 
 const koordinatorSalezian = [
-    { name: "Dritan Bushi", role: "Koordinator Salezian", image: "/stafi/Dritan_Bushi(Nen-Drejtor).png", level: 3 },
-    { name: "Klevis Marku", role: "Koordinator Salezian", image: "/stafi/Klevis_Marku.png", level: 3 },
-    { name: "Joana Kici", role: "Koordinatore \nMësuese Kujdestare Fillore", image: "/stafi/Joana_Kici-fillore.png", level: 3 },
-    { name: "Aleksandra Çarka", role: "Koordinatore \nMësuese Kujdestare Fillore", image: "/stafi/Aleksandra_Carka.png", level: 3 },
-    { name: "Brunilda Halili", role: "Koordinatore \nMësuese Kujdestare 9-vjeçare", image: "/stafi/Brunilda_Halili9-vjecare-anglisht.png", level: 4 },
-    { name: "Valentina Zhivani", role: "Koordinatore \nMësuese Kujdestare 9-vjeçare", image: "/stafi/Valentina_Zhivani-9-vjecare-gjuhe-letersi.png", level: 4 },
-    { name: "Indrit Qehajaj", role: "Koordinator Shkollor \n Mësues Historie", image: "/stafi/Indrit_Qehajaj-gjimnaz-histori.png", level: 4 },
-    { name: "Diana Luli", role: "Koordinator Shkollor \n Mësuese Qytetarie", image: "/stafi/Diana_Luli-gjimnaz-qytetari.png", level: 5 }
+    { name: "Dritan Bushi", role: "Koordinator Salezian", image: "/stafi/Dritan_Bushi(Nen-Drejtor).png", level: 3, row: 1 },
+    { name: "Joana Kici", role: "Koordinatore \nMësuese Kujdestare Fillore", image: "/stafi/Joana_Kici-fillore.png", level: 4, row: 2 },
+    { name: "Aleksandra Çarka", role: "Koordinatore \nMësuese Kujdestare Fillore", image: "/stafi/Aleksandra_Carka.png", level: 4, row: 2 },
+    { name: "Brunilda Halili", role: "Koordinatore \nMësuese Kujdestare 9-vjeçare", image: "/stafi/Brunilda_Halili9-vjecare-anglisht.png", level: 4, row: 2 },
+    { name: "Valentina Zhivani", role: "Koordinatore \nMësuese Kujdestare 9-vjeçare", image: "/stafi/Valentina_Zhivani-9-vjecare-gjuhe-letersi.png", level: 4, row: 2 },
+    { name: "Indrit Qehajaj", role: "Koordinator Shkollor \n Mësues Historie", image: "/stafi/Indrit_Qehajaj-gjimnaz-histori.png", level: 4, row: 2 },
+    { name: "Diana Luli", role: "Koordinator Shkollor \n Mësuese Qytetarie", image: "/stafi/Diana_Luli-gjimnaz-qytetari.png", level: 5, row: 3 },
+    { name: "Klevis Marku", role: "Koordinator Salezian", image: "/stafi/Klevis_Marku.png", level: 5, row: 3 }
 ];
 
 const psikoSocial = [
@@ -86,6 +86,56 @@ const departments = [
     { id: 'psiko-social', name: 'Stafi Psiko-Social', staff: psikoSocial }
 ];
 
+type StaffMember = { name: string; role: string; image: string; level: number; row?: number };
+
+const StaffCard: React.FC<{ member: StaffMember; index: number; getCardSize: (l:number)=>string; getImageSize: (l:number)=>string; getTextSize: (l:number)=>string }> = ({ member, index, getCardSize, getImageSize, getTextSize }) => (
+    <motion.div
+        key={member.name}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
+        className={`bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300 ${getCardSize(member.level)}`}
+    >
+        <div className="relative flex-shrink-0 mb-6">
+            <div className={`${getImageSize(member.level)} rounded-full border-4 border-dashed border-gray-300 group-hover:border-solid group-hover:border-[#9c252d] p-3 relative transition-all duration-300`}>
+                <div className="w-full h-full rounded-full overflow-hidden shadow-inner bg-gray-100 flex items-center justify-center">
+                    <img
+                        src={member.image}
+                        alt={member.name}
+                        loading="lazy"
+                        width={160}
+                        height={160}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        onError={(e) => {
+                            const target = e.currentTarget;
+                            target.style.display = 'none';
+                            const fallback = target.nextElementSibling as HTMLElement;
+                            if (fallback) fallback.style.display = 'flex';
+                        }}
+                    />
+                    <span
+                        style={{ display: 'none' }}
+                        className="w-full h-full items-center justify-center text-2xl font-black text-gray-400 uppercase"
+                    >
+                        {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div className="flex-grow space-y-3 w-full px-4">
+            <h3 className={`font-black text-gray-900 tracking-tight leading-tight ${getTextSize(member.level)}`}>
+                {member.name}
+            </h3>
+            <div className="inline-flex items-center justify-center px-3 py-1 bg-gray-100 rounded-full">
+                <p className="text-[#9c252d] font-semibold text-xs uppercase tracking-wider leading-tight whitespace-pre-line">
+                    {member.role}
+                </p>
+            </div>
+        </div>
+    </motion.div>
+);
+
 const Staff: React.FC = () => {
     // --- HELPERS ---
     const getCardSize = (l: number) => {
@@ -127,55 +177,43 @@ const Staff: React.FC = () => {
                                 <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
                             </motion.div>
 
-                            <div className="flex flex-wrap justify-center gap-8">
-                                {dept.staff.map((member, index) => (
-                                    <motion.div
-                                        key={member.name}
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
-                                        className={`bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300 ${getCardSize(member.level)}`}
-                                    >
-                                        <div className="relative flex-shrink-0 mb-6">
-                                            <div className={`${getImageSize(member.level)} rounded-full border-4 border-dashed border-gray-300 group-hover:border-solid group-hover:border-[#9c252d] p-3 relative transition-all duration-300`}>
-                                                <div className="w-full h-full rounded-full overflow-hidden shadow-inner bg-gray-100 flex items-center justify-center">
-                                                    <img
-                                                        src={member.image}
-                                                        alt={member.name}
-                                                        loading="lazy"
-                                                        width={160}
-                                                        height={160}
-                                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                                        onError={(e) => {
-                                                            const target = e.currentTarget;
-                                                            target.style.display = 'none';
-                                                            const fallback = target.nextElementSibling as HTMLElement;
-                                                            if (fallback) fallback.style.display = 'flex';
-                                                        }}
+                            {dept.id === 'koordinator' ? (
+                                // Row-based layout for Koordinatorët Salezian
+                                <div className="flex flex-col items-center gap-8">
+                                    {[1, 2, 3].map(rowNum => {
+                                        const rowMembers = dept.staff.filter(m => (m as StaffMember).row === rowNum);
+                                        if (!rowMembers.length) return null;
+                                        return (
+                                            <div key={rowNum} className="flex flex-wrap justify-center gap-8">
+                                                {rowMembers.map((member, index) => (
+                                                    <StaffCard
+                                                        key={member.name}
+                                                        member={member}
+                                                        index={index}
+                                                        getCardSize={getCardSize}
+                                                        getImageSize={getImageSize}
+                                                        getTextSize={getTextSize}
                                                     />
-                                                    <span
-                                                        style={{ display: 'none' }}
-                                                        className="w-full h-full items-center justify-center text-2xl font-black text-gray-400 uppercase"
-                                                    >
-                                                        {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
-                                                    </span>
-                                                </div>
+                                                ))}
                                             </div>
-                                        </div>
-                                        <div className="flex-grow space-y-3 w-full px-4">
-                                            <h3 className={`font-black text-gray-900 tracking-tight leading-tight ${getTextSize(member.level)}`}>
-                                                {member.name}
-                                            </h3>
-                                            <div className="inline-flex items-center justify-center px-3 py-1 bg-gray-100 rounded-full">
-                                                <p className="text-[#9c252d] font-semibold text-xs uppercase tracking-wider leading-tight whitespace-pre-line">
-                                                    {member.role}
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
+                                        );
+                                    })}
+                                </div>
+                            ) : (
+                                // Flat layout for all other departments
+                                <div className="flex flex-wrap justify-center gap-8">
+                                    {dept.staff.map((member, index) => (
+                                        <StaffCard
+                                            key={member.name}
+                                            member={member}
+                                            index={index}
+                                            getCardSize={getCardSize}
+                                            getImageSize={getImageSize}
+                                            getTextSize={getTextSize}
+                                        />
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     ))}
                 </div>

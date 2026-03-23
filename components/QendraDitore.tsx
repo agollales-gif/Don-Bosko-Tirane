@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { Heart, BookOpen, Utensils, Shield, Users, ArrowRight, Quote } from 'lucide-react';
+import { BookOpen, Utensils, Shield, Users, Quote } from 'lucide-react';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
@@ -205,47 +204,6 @@ const Services: React.FC = () => (
   </section>
 );
 
-// ─── CTA ──────────────────────────────────────────────────────────────────────
-
-const CTA: React.FC = () => (
-  <section className="py-32 px-6 md:px-12 bg-[#0f172a] relative overflow-hidden">
-    <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-red/10 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-primary-red/5 rounded-full blur-[80px]" />
-    </div>
-
-    <motion.div {...fadeUp(0)} className="relative z-10 max-w-3xl mx-auto text-center space-y-8">
-      <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-primary-red/20 border border-primary-red/30 text-primary-red font-bold uppercase tracking-widest text-[10px]">
-        <Heart size={10} />
-        Bëhu Pjesë
-      </span>
-
-      <h2 className="text-4xl md:text-6xl font-black text-white font-plus-jakarta uppercase tracking-tight leading-tight">
-        Ndihmo një<br />
-        <span className="text-primary-red">fëmijë sot</span>
-      </h2>
-
-      <p className="text-white/60 text-lg max-w-xl mx-auto leading-relaxed">
-        Çdo kontribut, i vogël apo i madh, ndryshon jetën e një fëmije. Bashkohu me ne dhe bëhu pjesë e historisë sonë.
-      </p>
-
-      <div className="flex flex-wrap gap-4 justify-center">
-        <Link
-          to="/kontaktoni-me-ne"
-          className="inline-flex items-center gap-2 px-10 py-4 bg-primary-red text-white font-bold uppercase text-xs tracking-widest rounded-full hover:bg-red-700 transition-colors duration-300"
-        >
-          Na Kontaktoni <ArrowRight size={14} />
-        </Link>
-        <Link
-          to="/rregjistrohu-tani"
-          className="inline-flex items-center gap-2 px-10 py-4 bg-white/10 border border-white/20 text-white font-bold uppercase text-xs tracking-widest rounded-full hover:bg-white/20 transition-colors duration-300"
-        >
-          Rregjistrohu
-        </Link>
-      </div>
-    </motion.div>
-  </section>
-);
 
 // ─── MAIN EXPORT ──────────────────────────────────────────────────────────────
 
@@ -255,7 +213,6 @@ const QendraDitore: React.FC = () => (
     <StatsBar />
     <Mission />
     <Services />
-    <CTA />
   </div>
 );
 
