@@ -39,11 +39,6 @@ const services = [
   },
 ];
 
-const gallery = [
-  { src: '/qendra_ditore/qendra ditore foto (1).jpg', label: 'Sesione Mësimore' },
-  { src: '/qendra_ditore/qendra ditore foto (2).jpg', label: 'Aktivitete Kreative' },
-  { src: '/qendra_ditore/qendra ditore foto (3).jpg', label: 'Bashkëpunim & Lojë' },
-];
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 32 },
@@ -210,42 +205,6 @@ const Services: React.FC = () => (
   </section>
 );
 
-// ─── GALLERY ──────────────────────────────────────────────────────────────────
-
-const Gallery: React.FC = () => (
-  <section className="py-32 px-6 md:px-12 bg-white">
-    <div className="max-w-7xl mx-auto space-y-16">
-      <motion.div {...fadeUp(0)} className="text-center space-y-4">
-        <p className="text-primary-red text-xs font-black uppercase tracking-[0.3em]">Momentet Tona</p>
-        <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-gray-900 font-plus-jakarta">
-          Aktivitetet
-        </h2>
-      </motion.div>
-
-      <div className="grid md:grid-cols-3 gap-4">
-        {gallery.map((img, i) => (
-          <motion.div
-            key={img.src}
-            {...fadeUp(i * 0.12)}
-            className={`relative overflow-hidden rounded-[32px] group cursor-pointer ${i === 0 ? 'md:row-span-2 md:h-full min-h-[300px]' : 'h-[260px]'}`}
-          >
-            <img
-              src={img.src}
-              alt={img.label}
-              loading="lazy"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-400">
-              <p className="text-white font-bold uppercase tracking-widest text-xs">{img.label}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
-
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 
 const CTA: React.FC = () => (
@@ -296,7 +255,6 @@ const QendraDitore: React.FC = () => (
     <StatsBar />
     <Mission />
     <Services />
-    <Gallery />
     <CTA />
   </div>
 );
