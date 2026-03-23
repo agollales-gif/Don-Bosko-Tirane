@@ -1,143 +1,126 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap');
-
 @import "tailwindcss";
 
 @theme {
-  --font-family-montserrat: 'Montserrat', sans-serif;
-  --font-family-plus-jakarta: 'Plus Jakarta Sans', sans-serif;
-  --font-family-script: 'Dancing Script', cursive;
-  
+  /* Fonts */
+  --font-montserrat: "Montserrat", sans-serif;
+  --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-script: "Dancing Script", cursive;
+
+  /* Colors */
   --color-primary-red: #9c252d;
   --color-deep-forest-green: #013220;
   --color-panna: #f0d890;
   
-  --border-radius-2xl: 1rem;
-  --border-radius-3xl: 1.5rem;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  /* Shadows - Kjo zgjidh gabimin tënd */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   
+  /* Custom Shadows */
   --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 10px -2px rgba(0, 0, 0, 0.03);
   --shadow-hover: 0 20px 40px -4px rgba(0, 0, 0, 0.1), 0 10px 20px -4px rgba(0, 0, 0, 0.05);
+
+  /* Border Radius */
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
 }
 
-/* Font utility classes */
-@layer utilities {
-    .font-montserrat {
-        font-family: 'Montserrat', sans-serif;
-    }
-    .font-plus-jakarta {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .font-script {
-        font-family: 'Dancing Script', cursive;
-    }
-}
-
+/* Base Styles */
 @layer base {
-    body {
-        font-family: 'Montserrat', sans-serif;
-        @apply text-gray-900 bg-white;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Dancing+Script:wght@400;500;600;700&display=swap');
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        @apply font-bold tracking-tight;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-montserrat);
+    @apply text-gray-900 bg-white antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-plus-jakarta);
+    @apply font-bold tracking-tight;
+  }
 }
 
+/* Components */
 @layer components {
-    .glass-navbar {
-        @apply sticky top-0 z-50 transition-all duration-300;
-        @apply bg-white/70 backdrop-blur-md border-b border-white/20;
-    }
+  .glass-navbar {
+    @apply sticky top-0 z-50 transition-all duration-300 bg-white/70 border-b border-white/20 backdrop-blur-md;
+  }
 
-    .glass-drawer {
-        @apply bg-white/80 backdrop-blur-xl border-l border-white/20 shadow-2xl;
-    }
+  .glass-drawer {
+    @apply bg-white/80 border-l border-white/20 shadow-2xl backdrop-blur-xl;
+  }
 
-    .card-modern {
-        @apply bg-white rounded-3xl shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-3 overflow-hidden border border-gray-100/50 backdrop-blur-sm;
-        transform: perspective(1000px) translateZ(0);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
+  .card-modern {
+    @apply bg-white rounded-3xl transition-all duration-300 overflow-hidden border border-gray-100/50 shadow-soft;
+    transform: perspective(1000px) translateZ(0);
+  }
 
-    .card-modern:hover {
-        transform: perspective(1000px) translateZ(10px) translateY(-12px);
-        box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.15), 0 20px 20px -10px rgba(0, 0, 0, 0.08);
-        border-color: rgba(156, 37, 45, 0.2);
-    }
+  .card-modern:hover {
+    @apply shadow-hover;
+    transform: perspective(1000px) translateZ(10px) translateY(-12px);
+    border-color: rgba(156, 37, 45, 0.2);
+  }
 
-    .btn-primary {
-        @apply bg-primary-red text-white font-bold py-3 px-10 rounded-full transition-all duration-300 hover:brightness-110 active:scale-95 uppercase text-sm tracking-widest;
-    }
+  .btn-primary {
+    @apply bg-primary-red text-white font-bold py-3 px-10 rounded-full transition-all duration-300 hover:brightness-110 active:scale-95 uppercase text-sm tracking-widest;
+  }
 
-    .btn-outline {
-        @apply border-2 border-primary-red text-primary-red font-bold py-3 px-10 rounded-full transition-all duration-300 hover:bg-primary-red hover:text-white active:scale-95 uppercase text-sm tracking-widest;
-    }
+  .btn-outline {
+    @apply border-2 border-primary-red text-primary-red font-bold py-3 px-10 rounded-full transition-all duration-300 hover:bg-primary-red hover:text-white active:scale-95 uppercase text-sm tracking-widest;
+  }
 
-    .link-magnetic {
-        @apply relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary-red after:scale-x-0 after:origin-right after:transition-transform after:duration-500 hover:after:scale-x-100 hover:after:origin-left;
-    }
+  .link-magnetic {
+    @apply relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary-red after:scale-x-0 after:origin-right after:transition-transform after:duration-500 hover:after:scale-x-100 hover:after:origin-left;
+  }
+}
 
-    .texture-grain {
-        position: relative;
-    }
+/* Utilities */
+@layer utilities {
+  .font-montserrat { font-family: var(--font-montserrat); }
+  .font-plus-jakarta { font-family: var(--font-plus-jakarta); }
+  .font-script { font-family: var(--font-script); }
 
-    .texture-grain::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        opacity: 0.07;
-        pointer-events: none;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        mix-blend-mode: overlay;
-    }
-
-    .brand-pattern {
-        background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-        background-size: 32px 32px;
-    }
-
-    .texture-lines {
-        background-image: repeating-linear-gradient(0deg,
-                transparent,
-                transparent 1px,
-                rgba(255, 255, 255, 0.03) 1px,
-                rgba(255, 255, 255, 0.03) 2px);
-        background-size: 100% 4px;
-    }
+  .texture-grain {
+    position: relative;
+  }
+  .texture-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.07;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    @apply bg-slate-50;
-}
-
-::-webkit-scrollbar-thumb {
-    @apply bg-slate-300 rounded-full border-2 border-slate-50 hover:bg-slate-400;
-}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { @apply bg-slate-50; }
+::-webkit-scrollbar-thumb { @apply bg-slate-300 rounded-full border-2 border-slate-50 hover:bg-slate-400; }
 
 /* Hide scrollbar for slideshow */
 .snap-x {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
-
-.snap-x::-webkit-scrollbar {
-    display: none;
-}
-
-/* Smooth scroll behavior */
-html {
-    scroll-behavior: smooth;
-}
+.snap-x::-webkit-scrollbar { display: none; }
