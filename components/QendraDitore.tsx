@@ -4,12 +4,7 @@ import { BookOpen, Utensils, Shield, Users, Quote } from 'lucide-react';
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
 
-const stats = [
-  { value: '120+', label: 'Fëmijë të Mbështetur' },
-  { value: '15+', label: 'Vite Shërbim' },
-  { value: '30+', label: 'Vullnetarë Aktivë' },
-  { value: '5',   label: 'Ditë në Javë' },
-];
+
 
 const services = [
   {
@@ -99,26 +94,7 @@ const Hero: React.FC = () => {
   );
 };
 
-// ─── STATS BAR ────────────────────────────────────────────────────────────────
 
-const StatsBar: React.FC = () => (
-  <section className="bg-white border-b border-gray-100">
-    <div className="max-w-7xl mx-auto px-6 md:px-12">
-      <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
-        {stats.map((s, i) => (
-          <motion.div
-            key={s.label}
-            {...fadeUp(i * 0.1)}
-            className="py-10 px-6 text-center"
-          >
-            <p className="text-4xl md:text-5xl font-black text-primary-red font-plus-jakarta">{s.value}</p>
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mt-2">{s.label}</p>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
 // ─── MISSION ──────────────────────────────────────────────────────────────────
 
@@ -155,17 +131,29 @@ const Mission: React.FC = () => (
       </motion.div>
 
       {/* Image stack */}
-      <motion.div {...fadeUp(0.2)} className="relative h-[520px] hidden lg:block">
-        <div className="absolute top-0 right-0 w-[75%] h-[65%] rounded-[40px] overflow-hidden shadow-2xl">
-          <img src="/qendra_ditore/qendra ditore foto (2).jpg" alt="Aktivitete" className="w-full h-full object-cover" />
+      <motion.div {...fadeUp(0.2)} className="relative">
+        {/* Mobile: stacked images */}
+        <div className="flex flex-col gap-4 lg:hidden">
+          <div className="w-full h-56 rounded-[28px] overflow-hidden shadow-xl">
+            <img src="/qendra_ditore/qendra ditore foto (2).jpg" alt="Aktivitete" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="w-full h-56 rounded-[28px] overflow-hidden shadow-xl">
+            <img src="/qendra_ditore/qendra ditore foto (3).jpg" alt="Fëmijë" className="w-full h-full object-cover" loading="lazy" />
+          </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-[65%] h-[55%] rounded-[40px] overflow-hidden shadow-2xl border-4 border-white">
-          <img src="/qendra_ditore/qendra ditore foto (3).jpg" alt="Fëmijë" className="w-full h-full object-cover" />
-        </div>
-        {/* Floating badge */}
-        <div className="absolute top-[55%] right-[5%] bg-primary-red text-white rounded-2xl p-4 shadow-xl text-center min-w-[110px]">
-          <p className="text-3xl font-black">15+</p>
-          <p className="text-[10px] font-bold uppercase tracking-wider opacity-80 leading-tight mt-0.5">Vite<br/>Shërbim</p>
+        {/* Desktop: overlapping stack */}
+        <div className="hidden lg:block relative h-[520px]">
+          <div className="absolute top-0 right-0 w-[75%] h-[65%] rounded-[40px] overflow-hidden shadow-2xl">
+            <img src="/qendra_ditore/qendra ditore foto (2).jpg" alt="Aktivitete" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="absolute bottom-0 left-0 w-[65%] h-[55%] rounded-[40px] overflow-hidden shadow-2xl border-4 border-white">
+            <img src="/qendra_ditore/qendra ditore foto (3).jpg" alt="Fëmijë" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          {/* Floating badge */}
+          <div className="absolute top-[55%] right-[5%] bg-primary-red text-white rounded-2xl p-4 shadow-xl text-center min-w-[110px]">
+            <p className="text-3xl font-black">15+</p>
+            <p className="text-[10px] font-bold uppercase tracking-wider opacity-80 leading-tight mt-0.5">Vite<br/>Shërbim</p>
+          </div>
         </div>
       </motion.div>
     </div>
@@ -210,7 +198,6 @@ const Services: React.FC = () => (
 const QendraDitore: React.FC = () => (
   <div className="flex flex-col">
     <Hero />
-    <StatsBar />
     <Mission />
     <Services />
   </div>
