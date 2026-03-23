@@ -86,6 +86,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
               </div>
               <button
                 onClick={onClose}
+                aria-label="Mbyll menunë"
                 className="p-2 text-gray-400 hover:text-primary-red transition-colors bg-slate-50 rounded-lg border border-slate-100"
               >
                 <X size={20} />
@@ -172,11 +173,12 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
                   <a
                     key={social.name}
                     href={social.url}
+                    aria-label={`Na ndiqni në ${social.name}`}
                     className="p-3 bg-slate-50 rounded-xl text-gray-400 hover:text-primary-red hover:bg-primary-red/5 transition-all transform hover:-translate-y-1 shadow-sm border border-slate-100"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <div className="w-5 h-5 flex items-center justify-center">
+                    <div className="w-5 h-5 flex items-center justify-center" aria-hidden="true">
                       <span className="text-[8px] uppercase font-black">{social.name[0]}</span>
                     </div>
                   </a>

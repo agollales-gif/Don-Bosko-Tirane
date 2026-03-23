@@ -54,9 +54,9 @@ const Home: React.FC = () => {
                                         {/* Card Content */}
                                         <div className="absolute bottom-10 left-10 right-10 flex justify-between items-end">
                                             <div className="space-y-2">
-                                                <h3 className="text-white text-3xl md:text-5xl font-black uppercase tracking-tight font-plus-jakarta">
+                                                <h2 className="text-white text-3xl md:text-5xl font-black uppercase tracking-tight font-plus-jakarta">
                                                     {item.title}
-                                                </h3>
+                                                </h2>
                                                 <div className="w-12 h-1 bg-primary-red group-hover:w-24 transition-all duration-500 rounded-full"></div>
                                             </div>
                                             <span className="text-white/70 text-sm font-bold uppercase tracking-widest hidden sm:block group-hover:text-white transition-colors">

@@ -37,11 +37,12 @@ const Footer: React.FC = () => {
                 <a
                   key={social.label}
                   href={social.url}
+                  aria-label={`Na ndiqni në ${social.label}`}
                   className="w-10 h-10 flex items-center justify-center bg-white/5 hover:bg-primary-red transition-all duration-300 rounded-xl border border-white/5 hover:border-transparent group"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="text-white/70 group-hover:text-white group-hover:scale-110 transition-all">{social.icon}</span>
+                  <span className="text-white/70 group-hover:text-white group-hover:scale-110 transition-all" aria-hidden="true">{social.icon}</span>
                 </a>
               ))}
             </div>
@@ -78,8 +79,8 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-[12px] font-bold uppercase tracking-wider">
               {GET_NAV_STRUCTURE(t).slice(1, 5).map((navItem) => (
                 <li key={navItem.label}>
-                  <a href={navItem.href} className="text-white/40 hover:text-white flex items-center space-x-3 transition-all group">
-                    <span className="w-1.5 h-[1.5px] bg-primary-red opacity-0 group-hover:opacity-100 group-hover:w-3 transition-all"></span>
+                  <a href={navItem.href} className="text-white/60 hover:text-white flex items-center space-x-3 transition-all group">
+                    <span className="w-1.5 h-[1.5px] bg-primary-red opacity-0 group-hover:opacity-100 group-hover:w-3 transition-all" aria-hidden="true"></span>
                     <span>{navItem.label}</span> 
                   </a>
                 </li>
@@ -93,8 +94,8 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-[12px] font-bold uppercase tracking-wider">
               {GET_NAV_STRUCTURE(t).slice(5).map((navItem) => (
                 <li key={navItem.label}>
-                  <a href={navItem.href} className="text-white/40 hover:text-white flex items-center space-x-3 transition-all group">
-                    <span className="w-1.5 h-[1.5px] bg-primary-red opacity-0 group-hover:opacity-100 group-hover:w-3 transition-all"></span>
+                  <a href={navItem.href} className="text-white/60 hover:text-white flex items-center space-x-3 transition-all group">
+                    <span className="w-1.5 h-[1.5px] bg-primary-red opacity-0 group-hover:opacity-100 group-hover:w-3 transition-all" aria-hidden="true"></span>
                     <span>{navItem.label}</span>
                   </a>
                 </li>
@@ -110,11 +111,11 @@ const Footer: React.FC = () => {
           
           {/* Copyright & Author */}
           <div className="flex flex-col items-center md:items-start space-y-2">
-            <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-white/30 text-center md:text-left">
+            <p className="text-[10px] font-medium uppercase tracking-[0.15em] text-white/60 text-center md:text-left">
               &copy; {new Date().getFullYear()} Qendra Sociale Don Bosko Tiranë. Të gjitha të drejtat.
             </p>
             <div className="flex items-center space-x-2 text-[10px] font-black tracking-[0.1em]">
-              <span className="text-white/20 uppercase">Realizuar nga</span>
+              <span className="text-white/50 uppercase">Realizuar nga</span>
               <span className="text-primary-red/80 hover:text-primary-red transition-colors cursor-default">ALESJO AGOLLI</span>
             </div>
           </div>
@@ -125,11 +126,11 @@ const Footer: React.FC = () => {
               <span className="text-[10px] text-white/20 font-medium tracking-widest">{t.vatNumber}</span>
             )}
             <div className="flex items-center space-x-6 text-[10px] font-bold uppercase tracking-widest">
-              <a href="/privacy-policy" className="text-white/30 hover:text-white transition-colors">
+              <a href="/privacy-policy" className="text-white/60 hover:text-white transition-colors">
                 Privatësia
               </a>
-              <span className="w-[1px] h-3 bg-white/10 hidden md:block"></span>
-              <a href="/terms-of-use" className="text-white/30 hover:text-white transition-colors">
+              <span className="w-[1px] h-3 bg-white/10 hidden md:block" aria-hidden="true"></span>
+              <a href="/terms-of-use" className="text-white/60 hover:text-white transition-colors">
                 Kushtet
               </a>
             </div>

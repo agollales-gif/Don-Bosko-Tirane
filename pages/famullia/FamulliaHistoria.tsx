@@ -69,9 +69,9 @@ const FamulliaHistoria: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="space-y-4"
                 >
-                    <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-gray-900 font-plus-jakarta leading-none">
+                    <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-gray-900 font-plus-jakarta leading-none">
                         Historia e <br /> <span className="text-primary-red">Famullisë</span>
-                    </h1>
+                    </h2>
                     <div className="w-24 h-2 bg-primary-red rounded-full"></div>
                 </motion.div>
 

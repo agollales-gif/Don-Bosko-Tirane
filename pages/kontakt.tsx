@@ -158,12 +158,12 @@ const DitetTona: React.FC = () => {
                                     <span className="text-[#9c252d] font-black tracking-wider">8:00 – 16:00</span>
                                 </div>
                                 <div className="flex justify-between items-center">
-                                    <span className="font-bold text-gray-400 uppercase text-xs tracking-widest">E Shtunë</span>
-                                    <span className="text-gray-300 font-bold line-through">Mbyllur</span>
+                                    <span className="font-bold text-gray-600 uppercase text-xs tracking-widest">E Shtunë</span>
+                                    <span className="text-gray-500 font-bold line-through">Mbyllur</span>
                                 </div>
                                 <div className="flex justify-between items-center">
-                                    <span className="font-bold text-gray-400 uppercase text-xs tracking-widest">E Diel</span>
-                                    <span className="text-gray-300 font-bold line-through">Mbyllur</span>
+                                    <span className="font-bold text-gray-600 uppercase text-xs tracking-widest">E Diel</span>
+                                    <span className="text-gray-500 font-bold line-through">Mbyllur</span>
                                 </div>
                             </div>
                         </div>

@@ -77,9 +77,9 @@ const OraretMeshave: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center space-y-4"
                 >
-                    <h1 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-gray-900 font-plus-jakarta">
+                    <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tight text-gray-900 font-plus-jakarta">
                         Oraret e <span className="text-[#9c252d]">Meshave</span>
-                    </h1>
+                    </h2>
                     <p className="text-gray-400 font-bold uppercase tracking-[0.3em] text-xs">Bashkohuni me ne në lutje</p>
                 </motion.div>
 

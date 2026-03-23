@@ -210,7 +210,7 @@ const SchoolTemplate: React.FC<SchoolTemplateProps> = ({
 
                             </h1>
 
-                            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-400 italic">
+                            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-600 italic">
 
                                 "{subtitle}"
 

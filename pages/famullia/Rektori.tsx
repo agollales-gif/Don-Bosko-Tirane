@@ -92,9 +92,9 @@ const Rektori: React.FC = () => {
                     <div className="absolute top-10 right-10 text-[#9c252d]/10 text-9xl font-serif">"</div>
 
                     <div className="space-y-4">
-                        <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-gray-900 font-plus-jakarta">
+                        <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-gray-900 font-plus-jakarta">
                             Fjala e <span className="text-[#9c252d]">Famullitarit</span>
-                        </h1>
+                        </h2>
                         <div className="w-16 h-1.5 bg-[#9c252d] rounded-full"></div>
                     </div>
 
