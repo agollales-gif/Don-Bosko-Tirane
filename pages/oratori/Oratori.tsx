@@ -135,19 +135,19 @@ const Mission: React.FC = () => (
         {/* Mobile */}
         <div className="flex flex-col gap-4 lg:hidden">
           <div className="w-full h-56 rounded-[28px] overflow-hidden shadow-xl">
-            <img src="/assets/images/vera-oratori.jpg" alt="Aktivitete Oratori" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/aktivitetet_oratorit/oratori_lire.jpg" alt="Oratori i Lirë" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="w-full h-56 rounded-[28px] overflow-hidden shadow-xl">
-            <img src="/assets/images/2.png" alt="Oratori Don Bosko" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/Animacioni Kulturor dhe Sportiv.jpg" alt="Animacioni Kulturor dhe Sportiv" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
         {/* Desktop */}
         <div className="hidden lg:block relative h-[520px]">
           <div className="absolute top-0 right-0 w-[75%] h-[65%] rounded-[40px] overflow-hidden shadow-2xl">
-            <img src="/assets/images/vera-oratori.jpg" alt="Aktivitete Oratori" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/aktivitetet_oratorit/oratori_lire.jpg" alt="Oratori i Lirë" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="absolute bottom-0 left-0 w-[65%] h-[55%] rounded-[40px] overflow-hidden shadow-2xl border-4 border-white">
-            <img src="/assets/images/2.png" alt="Oratori Don Bosko" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/Animacioni Kulturor dhe Sportiv.jpg" alt="Animacioni Kulturor dhe Sportiv" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
       </motion.div>
