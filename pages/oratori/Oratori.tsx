@@ -132,12 +132,12 @@ const Mission: React.FC = () => (
 
       {/* Images */}
       <motion.div {...fadeUp(0.2)} className="relative">
-        {/* Mobile: side by side */}
-        <div className="grid grid-cols-2 gap-3 lg:hidden">
-          <div className="aspect-[3/4] rounded-[20px] overflow-hidden shadow-lg">
+        {/* Mobile: overlapping stack */}
+        <div className="relative h-[320px] lg:hidden mx-4">
+          <div className="absolute top-0 right-0 w-[75%] h-[65%] rounded-[24px] overflow-hidden shadow-2xl">
             <img src="/aktivitetet_oratorit/oratori_lire.jpg" alt="Oratori i Lirë" className="w-full h-full object-cover" loading="lazy" />
           </div>
-          <div className="aspect-[3/4] rounded-[20px] overflow-hidden shadow-lg mt-6">
+          <div className="absolute bottom-0 left-0 w-[65%] h-[60%] rounded-[24px] overflow-hidden shadow-2xl border-4 border-white">
             <img src="/Animacioni Kulturor dhe Sportiv.jpg" alt="Animacioni Kulturor dhe Sportiv" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
