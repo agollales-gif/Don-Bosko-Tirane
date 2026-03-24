@@ -51,7 +51,7 @@ const personeliMesimdhenes = [
     { name: "Edlira Cobani", role: "Mësuese Matematikë", image: "/stafi/Edlira-Cobani-9-vjecare-gjimnaz-Matematik.png", level: 6 },
     { name: "Elona Kalesha", role: "Mësuese TIK", image: "/stafi/Elona_Kalesha-gjimnaz-tik.png", level: 6 },
     { name: "Enkelejda Lleshaj", role: "Mësuese Gjeografi-Qytetari", image: "/stafi/Enkelejda_LLeshaj-9-vjecare-Gjeografi-Qytetari.png", level: 6 },
-    { name: "Eri Zagani", role: "Mësues Fizikë", image: "/stafi/Eri_Zagani-gjimnaz-fizik.png", level: 6 },
+    { name: "Eri Zagani", role: "Mësuese Fizikë", image: "/stafi/Eri_Zagani-gjimnaz-fizik.png", level: 6 },
     { name: "Ermelinda Skenderaj", role: "Mësuese Matematikë", image: "/stafi/Ermelinda_Skenderaj-9-vjecare-gjimnaz-matematik.png", level: 6 },
     { name: "Eva Jaku", role: "Mësuese Fizikë", image: "/stafi/Eva_Jaku-9-vjecare-fizik.png", level: 6 },
     { name: "Evis Myftaraj", role: "Mësuese Italisht", image: "/stafi/Evis_Myftaraj-9-vjecare-gjimnaz-italisht.webp", level: 6 },
