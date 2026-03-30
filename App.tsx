@@ -29,6 +29,7 @@ const Oratori    = lazy(() => import('./pages/oratori/Oratori'));
 
 // Famullia
 const FamulliaHistoria = lazy(() => import('./pages/famullia/FamulliaHistoria'));
+const Famullia         = lazy(() => import('./pages/famullia/Famullia'));
 const Rektori          = lazy(() => import('./pages/famullia/Rektori'));
 const ZeriFamullise    = lazy(() => import('./pages/famullia/ZeriFamullise'));
 const RektoretVite     = lazy(() => import('./pages/famullia/RektoretVite'));
@@ -66,6 +67,7 @@ const App: React.FC = () => {
             <Route path="/oratori/zyrtaret"   element={<PlaceholderPage title="Zyrtarët" />} />
 
             {/* 3. FAMULLIA */}
+            <Route path="/famullia"           element={<Famullia />} />
             <Route path="/famullia/historia"  element={<FamulliaHistoria />} />
             <Route path="/famullia/rektori"   element={<Rektori />} />
             <Route path="/famullia/zeri"      element={<ZeriFamullise />} />

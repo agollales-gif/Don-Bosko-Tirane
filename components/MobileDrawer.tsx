@@ -7,6 +7,7 @@ import {
   GraduationCap,
   Newspaper,
   MessageSquare,
+  Church,
   Users,
   Heart,
   X,
@@ -47,7 +48,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
       case t.navSchools: return <GraduationCap size={18} />;
       case t.navNews: return <Newspaper size={18} />;
       case t.navOratori: return <Users size={18} />;
-      case t.navChurch: return <Users size={18} />;
+      case t.navChurch: return <Church size={18} />;
       case t.navDayCenter: return <Heart size={18} />;
       case t.navContact: return <MessageSquare size={18} />;
       case "Komuniteti": return <Users size={18} />;

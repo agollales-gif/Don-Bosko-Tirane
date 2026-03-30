@@ -109,10 +109,10 @@ const Rektori: React.FC = () => {
 
                     <div className="flex items-center space-x-6 pt-8">
                         <div className="w-20 h-20 bg-slate-200 rounded-2xl overflow-hidden grayscale">
-                            <img src="/rektori_gino_marttuci.jpg" alt="Don Luigi Marttuci" className="w-full h-full object-cover" />
+                            <img src="/rektori_gino_marttuci.jpg" alt="Don Luigi Martucci" className="w-full h-full object-cover" />
                         </div>
                         <div>
-                            <p className="font-black text-gray-900 uppercase text-xs tracking-widest">Don Luigi Marttuci</p>
+                            <p className="font-black text-gray-900 uppercase text-xs tracking-widest">Don Luigi Martucci</p>
                             <p className="text-[10px] font-bold text-[#9c252d] uppercase tracking-widest">Famullitari - Famullia Zoja Ndihmëtare</p>
                         </div>
                     </div>
