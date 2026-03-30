@@ -4,6 +4,7 @@ import MainLayout from './layouts/MainLayout';
 
 // Eager-load only the home page (above the fold)
 import Home from './pages/Home';
+import Hero from './components/Hero';
 
 // Lazy-load everything else — each route becomes its own chunk
 const DepartmentPage   = lazy(() => import('./pages/DepartmentPage'));
