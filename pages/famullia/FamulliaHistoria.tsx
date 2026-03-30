@@ -86,7 +86,7 @@ const FamulliaHistoria: React.FC = () => {
                     </div>
                     <div className="aspect-square rounded-[48px] overflow-hidden shadow-2xl">
                         <img
-                            src="/kisha/kisha1 (3).JPG"
+                            src="/kisha/kisha1 (3).webp"
                             alt="Parish History"
                             className="w-full h-full object-cover"
                         />

@@ -26,10 +26,10 @@ const Home: React.FC = () => {
                     <OptimizedMotion>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 -mt-32 lg:-mt-64 mb-40 relative z-20">
                             {[
-                                { title: "Shkolla", image: "/shkolla_shortcut.jpg", link: "/shkolla" },
-                                { title: "Oratori", image: "/oratori_shortcut.png", link: "/oratori" },
-                                { title: "Famullia", image: "/kisha_shortcut.png", link: "/famullia" },
-                                { title: "Qendra Ditore", image: "/qendra_ditore_shortcut.png", link: "/qendra-ditore" },
+                                { title: "Shkolla", image: "/public/shkolla_shortcut.jpg", link: "/shkolla" },
+                                { title: "Oratori", image: "/public/oratori_shortcut.png", link: "/oratori" },
+                                { title: "Famullia", image: "/public/kisha_shortcut.jpg", link: "/famullia" },
+                                { title: "Qendra Ditore", image: "/public/qendro_sociale_don-bosko.jpg", link: "/qendra-ditore" },
                             ].map((item, index) => {
                                 const animationProps = useStaggeredAnimation(index);
                                 return (

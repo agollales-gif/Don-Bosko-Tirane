@@ -166,7 +166,7 @@ const Famullia: React.FC = () => {
                         >
                             <div className="aspect-[4/5] rounded-[64px] overflow-hidden shadow-2xl">
                                 <img
-                                    src="/kisha/kisha1 (2).JPG"
+                                    src="/kisha/kisha1 (1).webp"
                                     alt="Church Interior"
                                     className="w-full h-full object-cover"
                                 />
@@ -183,7 +183,7 @@ const Famullia: React.FC = () => {
                         >
                             <div className="aspect-[4/5] rounded-[32px] overflow-hidden shadow-xl">
                                 <img
-                                    src="/kisha/kisha1 (2).JPG"
+                                    src="/kisha/kisha1 (1).webp"
                                     alt="Church Interior"
                                     className="w-full h-full object-cover"
                                 />

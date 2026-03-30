@@ -79,7 +79,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
           >
             <div className="p-8 flex items-center justify-between">
               <div className="flex items-center space-x-4">
-                <img src="/logo.png" alt="Logo" className="w-12 h-12 object-contain" />
+                <img src="/public/logo.png" alt="Logo" className="w-12 h-12 object-contain" />
                 <div className="flex flex-col">
                   <span className="font-extrabold text-gray-900 text-base uppercase leading-none font-plus-jakarta">Don Bosko</span>
                   <span className="text-[10px] font-bold text-primary-red uppercase tracking-[0.2em]">Tiranë</span>

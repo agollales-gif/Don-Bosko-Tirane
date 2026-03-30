@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Localhost Test</title>
+    <script>
+        console.log('Testing localhost access...');
+        
+        // Test basic fetch to localhost
+        fetch('http://localhost:10000/')
+            .then(response => response.text())
+            .then(text => {
+                console.log('Response:', text);
+                document.body.innerHTML = text;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.body.innerHTML = 'Error: ' + error.message;
+            });
+    </script>
+</head>
+<body>
+    <h1>Testing Localhost</h1>
+    <p>Check console for results...</p>
+</body>
+</html>
