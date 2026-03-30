@@ -12,8 +12,9 @@ const YT_MOBILE  = 'lVEj2ZdeQgw';
 
 const VideoBackground: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [useYoutube, setUseYoutube] = useState(false);
+  const [useYoutube, setUseYoutube] = useState(true);
   const [ytLoaded, setYtLoaded] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Try self-hosted first; fall back to YouTube if file doesn't exist
@@ -34,29 +35,59 @@ const VideoBackground: React.FC = () => {
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const ytId = isMobile ? YT_MOBILE : YT_DESKTOP;
-  const ytSrc = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1`;
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   return (
     <div ref={containerRef} className="absolute inset-0 w-full h-full">
       {!useYoutube ? (
         // Self-hosted: instant, no external requests, no cookies
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          playsInline
-          onError={handleVideoError}
-          className="absolute inset-0 w-full h-full object-cover"
-          aria-hidden="true"
-        >
-          <source src={SELF_HOSTED_VIDEO} type="video/mp4" />
-        </video>
+        <div className="relative w-full h-full">
+          <video
+            ref={videoRef}
+            muted
+            playsInline
+            onError={handleVideoError}
+            className="absolute inset-0 w-full h-full object-cover"
+            aria-hidden="true"
+          >
+            <source src={SELF_HOSTED_VIDEO} type="video/mp4" />
+          </video>
+          
+          {/* Play/Pause Button */}
+          <button
+            onClick={togglePlay}
+            className="absolute bottom-8 right-8 bg-white/90 hover:bg-white text-black px-6 py-3 rounded-full shadow-lg transition-all duration-300 z-50"
+            aria-label={isPlaying ? "Pause video" : "Play video"}
+          >
+            {isPlaying ? (
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 4h4v16H6V4z"/>
+                <path d="M8 5v14l11-7v-7z"/>
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7v-7z"/>
+              </svg>
+            )}
+          </button>
+        </div>
       ) : ytLoaded ? (
         // YouTube fallback — only loads when in viewport
         <LazyYouTube
           videoId={ytId}
           title="Video promovuese e Qendrës Sociale Don Bosko Tiranë"
           className="absolute inset-0 w-full h-full scale-[200%]"
+          autoplay={false}
           autoplay={true}
           mute={true}
         />
