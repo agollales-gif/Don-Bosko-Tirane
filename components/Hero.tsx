@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TRANSLATIONS } from '../constants';
+import LazyYouTube from './LazyYouTube';
 
 // Self-hosted video path — drop hero-bg.mp4 (compressed, ~5-10MB) into /public/
 const SELF_HOSTED_VIDEO = '/hero-bg.mp4';
@@ -33,7 +34,7 @@ const VideoBackground: React.FC = () => {
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const ytId = isMobile ? YT_MOBILE : YT_DESKTOP;
-  const ytSrc = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=1&loop=1&playlist=${ytId}&controls=0&showinfo=0&rel=0&modestbranding=1`;
+  const ytSrc = `https://www.youtube-nocookie.com/embed/${ytId}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1`;
 
   return (
     <div ref={containerRef} className="absolute inset-0 w-full h-full">
@@ -43,7 +44,6 @@ const VideoBackground: React.FC = () => {
           ref={videoRef}
           autoPlay
           muted
-          loop
           playsInline
           onError={handleVideoError}
           className="absolute inset-0 w-full h-full object-cover"
@@ -53,13 +53,12 @@ const VideoBackground: React.FC = () => {
         </video>
       ) : ytLoaded ? (
         // YouTube fallback — only loads when in viewport
-        <iframe
-          src={ytSrc}
+        <LazyYouTube
+          videoId={ytId}
           title="Video promovuese e Qendrës Sociale Don Bosko Tiranë"
           className="absolute inset-0 w-full h-full scale-[200%]"
-          style={{ border: 'none', zIndex: 0 }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
+          autoplay={true}
+          mute={true}
         />
       ) : (
         <div className="absolute inset-0 bg-gray-900" aria-hidden="true" />

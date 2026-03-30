@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize-images": "node scripts/optimize-images.js",
+    "build:optimized": "npm run optimize-images && npm run build"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.2.2",
@@ -25,6 +27,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.563.0",
     "postcss": "^8.5.6",
+    "sharp": "^0.33.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss": "^4.1.18",
     "typescript": "~5.8.2",
