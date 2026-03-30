@@ -7,6 +7,7 @@ interface LazyYouTubeProps {
   autoplay?: boolean;
   mute?: boolean;
   loop?: boolean;
+  si?: string;
 }
 
 const LazyYouTube: React.FC<LazyYouTubeProps> = ({ 
@@ -15,7 +16,8 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({
   className = '', 
   autoplay = false,
   mute = true,
-  loop = false
+  loop = false,
+  si,
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
@@ -25,13 +27,17 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   
   // Generate embed URL with parameters
-  const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?` +
+  const embedUrl = `https://www.youtube.com/embed/${videoId}?` +
+    `${si ? `si=${si}&` : ''}` +
     `autoplay=${autoplay ? '1' : '0'}&` +
     `mute=${mute ? '1' : '0'}&` +
-    `controls=1&` +
+    `loop=${loop ? '1' : '0'}&` +
+    `playlist=${videoId}&` +
+    `controls=0&` +
     `rel=0&` +
     `modestbranding=1&` +
-    `showinfo=0`;
+    `showinfo=0&` +
+    `playsinline=1`;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -60,6 +66,22 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({
   const handleClick = () => {
     setIsLoaded(true);
   };
+
+  // For autoplay (background video), skip all lazy/click gates and render immediately
+  if (autoplay) {
+    return (
+      <div className={className}>
+        <iframe
+          src={embedUrl}
+          title={title}
+          className="w-full h-full"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      </div>
+    );
+  }
 
   if (!isInView) {
     // Show placeholder with thumbnail while not in viewport

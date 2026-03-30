@@ -1,56 +1,25 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { TRANSLATIONS } from '../constants';
 import LazyYouTube from './LazyYouTube';
 
-// Video link - use YouTube video directly
-const VIDEO_LINK = 'https://www.youtube.com/watch?v=TFB5PTNF3rw';
-
-// YouTube videos
-const YT_DESKTOP_LINK = 'https://youtu.be/TFB5PTNF3rw?si=u6QRFOZteF08dd-B';
-const YT_MOBILE_LINK = 'https://youtube.com/shorts/lVEj2ZdeQgw?feature=share';
+const YT_DESKTOP_ID = 'TFB5PTNF3rw';
+const YT_DESKTOP_SI = 'brh1pUjM84-79Kx-';
+const YT_MOBILE_ID = 'lVEj2ZdeQgw';
 
 const VideoBackground: React.FC = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [useYoutube, setUseYoutube] = useState(true);
-  const [ytLoaded, setYtLoaded] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  // Always use YouTube video
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setYtLoaded(true); },
-      { threshold: 0.1 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [useYoutube]);
-
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-  const ytId = isMobile ? YT_MOBILE : YT_DESKTOP;
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
 
   return (
-    <div ref={containerRef} className="absolute inset-0 w-full h-full">
+    <div className="absolute inset-0 w-full h-full">
       <LazyYouTube
-        videoId={ytId}
+        videoId={isMobile ? YT_MOBILE_ID : YT_DESKTOP_ID}
+        si={isMobile ? undefined : YT_DESKTOP_SI}
         title="Video promovuese e Qendrës Sociale Don Bosko Tiranë"
         className="absolute inset-0 w-full h-full scale-[200%]"
-        autoplay={false}
+        autoplay={true}
         mute={true}
+        loop={true}
       />
     </div>
   );
