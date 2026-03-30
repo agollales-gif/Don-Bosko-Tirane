@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { TRANSLATIONS } from '../constants';
 import LazyYouTube from './LazyYouTube';
 
-// Self-hosted video path — drop hero-bg.mp4 (compressed, ~5-10MB) into /public/
-const SELF_HOSTED_VIDEO = '/hero-bg.mp4';
+// Video link - use YouTube video directly
+const VIDEO_LINK = 'https://www.youtube.com/watch?v=TFB5PTNF3rw';
 
-// YouTube fallback — used only when no self-hosted video exists
-const YT_DESKTOP = 'TFB5PTNF3rw';
-const YT_MOBILE  = 'lVEj2ZdeQgw';
+// YouTube videos
+const YT_DESKTOP_LINK = 'https://youtu.be/TFB5PTNF3rw?si=u6QRFOZteF08dd-B';
+const YT_MOBILE_LINK = 'https://youtube.com/shorts/lVEj2ZdeQgw?feature=share';
 
 const VideoBackground: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -17,12 +17,8 @@ const VideoBackground: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Try self-hosted first; fall back to YouTube if file doesn't exist
-  const handleVideoError = () => setUseYoutube(true);
-
-  // Lazy-load YouTube only when in viewport
+  // Always use YouTube video
   useEffect(() => {
-    if (!useYoutube) return;
     const el = containerRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
@@ -49,51 +45,13 @@ const VideoBackground: React.FC = () => {
 
   return (
     <div ref={containerRef} className="absolute inset-0 w-full h-full">
-      {!useYoutube ? (
-        // Self-hosted: instant, no external requests, no cookies
-        <div className="relative w-full h-full">
-          <video
-            ref={videoRef}
-            muted
-            playsInline
-            onError={handleVideoError}
-            className="absolute inset-0 w-full h-full object-cover"
-            aria-hidden="true"
-          >
-            <source src={SELF_HOSTED_VIDEO} type="video/mp4" />
-          </video>
-          
-          {/* Play/Pause Button */}
-          <button
-            onClick={togglePlay}
-            className="absolute bottom-8 right-8 bg-white/90 hover:bg-white text-black px-6 py-3 rounded-full shadow-lg transition-all duration-300 z-50"
-            aria-label={isPlaying ? "Pause video" : "Play video"}
-          >
-            {isPlaying ? (
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6 4h4v16H6V4z"/>
-                <path d="M8 5v14l11-7v-7z"/>
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7v-7z"/>
-              </svg>
-            )}
-          </button>
-        </div>
-      ) : ytLoaded ? (
-        // YouTube fallback — only loads when in viewport
-        <LazyYouTube
-          videoId={ytId}
-          title="Video promovuese e Qendrës Sociale Don Bosko Tiranë"
-          className="absolute inset-0 w-full h-full scale-[200%]"
-          autoplay={false}
-          autoplay={true}
-          mute={true}
-        />
-      ) : (
-        <div className="absolute inset-0 bg-gray-900" aria-hidden="true" />
-      )}
+      <LazyYouTube
+        videoId={ytId}
+        title="Video promovuese e Qendrës Sociale Don Bosko Tiranë"
+        className="absolute inset-0 w-full h-full scale-[200%]"
+        autoplay={false}
+        mute={true}
+      />
     </div>
   );
 };
