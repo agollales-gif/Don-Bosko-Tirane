@@ -78,7 +78,7 @@ const Shkolla9Vjecare: React.FC = () => {
                 titleHighlight="9-VJEÇARE"
                 subtitle="Themelet e karakterit dhe dijes"
                 description="Përqendrohemi në ndërtimin e themeleve akademike përmes 'Sistemit Parandalues' të Don Boskos, duke përgatitur nxënësit me dije të solidat dhe vlera njerëzore të forta."
-                heroImage="/shkolla_9vjecare.jpg"
+                heroImage="/programet_arsimore/shkolla_9vjecare.jpg"
                 statNumber="30+"
                 statLabel="Vite Eksperiencë"
                 

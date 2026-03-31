@@ -82,7 +82,7 @@ const ShkollaProfesionale: React.FC = () => {
                 titleHighlight="PROFESIONAL TIK"
                 subtitle="Inovacioni takon zanatin e së ardhmes"
                 description="Trajnim intensiv 70% praktik në laboratorët tanë të avancuar për rrjetat, programimin dhe sigurinë kibernetike. Transformojmë pasionin në profesione elitare."
-                heroImage="/shkolla_profesionale.jpg"
+                heroImage="/programet_arsimore/shkolla_profesionale.jpg"
                 statNumber="70%"
                 statLabel="Praktikë"
                 

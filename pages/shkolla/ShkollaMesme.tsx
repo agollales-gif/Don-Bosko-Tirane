@@ -85,7 +85,7 @@ const ShkollaMesme: React.FC = () => {
         titleHighlight="PËRGJITHSHËM"
         subtitle="Standarde elitare për studentët e ardhshëm"
         description="Gjimnazi ynë është i orientuar drejt përgatitjes rigoroze për Maturën Shtetërore dhe studimet universitare. Ruajmë një fokus të lartë në lëndët STEM dhe zhvillimin e mendimit kritik."
-        heroImage="/shkolla_mesme.jpg"
+        heroImage="/programet_arsimore/shkolla_mesme.jpg"
         statNumber="30+"
         statLabel="Vite Eksperiencë"
         

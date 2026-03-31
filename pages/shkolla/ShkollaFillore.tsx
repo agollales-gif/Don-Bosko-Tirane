@@ -81,7 +81,7 @@ const ShkollaFillore: React.FC = () => {
                 titleHighlight="FILLORE"
                 subtitle="Themelet e karakterit dhe dijes"
                 description="Përqendrohemi në ndërtimin e themeleve të para të dijes përmes lojës, kuriozitetit dhe 'Sistemit Parandalues' të Don Boskos, duke krijuar një mjedis ku çdo fëmijë ndihet i dashur dhe i vlerësuar."
-                heroImage="/shkolla_fillore.jpg"
+                heroImage="/programet_arsimore/shkolla_fillore.jpg"
                 statNumber="30+"
                 statLabel="Vite Eksperiencë"
                 
