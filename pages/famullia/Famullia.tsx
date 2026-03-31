@@ -146,18 +146,18 @@ const Mission: React.FC = () => (
       <motion.div {...fadeUp(0.2)} className="relative">
         <div className="relative h-[320px] lg:hidden mx-4">
           <div className="absolute top-0 right-0 w-[75%] h-[65%] rounded-[24px] overflow-hidden shadow-2xl">
-            <img src="/kisha/kisha_don_boskos.webp" alt="Kisha Don Bosko" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/kisha/Bashkesia.webp" alt="Kisha Don Bosko" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="absolute bottom-0 left-0 w-[65%] h-[60%] rounded-[24px] overflow-hidden shadow-2xl border-4 border-white">
-            <img src="/kisha/Bashkesia.webp" alt="Bashkësia" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/kisha/kisha_don_boskos.webp" alt="Bashkësia" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
         <div className="hidden lg:block relative h-[520px]">
           <div className="absolute top-0 right-0 w-[75%] h-[65%] rounded-[40px] overflow-hidden shadow-2xl">
-            <img src="/kisha/kisha_don_boskos.webp" alt="Kisha Don Bosko" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/kisha/Bashkesia.webp" alt="Kisha Don Bosko" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="absolute bottom-0 left-0 w-[65%] h-[55%] rounded-[40px] overflow-hidden shadow-2xl border-4 border-white">
-            <img src="/kisha/Bashkesia.webp" alt="Bashkësia" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/kisha/kisha_don_boskos.webp" alt="Bashkësia" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="absolute top-[55%] right-[5%] bg-primary-red text-white rounded-2xl p-4 shadow-xl text-center min-w-[110px]">
             <p className="text-3xl font-black">30+</p>
