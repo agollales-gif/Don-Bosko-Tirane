@@ -19,7 +19,7 @@ const koordinatorSalezian = [
 ];
 
 const psikoSocial = [
-    { name: "Deleda", role: "Punonjëse Sociale", image: "/stafi/Deleda_Psikologe-converted-from-png.webp", level: 7 },
+    { name: "Deleda Gjonej", role: "Punonjëse Sociale", image: "/stafi/Deleda_Psikologe-converted-from-png.webp", level: 7 },
     { name: "Rosela Psikologe", role: "Psikologe", image: "/stafi/Rosela_psikologe-converted-from-png.webp", level: 7 },
     { name: "Kristian Psikolog", role: "Psikolog", image: "/stafi/Kristian-psikolog-converted-from-png.webp", level: 7 }
 ];
