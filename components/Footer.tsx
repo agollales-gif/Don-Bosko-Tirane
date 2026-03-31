@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
           <div className="space-y-8">
             <div className="flex items-center space-x-4 group">
               <div className="bg-white p-2 rounded-2xl transition-transform duration-500 group-hover:rotate-6 shadow-lg shadow-white/5">
-                <img src="/public/logo.png" alt="Don Bosko Tiranë logo" width={48} height={48} className="w-12 h-12 object-contain" />
+                <img src="/public/logoo.png" alt="Don Bosko Tiranë logo" width={48} height={48} className="w-12 h-12 object-contain" />
               </div>
               <div className="flex flex-col">
                 <h3 className="text-xl font-black uppercase leading-none tracking-tight">DON BOSKO</h3>

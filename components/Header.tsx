@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ onToggleDrawer }) => {
             className="relative"
           >
             <img
-              src="/public/logo.png"
+              src="/public/logoo.png"
               alt="Don Bosko Logo"
               width={48}
               height={48}
