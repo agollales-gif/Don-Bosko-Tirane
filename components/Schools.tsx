@@ -99,8 +99,8 @@ const Schools: React.FC = () => {
   const [showHighSchool, setShowHighSchool] = useState(false);
 
   const mainLevels = [
-    { title: "Shkolla Fillore", color: 'bg-primary-red', image: '/programet arsimore/shkolla_fillore.jpg', tag: 'Kopshti & Fillorja', href: '/shkolla/fillore' },
-    { title: "Shkolla 9-vjeçare", color: 'bg-deep-forest-green', image: '/programet arsimore/shkolla_9vjecare.jpg', tag: 'Cikli i Ulët & Mesëm', href: '/shkolla/9-vjecare' },
+    { title: "Shkolla Fillore", color: 'bg-primary-red', image: '/programet_arsimore/shkolla_fillore.jpg', tag: 'Kopshti & Fillorja', href: '/shkolla/fillore' },
+    { title: "Shkolla 9-vjeçare", color: 'bg-deep-forest-green', image: '/programet_arsimore/shkolla_9vjecare.jpg', tag: 'Cikli i Ulët & Mesëm', href: '/shkolla/9-vjecare' },
     { title: "Shkolla e Mesme", color: 'bg-primary-red', image: '/public/shkolla_shortcut.jpg', tag: 'Arsimi i Mesëm', onClick: () => { window.scrollTo({ top: 0, behavior: 'smooth' }); setShowHighSchool(true); } }
   ];
 
@@ -181,14 +181,14 @@ const Schools: React.FC = () => {
                         className="block rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-1 ring-black/5 bg-white"
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       >
-                      <CardContent school={{ title: "Gjimnazi i Përgjithshëm", color: 'bg-primary-red', image: '/programet arsimore/shkolla_mesme.jpg', tag: 'Gjimnazi' }} />
+                      <CardContent school={{ title: "Gjimnazi i Përgjithshëm", color: 'bg-primary-red', image: '/programet_arsimore/shkolla_mesme.jpg', tag: 'Gjimnazi' }} />
                     </Link>
                     <Link 
                         to="/shkolla/profesionale" 
                         className="block rounded-[2rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 ring-1 ring-black/5 bg-white"
                         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                       >
-                      <CardContent school={{ title: "Gjimnazi Profesional", color: 'bg-deep-forest-green', image: '/programet arsimore/shkolla_profesionale.jpg', tag: 'Profesionale TIK' }} />
+                      <CardContent school={{ title: "Gjimnazi Profesional", color: 'bg-deep-forest-green', image: '/programet_arsimore/shkolla_profesionale.jpg', tag: 'Profesionale TIK' }} />
                     </Link>
                   </div>
                 </motion.div>

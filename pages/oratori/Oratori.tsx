@@ -138,7 +138,7 @@ const Mission: React.FC = () => (
             <img src="/aktivitetet_oratorit/oratori_lire.jpg" alt="Oratori i Lirë" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="absolute bottom-0 left-0 w-[65%] h-[60%] rounded-[24px] overflow-hidden shadow-2xl border-4 border-white">
-            <img src="/aktivitetet_oratorit/Animacioni Kulturor dhe Sportiv.jpg" alt="Animacioni Kulturor dhe Sportiv" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/aktivitetet_oratorit/animacioni_kulturor.jpg" alt="Animacioni Kulturor dhe Sportiv" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
         {/* Desktop */}
@@ -147,7 +147,7 @@ const Mission: React.FC = () => (
             <img src="/aktivitetet_oratorit/oratori_lire.jpg" alt="Oratori i Lirë" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="absolute bottom-0 left-0 w-[65%] h-[55%] rounded-[40px] overflow-hidden shadow-2xl border-4 border-white">
-            <img src="/aktivitetet_oratorit/Animacioni Kulturor dhe Sportiv.jpg" alt="Animacioni Kulturor dhe Sportiv" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/aktivitetet_oratorit/animacioni_kulturor.jpg" alt="Animacioni Kulturor dhe Sportiv" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
       </motion.div>

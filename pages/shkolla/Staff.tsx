@@ -15,7 +15,7 @@ const koordinatorSalezian = [
     { name: "Valentina Zhivani", role: "Koordinatore \nMësuese Kujdestare 9-vjeçare", image: "/stafi/Valentina_Zhivani-9-vjecare-gjuhe-letersi-converted-from-png.webp", level: 4, row: 2 },
     { name: "Indrit Qehajaj", role: "Koordinator Shkollor \n Mësues Historie", image: "/stafi/Indrit_Qehajaj-gjimnaz-histori-converted-from-png.webp", level: 4, row: 2 },
     { name: "Diana Luli", role: "Koordinator Shkollor \n Mësuese Qytetarie", image: "/stafi/Diana_Luli-gjimnaz-qytetari-converted-from-png.webp", level: 5, row: 3 },
-    { name: "Klevis Marku", role: "Koordinator Salezian", image: "/stafi/Klevis_Marku-converted-from-png.webp", level: 5, row: 3 }
+    { name: "Klevis Marku", role: "Koordinator Salezian", image: "/stafi/Dritan_Bushi(Nen-Drejtor)-converted-from-png.webp", level: 5, row: 3 }
 ];
 
 const psikoSocial = [

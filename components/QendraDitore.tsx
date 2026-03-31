@@ -135,19 +135,19 @@ const Mission: React.FC = () => (
         {/* Mobile: overlapping stack */}
         <div className="relative h-[320px] lg:hidden mx-4">
           <div className="absolute top-0 right-0 w-[75%] h-[65%] rounded-[24px] overflow-hidden shadow-2xl">
-            <img src="/qendra_ditore/qendra ditore foto (2).jpg" alt="Aktivitete" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/qendra_ditore/qendra_ditore_2.jpg" alt="Aktivitete" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="absolute bottom-0 left-0 w-[65%] h-[60%] rounded-[24px] overflow-hidden shadow-2xl border-4 border-white">
-            <img src="/qendra_ditore/qendra ditore foto (3).jpg" alt="Fëmijë" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/qendra_ditore/qendra_ditore_3.jpg" alt="Fëmijë" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
         {/* Desktop: overlapping stack */}
         <div className="hidden lg:block relative h-[520px]">
           <div className="absolute top-0 right-0 w-[75%] h-[65%] rounded-[40px] overflow-hidden shadow-2xl">
-            <img src="/qendra_ditore/qendra ditore foto (2).jpg" alt="Aktivitete" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/qendra_ditore/qendra_ditore_2.jpg" alt="Aktivitete" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="absolute bottom-0 left-0 w-[65%] h-[55%] rounded-[40px] overflow-hidden shadow-2xl border-4 border-white">
-            <img src="/qendra_ditore/qendra ditore foto (3).jpg" alt="Fëmijë" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/qendra_ditore/qendra_ditore_3.jpg" alt="Fëmijë" className="w-full h-full object-cover" loading="lazy" />
           </div>
           {/* Floating badge */}
           <div className="absolute top-[55%] right-[5%] bg-primary-red text-white rounded-2xl p-4 shadow-xl text-center min-w-[110px]">
