@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useParams, Navigate, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Download } from 'lucide-react';
 
@@ -264,9 +264,20 @@ const fadeUp = (delay = 0) => ({
 
 // ─── HERO ─────────────────────────────────────────────────────────────────────
 
+const draw = (delay: number, duration = 2.2): Variants => ({
+  hidden: { pathLength: 0, opacity: 0 },
+  visible: {
+    pathLength: 1,
+    opacity: 1,
+    transition: { delay, duration, ease: 'easeInOut' as const },
+  },
+});
+
 const Hero: React.FC<{ config: typeof LEVEL_CONFIG[string] }> = ({ config }) => (
   <section className="relative w-full min-h-[60vh] lg:min-h-[55vh] bg-primary-red overflow-hidden flex items-center pt-28 lg:pt-0">
-    <div className="flex-1 flex flex-col justify-center px-6 lg:px-16 container mx-auto relative z-10">
+
+    {/* Left — text */}
+    <div className="flex-1 flex flex-col justify-center px-6 lg:px-16 container mx-auto relative z-10 lg:w-1/2">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-3xl">
         <span className="inline-block py-1.5 px-4 mb-4 lg:mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white font-semibold uppercase tracking-widest text-[10px] sm:text-xs">
           {config.badge}
@@ -283,6 +294,80 @@ const Hero: React.FC<{ config: typeof LEVEL_CONFIG[string] }> = ({ config }) => 
         </p>
       </motion.div>
     </div>
+
+    {/* Right — animated SVG silhouette (same on all 4 pages) */}
+    <div className="relative w-full h-[38vh] min-h-[240px] lg:absolute lg:right-0 lg:top-0 lg:w-1/2 lg:h-full flex items-center justify-center p-6 lg:p-16 pointer-events-none z-0 mt-auto lg:mt-0">
+      <svg viewBox="0 0 120 110" fill="none" className="w-full h-full max-h-[260px] lg:max-h-[58vh] max-w-[85%] lg:max-w-full text-white opacity-30 lg:opacity-20">
+
+        {/* ── Open book ── */}
+        <motion.path d="M20 30 L20 80 Q60 72 60 72 Q100 72 100 80 L100 30 Q60 22 60 22 Q20 22 20 30 Z"
+          stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"
+          variants={draw(0)} initial="hidden" animate="visible" />
+        {/* spine */}
+        <motion.line x1="60" y1="22" x2="60" y2="80"
+          stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"
+          variants={draw(0.3)} initial="hidden" animate="visible" />
+        {/* left page lines */}
+        <motion.line x1="26" y1="38" x2="56" y2="34" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" variants={draw(0.5)} initial="hidden" animate="visible" />
+        <motion.line x1="26" y1="46" x2="56" y2="42" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" variants={draw(0.6)} initial="hidden" animate="visible" />
+        <motion.line x1="26" y1="54" x2="56" y2="50" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" variants={draw(0.7)} initial="hidden" animate="visible" />
+        <motion.line x1="26" y1="62" x2="48" y2="59" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" variants={draw(0.75)} initial="hidden" animate="visible" />
+        {/* right page lines */}
+        <motion.line x1="64" y1="34" x2="94" y2="38" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" variants={draw(0.55)} initial="hidden" animate="visible" />
+        <motion.line x1="64" y1="42" x2="94" y2="46" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" variants={draw(0.65)} initial="hidden" animate="visible" />
+        <motion.line x1="64" y1="50" x2="94" y2="54" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" variants={draw(0.72)} initial="hidden" animate="visible" />
+        <motion.line x1="64" y1="58" x2="82" y2="61" stroke="currentColor" strokeWidth="0.7" strokeLinecap="round" variants={draw(0.78)} initial="hidden" animate="visible" />
+
+        {/* ── Graduation cap ── */}
+        {/* brim */}
+        <motion.path d="M60 8 L38 16 L60 24 L82 16 Z"
+          stroke="currentColor" strokeWidth="1.1" strokeLinejoin="round"
+          variants={draw(0.9)} initial="hidden" animate="visible" />
+        {/* top board */}
+        <motion.line x1="60" y1="8" x2="60" y2="4"
+          stroke="currentColor" strokeWidth="1" strokeLinecap="round"
+          variants={draw(1.1)} initial="hidden" animate="visible" />
+        <motion.circle cx="60" cy="3.5" r="1.5"
+          stroke="currentColor" strokeWidth="0.8"
+          variants={draw(1.2)} initial="hidden" animate="visible" />
+        {/* tassel string */}
+        <motion.path d="M82 16 L82 24 Q82 28 78 28"
+          stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"
+          variants={draw(1.15)} initial="hidden" animate="visible" />
+        <motion.circle cx="77" cy="28" r="1.5"
+          stroke="currentColor" strokeWidth="0.8"
+          variants={draw(1.3)} initial="hidden" animate="visible" />
+
+        {/* ── Pencil ── */}
+        <motion.path d="M104 20 L108 16 L112 20 L108 24 Z"
+          stroke="currentColor" strokeWidth="0.9" strokeLinejoin="round"
+          variants={draw(1.0)} initial="hidden" animate="visible" />
+        <motion.rect x="100" y="24" width="16" height="5" rx="0.5"
+          stroke="currentColor" strokeWidth="0.8"
+          variants={draw(1.05)} initial="hidden" animate="visible" />
+        <motion.line x1="108" y1="29" x2="108" y2="50"
+          stroke="currentColor" strokeWidth="1" strokeLinecap="round"
+          variants={draw(1.1)} initial="hidden" animate="visible" />
+        <motion.path d="M104 50 L108 56 L112 50 Z"
+          stroke="currentColor" strokeWidth="0.8" strokeLinejoin="round"
+          variants={draw(1.2)} initial="hidden" animate="visible" />
+
+        {/* ── Star sparkles ── */}
+        {[
+          { cx: 14, cy: 18, r: 2, d: 1.4 },
+          { cx: 108, cy: 68, r: 1.8, d: 1.6 },
+          { cx: 18, cy: 90, r: 1.5, d: 1.8 },
+          { cx: 95, cy: 90, r: 2, d: 1.5 },
+        ].map((s, i) => (
+          <motion.circle key={i} cx={s.cx} cy={s.cy} r={s.r}
+            fill="currentColor"
+            animate={{ scale: [1, 1.6, 1], opacity: [0.4, 0.9, 0.4] }}
+            transition={{ delay: s.d, duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        ))}
+      </svg>
+    </div>
+
     <div className="absolute bottom-0 left-0 w-full h-24 lg:h-32 z-20 pointer-events-none">
       <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent" />
       <div className="absolute inset-0 backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black,transparent)]" />
