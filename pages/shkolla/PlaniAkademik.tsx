@@ -1,627 +1,224 @@
 import React from 'react';
-import { motion, Variants } from 'framer-motion';
-import { useNavigate, useParams, Navigate } from 'react-router-dom';
-import { BookOpen, Users, Heart, Shield, Calendar, ArrowLeft, CheckCircle, Download, FileText, Award } from 'lucide-react';
+import { motion } from 'framer-motion';
+import StaffHero from '../../components/StaffHero';
 
-const LEVEL_CONFIG: Record<string, { label: string; backHref: string }> = {
-    fillore: { label: 'Shkolla Fillore Don Bosko', backHref: '/shkolla/fillore' },
-    '9-vjecare': { label: 'Shkolla 9-vjeçare Don Bosko', backHref: '/shkolla/9-vjecare' },
-    gjimnaz: { label: 'Gjimnaz Don Bosko (i Përgjithshëm & Profesional)', backHref: '/shkolla/mesme' },
-};
+// --- DATA SECTIONS ---
+const perfaqesuesiLigjor = [
+    { name: "Don Luigi Martucci", role: "Drejtori i Qendrës Sociale 'Don Bosko'", image: "/stafi/Don_Luiggi_Martucci(Drejtori)-converted-from-jpeg.webp", level: 1 }
+];
 
-// --- KOMPONENTI HERO I PERSONALIZUAR PËR PLANIN AKADEMIK ---
-const PlaniAkademikHero: React.FC<{ level: string; config: any }> = ({ level, config }) => {
-    const drawVariants = (delay: number): Variants => ({
-        hidden: { pathLength: 0, opacity: 0 },
-        visible: { 
-            pathLength: 1, 
-            opacity: 1,
-            transition: { delay, duration: 3, ease: "easeInOut", repeat: Infinity, repeatType: "loop", repeatDelay: 0.8 }
-        }
-    });
+const koordinatorSalezian = [
+    { name: "Dritan Bushi", role: "Koordinator Salezian", image: "/stafi/Dritan_Bushi(Nen-Drejtor)-converted-from-png.webp", level: 3, row: 1 },
+    { name: "Joana Kici", role: "Koordinatore \nMësuese Kujdestare Fillore", image: "/stafi/Joana_Kici-fillore-converted-from-png.webp", level: 4, row: 2 },
+    { name: "Aleksandra Çarka", role: "Koordinatore \nMësuese Kujdestare Fillore", image: "/stafi/Aleksandra_Carka-converted-from-png.webp", level: 4, row: 2 },
+    { name: "Brunilda Halili", role: "Koordinatore \nMësuese Kujdestare 9-vjeçare", image: "/stafi/Brunilda_Halili9-vjecare-anglisht-converted-from-png.webp", level: 4, row: 2 },
+    { name: "Valentina Zhivani", role: "Koordinatore \nMësuese Kujdestare 9-vjeçare", image: "/stafi/Valentina_Zhivani-9-vjecare-gjuhe-letersi-converted-from-png.webp", level: 4, row: 2 },
+    { name: "Indrit Qehajaj", role: "Koordinator Shkollor \n Mësues Historie", image: "/stafi/Indrit_Qehajaj-gjimnaz-histori-converted-from-png.webp", level: 4, row: 2 },
+    { name: "Diana Luli", role: "Koordinator Shkollor \n Mësuese Qytetarie", image: "/stafi/Diana_Luli-gjimnaz-qytetari-converted-from-png.webp", level: 5, row: 3 },
+    { name: "Klevis Marku", role: "Koordinator Salezian", image: "/stafi/Klevis_Marku.png", level: 5, row: 3 }
+];
 
-    const getHeroContent = () => {
-        switch(level) {
-            case 'fillore':
-                return {
-                    badge: 'Cikli Fillor',
-                    title: 'PLANI',
-                    titleHighlight: 'AKADEMIK',
-                    subtitle: 'Themelet e arsimit cilësor',
-                    description: 'Struktura e plotë e mësimit dhe vlerësimit për një formim integral sipas pedagogjisë saleziane.'
-                };
-            case '9-vjecare':
-                return {
-                    badge: 'Cikli 9-vjeçar',
-                    title: 'PLANI',
-                    titleHighlight: 'AKADEMIK',
-                    subtitle: 'Udhëzimi drejt suksesit',
-                    description: 'Programi i plotë mësimor që përgatit nxënësit për sfidat e arsimit të mesëm.'
-                };
-            case 'gjimnaz':
-                return {
-                    badge: 'Arsimi i Mesëm',
-                    title: 'PLANI',
-                    titleHighlight: 'AKADEMIK',
-                    subtitle: 'Ekselencë dhe formim profesional',
-                    description: 'Programi akademik i avancuar për formimin e të rinjve të kualifikuar dhe të përgatitur për arsimin e lartë.'
-                };
-            default:
-                return {
-                    badge: 'Arsim',
-                    title: 'PLANI',
-                    titleHighlight: 'AKADEMIK',
-                    subtitle: 'Edukim cilësor',
-                    description: 'Programi mësimor i plotë për një arsimim integral.'
-                };
-        }
-    };
+const psikoSocial = [
+    { name: "Deleda Gjonej", role: "Punonjëse Sociale", image: "/stafi/Deleda_Psikologe-converted-from-png.webp", level: 7 },
+    { name: "Rosela Mahmutaj", role: "Psikologe", image: "/stafi/Rosela_psikologe-converted-from-png.webp", level: 7 },
+    { name: "Kristian Preka", role: "Psikolog", image: "/stafi/Kristian-psikolog-converted-from-png.webp", level: 7 }
+];
 
-    const heroContent = getHeroContent();
+const personeliMesimdhenes = [
+    { name: "Amarilda Cava", role: "Mësuese Kujdestare Fillore", image: "/stafi/Amarilda_Cava-converted-from-png.webp", level: 6 },
+    { name: "Anila Maloku", role: "Mësuese Kujdestare Fillore", image: "/stafi/Anila_Maloku-converted-from-png.webp", level: 6 },
+    { name: "Brunilda Mata", role: "Mësuese Kujdestare Fillore", image: "/stafi/Brunilda_Mata-fillore-converted-from-png.webp", level: 6 },
+    { name: "Eftimi Sylari", role: "Mësuese Anglisht", image: "/stafi/Eftimi_Sylari-fillore-anglisht-converted-from-png.webp", level: 6 },
+    { name: "Elisabeta Xhanari", role: "Mësuese Kujdestare Fillore", image: "/stafi/Elisabeta_Xhanari-converted-from-png.webp", level: 6 },
+    { name: "Elizabeta Methoxha", role: "Mësuese Kujdestare Fillore", image: "/stafi/Elizabeta_Methoxha-Fillore-converted-from-png.webp", level: 6 },
+    { name: "Florida Lleshaj", role: "Mësuese Kujdestare Fillore", image: "/stafi/Florida_Lleshaj-fillore-converted-from-png.webp", level: 6 },
+    { name: "Gresa Pelinku", role: "Mësuese Kujdestare Fillore", image: "/stafi/Gresa_Pelinku-converted-from-png.webp", level: 6 },
+    { name: "Laureta Nikolli", role: "Mësuese Kujdestare Fillore", image: "/stafi/Laureta_Nikolli-Fillore-converted-from-png.webp", level: 6 },
+    { name: "Lirika Toska", role: "Mësuese Kujdestare Fillore", image: "/stafi/Lirika_Toska-converted-from-png.webp", level: 6 },
+    { name: "Liza Gegaj", role: "Mësuese Kujdestare Fillore", image: "/stafi/Liza_Gegaj-converted-from-png.webp", level: 6 },
+    { name: "Majlinda Tartari", role: "Mësuese Kujdestare Fillore", image: "/stafi/Majlinda_Tartari-converted-from-png.webp", level: 6 },
+    { name: "Megi Sinani", role: "Mësuese Kujdestare Fillore", image: "/stafi/Megi_Sinani-fillore-converted-from-png.webp", level: 6 },
+    { name: "Mimoza Molishti", role: "Mësuese Kujdestare Fillore", image: "/stafi/Mimoza_Molishti-fillore-converted-from-png.webp", level: 6 },
+    { name: "Valbona Gjergjani", role: "Mësuese Kujdestare Fillore", image: "/stafi/Valbona Gjergjani-converted-from-png.webp", level: 6 },
+    { name: "Adela Xhanari", role: "Mësuese Matematikë", image: "/stafi/Adela_Xhanari-gjimnaz-matematik-converted-from-webp.webp", level: 6 },
+    { name: "Adi Shehu", role: "Mësues Arte", image: "/stafi/Adi_Shehu-9-vjecare-Arte-converted-from-png.webp", level: 6 },
+    { name: "Aida Alimena", role: "Mësuese Kimi-Biologji", image: "/stafi/Aida_Alimena-gjimnaz-Kimi-Biologji-converted-from-png.webp", level: 6 },
+    { name: "Alma Balashi", role: "Mësuese Anglisht", image: "/stafi/Alma_BALASHI-9-vjecare-anglisht-converted-from-png.webp", level: 6 },
+    { name: "Anxhela Bollguri", role: "Mësuese Anglisht", image: "/stafi/Anxhela_Bollguri-fillore-anglisht-converted-from-jpeg.webp", level: 6 },
+    { name: "Argent Karaj", role: "Mësues Edukim Fizik", image: "/stafi/Argent_Karaj-gjimnaz-Ed.Fizik-converted-from-jpg.webp", level: 6 },
+    { name: "Arluen Bega", role: "Mësues Edukim Fizik", image: "/stafi/Arluen_Bega-9-vjecare-Ed.Fizik-converted-from-png.webp", level: 6 },
+    { name: "Edison Macaj", role: "Mësues Gjuhë-Letërsi", image: "/stafi/Edison_Macaj-9-vjecare-gjuhe-letersi-converted-from-png.webp", level: 6 },
+    { name: "Edlira Cobani", role: "Mësuese Matematikë", image: "/stafi/Edlira-Cobani-9-vjecare-gjimnaz-Matematik-converted-from-png.webp", level: 6 },
+    { name: "Elona Kalesha", role: "Mësuese TIK", image: "/stafi/Elona_Kalesha-gjimnaz-tik-converted-from-png.webp", level: 6 },
+    { name: "Enkelejda Lleshaj", role: "Mësuese Gjeografi-Qytetari", image: "/stafi/Enkelejda_LLeshaj-9-vjecare-Gjeografi-Qytetari-converted-from-png.webp", level: 6 },
+    { name: "Eri Zagani", role: "Mësues Fizikë", image: "/stafi/Eri_Zagani-gjimnaz-fizik-converted-from-png.webp", level: 6 },
+    { name: "Ermelinda Skenderaj", role: "Mësuese Matematikë", image: "/stafi/Ermelinda_Skenderaj-9-vjecare-gjimnaz-matematik-converted-from-png.webp", level: 6 },
+    { name: "Eva Jaku", role: "Mësuese Fizikë", image: "/stafi/Eva_Jaku-9-vjecare-fizik-converted-from-png.webp", level: 6 },
+    { name: "Evis Myftaraj", role: "Mësuese Italisht", image: "/stafi/Evis_Myftaraj-9-vjecare-gjimnaz-italisht-converted-from-webp.webp", level: 6 },
+    { name: "Flori Shtjefni", role: "Mësues Muzik", image: "/stafi/Flori_Shtjefni-9vjecare-Muzik-converted-from-png.webp", level: 6 },
+    { name: "Ini Hoxha", role: "Mësuese Edukim Fizik", image: "/stafi/Ini_Hoxha-gjimnaz-Ed.Fizik-converted-from-png.webp", level: 6 },
+    { name: "Jesmina Meti", role: "Mësuese Kimi-Biologji", image: "/stafi/Jesmina_Meti-9-vjecare-gjimnaz-kimi-bilogji-converted-from-png.webp", level: 6 },
+    { name: "Jorgjie Dodani", role: "Mësuese Kimi-Biologji", image: "/stafi/Jorgjie_Dodani-9-vjecare-gjimnaz-Kimi-Biologji-converted-from-png.webp", level: 6 },
+    { name: "Juna Mema", role: "Mësuese Edukim Fizik", image: "/stafi/Juna_Mema-9-vjecare-Ed.Fizik-converted-from-png.webp", level: 6 },
+    { name: "Klodiana Shehu", role: "Mësuese Italisht", image: "/stafi/Klodiana_Shehu-9-vjecare-italisht-converted-from-png.webp", level: 6 },
+    { name: "Kristjana Hajdaraj", role: "Mësuese Gjuhë-Letërsi", image: "/stafi/Kristjana_Hajdaraj-gjimnaz-gjuhe-letersi-converted-from-png.webp", level: 6 },
+    { name: "Lefterie Xhelollari", role: "Mësues Italisht", image: "/stafi/Lefterie_Xhelollari-9-vjecari-italisht-converted-from-png.webp", level: 6 },
+    { name: "Neritana Kraja", role: "Mësuese Gjuhë-Letërsi", image: "/stafi/Neritana_Kraja-Gjimnaz-Gjuhe-Letersi-converted-from-jpeg.webp", level: 6 },
+    { name: "Reonard Shimi", role: "Mësues Histori-Gjeografi", image: "/stafi/Reonard_Shimi-gjimnaz-histori-gjeografi-converted-from-png.webp", level: 6 },
+    { name: "Rigels Cullhaj", role: "Mësues Edukim Fizik", image: "/stafi/Rigels_Cullhaj9-vjecare-gjimnaz-Ed.Fizik-converted-from-png.webp", level: 6 },
+    { name: "Rregjina Paluca", role: "Mësuese Gjuhë-Letërsi", image: "/stafi/Rregjina_Paluca-9-vjecare-gjimnaz-gjuhe-letersi-converted-from-jpeg.webp", level: 6 },
+    { name: "Rozeta Kallembi", role: "Mësuese Ekonomi", image: "/stafi/Rozeta_Kallembi-gjimnaz-ekonimi-converted-from-jpeg.webp", level: 6 },
+    { name: "Sixhej Cukaj", role: "Mësues Edukim Fizik", image: "/stafi/Sixhej_Cukaj-9-vjecare-Ed.Fizik-converted-from-png.webp", level: 6 },
+    { name: "Viola Mendoja", role: "Mësuese Anglisht", image: "/stafi/Viola_Mendoja-gjimnaz-anglisht-converted-from-png.webp", level: 6 },
+    { name: "Zamir Vukzaj", role: "Mësues Muzik", image: "/stafi/Zamir_Vukzaj-9-vjecare-muzik-converted-from-png.webp", level: 6 },
+    { name: "Zana Simoni", role: "Mësuese TIK", image: "/stafi/Zana_Simoni-9vjecare-tik-converted-from-png.webp", level: 6 },
+    { name: "Daniela Bali", role: "Mësuese E Lëndëve Profesionale", image: "/stafi/Daniela_Bali-converted-from-png.webp", level: 6 },
+    { name: "Fatos Gjoka", role: "Mësues I Lëndëve Profesionale", image: "/stafi/Fatos_Gjoka-converted-from-png.webp", level: 6 },
+    { name: "Julian Priska", role: "Mësues I Lëndëve Profesionale", image: "/stafi/Julian_Priska-converted-from-jpg.webp", level: 6 },
+    { name: "Suada Heta", role: "Mësuese Kërcim", image: "/stafi/Suada_Heta-kercim-converted-from-png.webp", level: 6 }
+];
 
-    return (
-        <section className="relative w-full min-h-[100svh] lg:min-h-[85vh] bg-primary-red overflow-hidden flex flex-col lg:flex-row pt-28 lg:pt-0">
-            
-            {/* 1. TEKSTI */}
-            <div className="flex-1 flex flex-col justify-center px-6 lg:px-16 container mx-auto relative z-10 lg:w-1/2">
-                <div className="max-w-2xl text-left">
-                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                        
-                        <span className="inline-block py-1.5 px-4 mb-4 lg:mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white font-semibold uppercase tracking-widest text-[10px] sm:text-xs">
-                            {heroContent.badge}
-                        </span>
-                        
-                        <h1 className="text-[2.75rem] leading-[1.05] sm:text-6xl lg:text-7xl font-extrabold text-white font-plus-jakarta tracking-tight mb-4 lg:mb-6">
-                            {heroContent.title} <br /> 
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/70">{heroContent.titleHighlight}</span>
-                        </h1>
-                        
-                        <p className="text-lg lg:text-2xl text-white/95 max-w-xl font-medium leading-snug lg:leading-relaxed mb-3 lg:mb-4">
-                            {heroContent.subtitle}
-                        </p>
-                        
-                        <p className="text-sm sm:text-base lg:text-lg text-white/80 max-w-lg font-normal leading-relaxed">
-                            {heroContent.description}
-                        </p>
-                        
-                    </motion.div>
+const departments = [
+    { id: 'leadership', name: 'Përfaqësuesi Ligjor', staff: perfaqesuesiLigjor },
+    { id: 'koordinator', name: 'Koordinatorët Salezian', staff: koordinatorSalezian },
+    { id: 'mesimdhenes', name: 'Personeli Mesimdhenës', staff: personeliMesimdhenes },
+    { id: 'psiko-social', name: 'Stafi Psiko-Social', staff: psikoSocial }
+];
+
+type StaffMember = { name: string; role: string; image: string; level: number; row?: number };
+
+const StaffCard: React.FC<{ member: StaffMember; index: number; getCardSize: (l:number)=>string; getImageSize: (l:number)=>string; getTextSize: (l:number)=>string }> = ({ member, index, getCardSize, getImageSize, getTextSize }) => (
+    <motion.div
+        key={member.name}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.4) }}
+        className={`bg-white rounded-[2rem] shadow-xl shadow-gray-200/50 border border-gray-100 flex flex-col items-center text-center group hover:scale-105 transition-transform duration-300 ${getCardSize(member.level)}`}
+    >
+        <div className="relative flex-shrink-0 mb-6">
+            <div className={`${getImageSize(member.level)} rounded-full border-4 border-dashed border-gray-300 group-hover:border-solid group-hover:border-[#9c252d] p-3 relative transition-all duration-300`}>
+                <div className="w-full h-full rounded-full overflow-hidden shadow-inner bg-gray-100 flex items-center justify-center">
+                    <img
+                        src={member.image}
+                        alt={member.name}
+                        loading="lazy"
+                        width={160}
+                        height={160}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        onError={(e) => {
+                            const target = e.currentTarget;
+                            target.style.display = 'none';
+                            const fallback = target.nextElementSibling as HTMLElement;
+                            if (fallback) fallback.style.display = 'flex';
+                        }}
+                    />
+                    <span
+                        style={{ display: 'none' }}
+                        className="w-full h-full items-center justify-center text-2xl font-black text-gray-400 uppercase"
+                    >
+                        {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                    </span>
                 </div>
             </div>
-
-            {/* 2. SILUETA E ANIMUAR */}
-            <div className="relative w-full h-[38vh] min-h-[250px] lg:absolute lg:right-0 lg:top-0 lg:w-1/2 lg:h-full flex items-center justify-center p-6 lg:p-16 pointer-events-none z-0 mt-auto lg:mt-0">
-                <svg viewBox="0 0 24 24" fill="none" className="w-full h-full max-h-[260px] lg:max-h-[60vh] max-w-[85%] lg:max-w-full text-white opacity-[0.35] lg:opacity-[0.18]" xmlns="http://www.w3.org/2000/svg">
-                    {/* Dokumenti/File */}
-                    <motion.path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" strokeWidth="0.4" strokeLinecap="round" strokeLinejoin="round" variants={drawVariants(0)} initial="hidden" animate="visible" fill="white/5" />
-                    <motion.path d="M14 2v6h6" stroke="currentColor" strokeWidth="0.4" strokeLinecap="round" strokeLinejoin="round" variants={drawVariants(0.3)} initial="hidden" animate="visible" />
-                    
-                    {/* Vija e tekstit në dokument */}
-                    <motion.path d="M8 13h8" stroke="currentColor" strokeWidth="0.3" strokeLinecap="round" variants={drawVariants(0.6)} initial="hidden" animate="visible" />
-                    <motion.path d="M8 16h6" stroke="currentColor" strokeWidth="0.3" strokeLinecap="round" variants={drawVariants(0.9)} initial="hidden" animate="visible" />
-                    <motion.path d="M8 19h4" stroke="currentColor" strokeWidth="0.3" strokeLinecap="round" variants={drawVariants(1.2)} initial="hidden" animate="visible" />
-                    
-                    {/* Vija të shkurtra për detaje */}
-                    <motion.path d="M8 10h3" stroke="currentColor" strokeWidth="0.2" strokeLinecap="round" variants={drawVariants(1.5)} initial="hidden" animate="visible" />
-                    
-                    {/* Ikona e planit akademik */}
-                    <motion.circle cx="16" cy="10" r="2" stroke="currentColor" strokeWidth="0.25" strokeLinecap="round" strokeLinejoin="round" variants={drawVariants(1.8)} initial="hidden" animate="visible" />
-                    <motion.path d="M15 10l0.5 0.5L17 9" stroke="currentColor" strokeWidth="0.2" strokeLinecap="round" strokeLinejoin="round" variants={drawVariants(2.1)} initial="hidden" animate="visible" />
-                    
-                    {/* Yjet dekorative */}
-                    <motion.path d="M3 3L3.3 4M4.3 4.5L3 4.5M1.7 4.5L3 4.5M3 6L3.3 4.5" stroke="currentColor" strokeWidth="0.15" strokeLinecap="round" variants={drawVariants(2.4)} initial="hidden" animate="visible" />
-                    <motion.path d="M20 18L20.3 19M21.3 19.5L20 19.5M18.7 19.5L20 19.5M20 21L20.3 19.5" stroke="currentColor" strokeWidth="0.15" strokeLinecap="round" variants={drawVariants(2.7)} initial="hidden" animate="visible" />
-                </svg>
+        </div>
+        <div className="flex-grow space-y-3 w-full px-4">
+            <h3 className={`font-black text-gray-900 tracking-tight leading-tight ${getTextSize(member.level)}`}>
+                {member.name}
+            </h3>
+            <div className="inline-flex items-center justify-center px-3 py-1 bg-gray-100 rounded-full">
+                <p className="text-[#9c252d] font-semibold text-xs uppercase tracking-wider leading-tight whitespace-pre-line">
+                    {member.role}
+                </p>
             </div>
+        </div>
+    </motion.div>
+);
 
-            <div className="absolute bottom-0 left-0 w-full h-24 lg:h-32 z-20 pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent"></div>
-                <div className="absolute inset-0 backdrop-blur-[2px] [mask-image:linear-gradient(to_top,black,transparent)]"></div>
-            </div>
-        </section>
-    );
-};
+const Staff: React.FC = () => {
+    // --- HELPERS ---
+    const getCardSize = (l: number) => {
+        const sizes: Record<number, string> = { 1: 'p-20', 2: 'p-18', 3: 'p-16', 4: 'p-14', 5: 'p-12', 6: 'p-10' };
+        return sizes[l] || 'p-12';
+    };
 
-const PlaniAkademik: React.FC = () => {
-    const { level } = useParams<{ level: string }>();
-    const navigate = useNavigate();
-    const config = level ? LEVEL_CONFIG[level] : null;
-    const isGjimnaz = level === 'gjimnaz';
+    const getImageSize = (l: number) => {
+        const sizes: Record<number, string> = { 1: 'w-56 h-56', 2: 'w-52 h-52', 3: 'w-48 h-48', 4: 'w-44 h-44', 5: 'w-40 h-40', 6: 'w-36 h-36' };
+        return sizes[l] || 'w-40 h-40';
+    };
 
-    if (!level || !config) {
-        return <Navigate to="/shkolla/plani-akademik/9-vjecare" replace />;
-    }
+    const getTextSize = (l: number) => {
+        const sizes: Record<number, string> = { 1: 'text-4xl', 2: 'text-3xl', 3: 'text-2xl', 4: 'text-xl', 5: 'text-lg', 6: 'text-base' };
+        return sizes[l] || 'text-xl';
+    };
 
     return (
-        <div className="flex flex-col">
-            <PlaniAkademikHero level={level} config={config} />
+        <div className="bg-white min-h-screen font-plus-jakarta overflow-x-hidden">
+            {/* HERO SECTION */}
+            <div className="relative">
+                <StaffHero />
+                <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white to-transparent z-10" />
+            </div>
 
-            {/* Main Content */}
-            <section className="py-12 md:py-24 px-4 md:px-6 lg:px-12 max-w-7xl mx-auto">
-                <div className="space-y-12">
-                    {/* Section 1: Prezantimi dhe Identiteti */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="bg-white p-6 md:p-8 lg:p-12 rounded-[30px] md:rounded-[40px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-gray-100 hover:shadow-[0_30px_80px_rgba(0,0,0,0.12)] transition-all duration-300"
-                    >
-                        <div className="flex items-center gap-3 md:gap-4 mb-8 md:mb-10 flex-wrap sm:flex-nowrap">
-                            <div className="p-4 md:p-5 bg-gradient-to-br from-[#9c252d]/10 to-[#9c252d]/5 rounded-2xl md:rounded-3xl flex-shrink-0 border border-[#9c252d]/20">
-                                <BookOpen size={28} className="md:w-10 md:h-10 text-[#9c252d]" />
-                            </div>
-                            <div className="min-w-0 flex-1">
-                                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#1A1A1A] uppercase tracking-tight font-plus-jakarta leading-tight">
-                                    Prezantimi dhe <span className="text-[#9c252d]">Identiteti</span>
-                                </h3>
-                                <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-[#9c252d] to-[#9c252d]/50 rounded-full mt-2"></div>
-                            </div>
-                        </div>
+            <section className="px-6 md:px-12 max-w-7xl mx-auto py-20 relative z-20">
+                <div className="space-y-20">
+                    {departments.map((dept) => (
+                        <div key={dept.id} className="space-y-12">
+                            <motion.div 
+                                initial={{ opacity: 0 }} 
+                                whileInView={{ opacity: 1 }} 
+                                viewport={{ once: true }}
+                                className="text-center space-y-4"
+                            >
+                                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 uppercase tracking-wider">
+                                    {dept.name}
+                                </h2>
+                                <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent" />
+                            </motion.div>
 
-                        <div className="grid gap-6 md:gap-8">
-                            {isGjimnaz ? (
-                                <>
-                                    <motion.div 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.1 }}
-                                        className="bg-gradient-to-r from-gray-50 to-white p-6 rounded-2xl border border-gray-100 hover:border-[#9c252d]/20 transition-colors"
-                                    >
-                                        <h4 className="text-xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                                            <div className="w-2 h-2 bg-[#9c252d] rounded-full"></div>
-                                            Misioni dhe Identiteti
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                            Shkolla bazohet në pedagogjinë saleziane dhe Sistemin Parandalues të Shën Gjon Boskos,
-                                            i cili mbështetet në arsye, fe dhe dashamirësi. Qëllimi është përgatitja e të rinjve
-                                            si profesionistë të ndjeshëm ndaj vlerave njerëzore, duke ofruar jo vetëm arsim,
-                                            por edukim dhe humanizëm integral.
-                                        </p>
-                                    </motion.div>
-                                    <motion.div 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.2 }}
-                                        className="bg-gradient-to-r from-gray-50 to-white p-6 rounded-2xl border border-gray-100 hover:border-[#9c252d]/20 transition-colors"
-                                    >
-                                        <h4 className="text-xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                                            <div className="w-2 h-2 bg-[#9c252d] rounded-full"></div>
-                                            Mjedisi Shkollor
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                            Mjedisi shkollor është një bashkësi ku nxënësit dhe mësuesit punojnë në harmoni,
-                                            me respekt të plotë për dinjitetin dhe lirinë e shprehjes, në frymën e komunitetit
-                                            salezian.
-                                        </p>
-                                    </motion.div>
-                                </>
+                            {dept.id === 'koordinator' ? (
+                                // Row-based layout for Koordinatorët Salezian
+                                <div className="flex flex-col items-center gap-8">
+                                    {[1, 2, 3].map(rowNum => {
+                                        const rowMembers = dept.staff.filter(m => (m as StaffMember).row === rowNum);
+                                        if (!rowMembers.length) return null;
+                                        return (
+                                            <div key={rowNum} className="flex flex-wrap justify-center gap-8">
+                                                {rowMembers.map((member, index) => (
+                                                    <StaffCard
+                                                        key={member.name}
+                                                        member={member}
+                                                        index={index}
+                                                        getCardSize={getCardSize}
+                                                        getImageSize={getImageSize}
+                                                        getTextSize={getTextSize}
+                                                    />
+                                                ))}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             ) : (
-                                <>
-                                    <motion.div 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.1 }}
-                                        className="bg-gradient-to-r from-gray-50 to-white p-6 rounded-2xl border border-gray-100 hover:border-[#9c252d]/20 transition-colors"
-                                    >
-                                        <h4 className="text-xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                                            <div className="w-2 h-2 bg-[#9c252d] rounded-full"></div>
-                                            Identiteti dhe Misioni
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                            Shkolla konsiderohet si një \"shtëpi që të mikpret\" dhe një mjedis që përgatit
-                                            nxënësin për jetën në dimensionet njerëzore dhe shpirtërore.
-                                        </p>
-                                    </motion.div>
-                                    <motion.div 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.2 }}
-                                        className="bg-gradient-to-r from-gray-50 to-white p-6 rounded-2xl border border-gray-100 hover:border-[#9c252d]/20 transition-colors"
-                                    >
-                                        <h4 className="text-xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                                            <div className="w-2 h-2 bg-[#9c252d] rounded-full"></div>
-                                            Pedagogjia Saleziane
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                            Edukimi bazohet në pedagogjinë saleziane të Don Boskos, ku të gjithë punojnë në harmoni,
-                                            barazi dhe në respekt të plotë për dinjitetin njerëzor.
-                                        </p>
-                                    </motion.div>
-                                    <motion.div 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.3 }}
-                                        className="bg-gradient-to-r from-gray-50 to-white p-6 rounded-2xl border border-gray-100 hover:border-[#9c252d]/20 transition-colors"
-                                    >
-                                        <h4 className="text-xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                                            <div className="w-2 h-2 bg-[#9c252d] rounded-full"></div>
-                                            Bashkëjetesa
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                            Jeta shkollore frymëzohet nga normat e bashkëjetesës demokratike dhe nga
-                                            bashkëpërgjegjësia midis mësuesve, nxënësve dhe prindërve.
-                                        </p>
-                                    </motion.div>
-                                </>
+                                // Flat layout for all other departments
+                                <div className="flex flex-wrap justify-center gap-8">
+                                    {dept.staff.map((member, index) => (
+                                        <StaffCard
+                                            key={member.name}
+                                            member={member}
+                                            index={index}
+                                            getCardSize={getCardSize}
+                                            getImageSize={getImageSize}
+                                            getTextSize={getTextSize}
+                                        />
+                                    ))}
+                                </div>
                             )}
                         </div>
-                    </motion.div>
-
-                    {/* Section 2: Informacion për Nxënësit dhe Prindërit */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="bg-white p-6 md:p-8 lg:p-12 rounded-[30px] md:rounded-[40px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-gray-100 hover:shadow-[0_30px_80px_rgba(0,0,0,0.12)] transition-all duration-300"
-                    >
-                        <div className="flex items-center gap-3 md:gap-4 mb-8 md:mb-10 flex-wrap sm:flex-nowrap">
-                            <div className="p-4 md:p-5 bg-gradient-to-br from-[#9c252d]/10 to-[#9c252d]/5 rounded-2xl md:rounded-3xl flex-shrink-0 border border-[#9c252d]/20">
-                                <Users size={28} className="md:w-10 md:h-10 text-[#9c252d]" />
-                            </div>
-                            <div className="min-w-0 flex-1">
-                                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#1A1A1A] uppercase tracking-tight font-plus-jakarta leading-tight">
-                                    Informacion për <span className="text-[#9c252d]">Nxënësit</span>
-                                </h3>
-                                <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-[#9c252d] to-[#9c252d]/50 rounded-full mt-2"></div>
-                            </div>
-                        </div>
-
-                        <div className="grid gap-6 md:gap-8">
-                            {isGjimnaz ? (
-                                <>
-                                    <motion.div 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.1 }}
-                                        className="bg-gradient-to-r from-blue-50 to-white p-6 rounded-2xl border border-blue-100 hover:border-[#9c252d]/30 transition-colors"
-                                    >
-                                        <h4 className="text-lg md:text-xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                                            <div className="p-2 bg-blue-100 rounded-lg">
-                                                <CheckCircle className="text-blue-600" size={18} />
-                                            </div>
-                                            Të Drejtat dhe Detyrat e Nxënësve
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                            Nxënësit kanë të drejtë të trajtohen me respekt, pa diskriminim apo dhunë,
-                                            të njihen me rregullat dhe të marrin shërbim arsimor cilësor. Rezultatet e
-                                            testeve duhet të komunikohen brenda 15 ditëve dhe nuk lejohen më shumë se
-                                            dy teste me shkrim në të njëjtën ditë. Detyrat përfshijnë frekuentimin e
-                                            rregullt, kryerjen e detyrave, respektimin e personelit dhe bashkëmoshatarëve,
-                                            si dhe kujdesin për mjediset e shkollës.
-                                        </p>
-                                    </motion.div>
-
-                                    <motion.div 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.2 }}
-                                        className="bg-gradient-to-r from-green-50 to-white p-6 rounded-2xl border border-green-100 hover:border-[#9c252d]/30 transition-colors"
-                                    >
-                                        <h4 className="text-lg md:text-xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                                            <div className="p-2 bg-green-100 rounded-lg">
-                                                <CheckCircle className="text-green-600" size={18} />
-                                            </div>
-                                            Oraret, Vonesat dhe Mungesat
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                            Mësimi zakonisht fillon në orën 08:00 dhe përfundon në 13:10 (disa klasa
-                                            deri në 13:55). Vonesat janë subjekt i kontrolleve të rregullta nga koordinatori
-                                            salezian për të shmangur abuzimet. Mësuesi kujdestar njofton menjëherë prindërit
-                                            kur mungesat janë të shumta ose i afrohen pragut maksimal të lejuar.
-                                        </p>
-                                    </motion.div>
-                                </>
-                            ) : (
-                                <>
-                                    <motion.div 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.1 }}
-                                        className="bg-gradient-to-r from-blue-50 to-white p-6 rounded-2xl border border-blue-100 hover:border-[#9c252d]/30 transition-colors"
-                                    >
-                                        <h4 className="text-lg md:text-xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                                            <div className="p-2 bg-blue-100 rounded-lg">
-                                                <CheckCircle className="text-blue-600" size={18} />
-                                            </div>
-                                            Të Drejtat e Nxënësve
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                            Nxënësit kanë të drejtë për arsimim cilësor dhe informim të qartë mbi rregullat
-                                            e shkollës, vlerësim objektiv dhe transparent, ku rezultatet e testeve komunikohen
-                                            brenda 15 ditëve, si edhe mbrojtje të privatësisë dhe respektim të prejardhjes
-                                            kulturore apo fetare.
-                                        </p>
-                                    </motion.div>
-
-                                    <motion.div 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.2 }}
-                                        className="bg-gradient-to-r from-purple-50 to-white p-6 rounded-2xl border border-purple-100 hover:border-[#9c252d]/30 transition-colors"
-                                    >
-                                        <h4 className="text-lg md:text-xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                                            <div className="p-2 bg-purple-100 rounded-lg">
-                                                <CheckCircle className="text-purple-600" size={18} />
-                                            </div>
-                                            Detyrat e Nxënësve
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                            Detyrat kryesore përfshijnë frekuentimin e rregullt të mësimit, kryerjen e
-                                            detyrave të përditshme, respektimin e orareve të hyrjes dhe daljes, paraqitjen
-                                            me uniformë të plotë dhe kujdesin për mjetet e tyre shkollore.
-                                        </p>
-                                    </motion.div>
-
-                                    <motion.div 
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: 0.3 }}
-                                        className="bg-gradient-to-r from-orange-50 to-white p-6 rounded-2xl border border-orange-100 hover:border-[#9c252d]/30 transition-colors"
-                                    >
-                                        <h4 className="text-lg md:text-xl font-bold text-[#0f172a] mb-4 flex items-center gap-3">
-                                            <div className="p-2 bg-orange-100 rounded-lg">
-                                                <CheckCircle className="text-orange-600" size={18} />
-                                            </div>
-                                            Vonesat dhe Mungesat
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                            Hyrja në shkollë është në 07:55 dhe mësimi fillon në 08:00. Nga 08:00 deri
-                                            në 08:10 hyrja bëhet me fletë jeshile pas \"Mirëmëngjesit\"; pas 08:10 hyrja
-                                            lejohet vetëm në orën e dytë me fletë portokalli dhe njoftim të familjes.
-                                            Pas pushimit të orës 11:00, vonesat mbi 5 minuta kërkojnë fletë blu nga sekretaria.
-                                            Gjashtë vonesa në orën e dytë llogariten si një ditë mungesë pa arsye dhe
-                                            dalja e parakohshme lejohet vetëm në praninë e prindit me fletë të verdhë.
-                                        </p>
-                                    </motion.div>
-                                </>
-                            )}
-                        </div>
-                    </motion.div>
-
-                    {/* Section 3: Shërbimet dhe Inovacioni */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="bg-white p-6 md:p-8 lg:p-12 rounded-[30px] md:rounded-[40px] shadow-[0_20px_60px_rgba(0,0,0,0.04)] border border-gray-100"
-                    >
-                        <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 flex-wrap sm:flex-nowrap">
-                            <div className="p-3 md:p-4 bg-[#9c252d]/5 rounded-xl md:rounded-2xl flex-shrink-0">
-                                <Shield size={24} className="md:w-8 md:h-8 text-[#9c252d]" />
-                            </div>
-                            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#1A1A1A] uppercase tracking-tight font-plus-jakarta leading-tight min-w-0 break-words">
-                                Shërbimet dhe <span className="text-[#9c252d]">Inovacioni</span>
-                            </h3>
-                        </div>
-
-                        <div className="space-y-8">
-                            {isGjimnaz ? (
-                                <>
-                                    <div className="space-y-4">
-                                        <h4 className="text-base md:text-xl font-bold text-[#0f172a] flex items-center gap-2">
-                                            <CheckCircle className="text-[#9c252d]" size={20} />
-                                            Mbështetja dhe Rikuperimi
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Shkolla ofron rikuperim përmes programeve si DBCOLLEGE, me kurse
-                                            përmirësuese jashtë orarit të mësimit për nxënësit me mangësi. Frekuentimi
-                                            është i detyrueshëm, përveç rasteve kur familja kërkon zyrtarisht lirim me
-                                            shkrim. Psikologu i shkollës ndihmon në hartimin e planeve individuale (PEI)
-                                            për nxënësit me vështirësi në të nxënë.
-                                        </p>
-                                    </div>
-                                    <div className="space-y-4">
-                                        <h4 className="text-base md:text-xl font-bold text-[#0f172a] flex items-center gap-2">
-                                            <CheckCircle className="text-[#9c252d]" size={20} />
-                                            Teknologjia dhe Inovacioni
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Përdoren tabela interaktive (LIM), laboratorë kompjuterikë dhe ofrohet
-                                            drejtimi profesional \"Teknologji Informacioni dhe Komunikimi\" (Programim),
-                                            duke i pajisur të rinjtë me aftësi bashkëkohore teknologjike.
-                                        </p>
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    <div className="space-y-4">
-                                        <h4 className="text-base md:text-xl font-bold text-[#0f172a] flex items-center gap-2">
-                                            <CheckCircle className="text-[#9c252d]" size={20} />
-                                            Uniforma dhe Paraqitja
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Uniforma përbëhet nga bluza me mëngë të shkurtra ose të gjata, e cila duhet
-                                            të vishet gjithmonë, dhe një hoodie (felpë) ose xhup i lehtë sipas stinës.
-                                            Nuk lejohen xhinse të grisura, pantallona apo funde mbi gju, strece, minifunde,
-                                            dekolte apo veshje me mesazhe çedukuese. Për Edukimin Fizik kërkohet veshje
-                                            e veçantë sportive dhe nuk lejohet aktiviteti fizik me uniformën zyrtare.
-                                            Është i ndaluar make-up-i, qerpikët fallso, thonjtë e gjatë me ngjyra të forta,
-                                            tatuazhet e dukshme dhe flokët me ngjyra të spikatura.
-                                        </p>
-                                    </div>
-
-                                    <div className="space-y-4">
-                                        <h4 className="text-base md:text-xl font-bold text-[#0f172a] flex items-center gap-2">
-                                            <CheckCircle className="text-[#9c252d]" size={20} />
-                                            Inovacioni dhe Shërbimet
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Përdoren tabela Smart Board, klasa virtuale, regjistër elektronik dhe
-                                            metodologjia \"Cooperative Learning\" (të mësuarit bashkëpunues). Shërbimi
-                                            i psikologut, planet individuale (PEI) dhe programet e rikuperimit mbështesin
-                                            çdo nxënës në rrugën e tij formuese.
-                                        </p>
-                                    </div>
-                                </>
-                            )}
-                        </div>
-                    </motion.div>
-
-                    {/* Section 4: Jeta Jashtëshkollore */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="bg-white p-6 md:p-8 lg:p-12 rounded-[30px] md:rounded-[40px] shadow-[0_20px_60px_rgba(0,0,0,0.04)] border border-gray-100"
-                    >
-                        <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 flex-wrap sm:flex-nowrap">
-                            <div className="p-3 md:p-4 bg-[#9c252d]/5 rounded-xl md:rounded-2xl flex-shrink-0">
-                                <Heart size={24} className="md:w-8 md:h-8 text-[#9c252d]" />
-                            </div>
-                            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[#1A1A1A] uppercase tracking-tight font-plus-jakarta leading-tight min-w-0 break-words">
-                                Jeta <span className="text-[#9c252d]">Jashtëshkollore</span>
-                            </h3>
-                        </div>
-
-                        <div className="space-y-8">
-                            {isGjimnaz ? (
-                                <>
-                                    <div className="space-y-4">
-                                        <h4 className="text-base md:text-xl font-bold text-[#0f172a] flex items-center gap-2">
-                                            <CheckCircle className="text-[#9c252d]" size={20} />
-                                            Disiplina dhe Masat
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Masat disiplinore kanë karakter edukativ dhe përgjegjësia është personale.
-                                            Ndalohet përdorimi i telefonave celularë dhe pajisjeve të ngjashme në mjediset
-                                            e shkollës. Shkelje të rënda si dhuna, vjedhja, droga, armët apo refuzimi i
-                                            qartë i Planit Formativ mund të çojnë në përjashtim të menjëhershëm dhe në
-                                            raportim në organet përkatëse.
-                                        </p>
-                                    </div>
-                                    <div className="space-y-4">
-                                        <h4 className="text-base md:text-xl font-bold text-[#0f172a] flex items-center gap-2">
-                                            <CheckCircle className="text-[#9c252d]" size={20} />
-                                            Aktivitetet dhe Udhëtimet
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Organizohen kampionate sportive, olimpiada dhe aktivitete trajnuese. Ekskursionet
-                                            shumëditore nuk janë një e drejtë automatike, por një shpërblim për nxënësit më
-                                            të angazhuar dhe shembullor në sjellje dhe rezultate.
-                                        </p>
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    <div className="space-y-4">
-                                        <h4 className="text-base md:text-xl font-bold text-[#0f172a] flex items-center gap-2">
-                                            <CheckCircle className="text-[#9c252d]" size={20} />
-                                            Disiplina dhe Pajisjet Elektronike
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Celularët, tabletat dhe smart‑watch-et dorëzohen në fillim të mësimit. Nëse
-                                            përdoren pa leje, sekuestrohen dhe i dorëzohen vetëm prindit, me kohëmbajtje
-                                            që rritet nga një ditë, një javë deri në një muaj në rast përsëritjeje. Ndalohet
-                                            çamçakëzi dhe konsumimi i ushqimit apo pijeve (përveç ujit) në klasë. Masat
-                                            disiplinore variojnë nga shënimi në regjistër dhe këshillimi, deri te vërejtja
-                                            me shkrim, thyerja e notës në sjellje dhe ndërprerja e kontratës në rastet e
-                                            rënda.
-                                        </p>
-                                    </div>
-                                    <div className="space-y-4">
-                                        <h4 className="text-base md:text-xl font-bold text-[#0f172a] flex items-center gap-2">
-                                            <CheckCircle className="text-[#9c252d]" size={20} />
-                                            Aktivitetet, Klubet dhe Olimpiadat
-                                        </h4>
-                                        <p className="text-gray-600 leading-relaxed">
-                                            Shkolla ofron klube të ndryshme (art, kulturë, sport), pjesëmarrje në olimpiada
-                                            dhe konkurse kombëtare, si edhe aktivitete jashtëshkollore që forcojnë karakterin
-                                            dhe bashkëpunimin mes nxënësve.
-                                        </p>
-                                    </div>
-                                </>
-                            )}
-                        </div>
-                    </motion.div>
-
-                    {/* Section 5: Dokumentacioni */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="bg-[#0f172a] p-6 md:p-8 lg:p-12 rounded-[30px] md:rounded-[40px] text-white relative overflow-hidden"
-                    >
-                        <div className="absolute top-0 right-0 w-48 h-48 bg-white/5 -mr-24 -mt-24 rounded-full blur-[80px]"></div>
-                        
-                        <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8 relative z-10">
-                            <div className="p-3 md:p-4 bg-white/10 rounded-xl md:rounded-2xl flex-shrink-0">
-                                <Calendar size={24} className="md:w-8 md:h-8 text-white" />
-                            </div>
-                            <h3 className="text-xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight font-plus-jakarta leading-tight">
-                                Dokumentacioni dhe <span className="text-[#9c252d]">Transparenca</span>
-                            </h3>
-                        </div>
-
-                        <div className="space-y-4 md:space-y-6 relative z-10">
-                            {!isGjimnaz && (
-                                <button
-                                    onClick={() => {
-                                        const link = document.createElement('a');
-                                        link.href = '/docs/PF Shkolla 9-vjecare Don Bosko 2025-2026 Shtator 2025.pdf';
-                                        link.download = 'PF Shkolla 9-vjecare Don Bosko 2025-2026 Shtator 2025.pdf';
-                                        document.body.appendChild(link);
-                                        link.click();
-                                        document.body.removeChild(link);
-                                    }}
-                                    className="flex items-start gap-3 p-3 md:p-0 rounded-lg md:rounded-none bg-white/5 md:bg-transparent hover:bg-white/10 md:hover:bg-transparent transition-colors touch-manipulation cursor-pointer"
-                                >
-                                    <span className="inline-flex h-10 w-10 md:h-8 md:w-8 flex-shrink-0 items-center justify-center rounded-full bg-white/10">
-                                        <Download size={18} className="md:w-4 md:h-4" />
-                                    </span>
-                                    <span className="text-white/90 hover:text-white text-sm md:text-base break-words leading-relaxed">
-                                        PF Shkolla 9-vjecare Don Bosko 2025-2026 Shtator 2025.pdf
-                                    </span>
-                                </button>
-                            )}
-                            {isGjimnaz && (
-                                <button
-                                    onClick={() => {
-                                        const link = document.createElement('a');
-                                        link.href = '/docs/PF Shkolla e Mesme Don Bosko 2025-2026 Shtator 2025.pdf';
-                                        link.download = 'PF Shkolla e Mesme Don Bosko 2025-2026 Shtator 2025.pdf';
-                                        document.body.appendChild(link);
-                                        link.click();
-                                        document.body.removeChild(link);
-                                    }}
-                                    className="flex items-start gap-3 p-3 md:p-0 rounded-lg md:rounded-none bg-white/5 md:bg-transparent hover:bg-white/10 md:hover:bg-transparent transition-colors touch-manipulation cursor-pointer"
-                                >
-                                    <span className="inline-flex h-10 w-10 md:h-8 md:w-8 flex-shrink-0 items-center justify-center rounded-full bg-white/10">
-                                        <Download size={18} className="md:w-4 md:h-4" />
-                                    </span>
-                                    <span className="text-white/90 hover:text-white text-sm md:text-base break-words leading-relaxed">
-                                        PF Shkolla e Mesme Don Bosko 2025-2026 Shtator 2025.pdf
-                                    </span>
-                                </button>
-                            )}
-                            <p className="text-white/90 text-sm md:text-base leading-relaxed">Plani Formativ i plotë (i depozituar në sekretari)</p>
-                            <p className="text-white/90 text-sm md:text-base leading-relaxed">Rregullorja e Brendshme</p>
-                            <p className="text-white/90 text-sm md:text-base leading-relaxed">Formularë autorizimi për udhëtime mësimore</p>
-                        </div>
-                    </motion.div>
-
-                    {/* Back Button */}
-                    <div className="flex justify-start pt-8">
-                        <button 
-                            onClick={() => navigate(-1)}
-                            className="inline-flex items-center gap-2 text-gray-400 hover:text-[#0f172a] transition-colors uppercase text-[10px] font-black tracking-widest"
-                        >
-                            <ArrowLeft size={14} />
-                            <span>MBRAPA</span>
-                        </button>
-                    </div>
+                    ))}
                 </div>
             </section>
         </div>
     );
 };
 
-export default PlaniAkademik;
+export default Staff;
