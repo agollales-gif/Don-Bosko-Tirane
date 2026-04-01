@@ -22,7 +22,7 @@ const services = [
     icon: Calendar,
     title: 'Oraret e Meshave',
     desc: 'Gjeni oraret e meshave javore dhe festive për të marrë pjesë në jetën liturgjike.',
-    href: '/famullia/ora-met',
+    href: '/famullia/oraret-meshes',
     color: 'bg-red-50 text-primary-red',
   },
 ];

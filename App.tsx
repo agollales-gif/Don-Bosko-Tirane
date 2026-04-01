@@ -72,7 +72,7 @@ const App: React.FC = () => {
             <Route path="/famullia/rektori"   element={<Rektori />} />
             <Route path="/famullia/zeri"      element={<ZeriFamullise />} />
             <Route path="/famullia/rektoret"  element={<RektoretVite />} />
-            <Route path="/famullia/ora-met"   element={<OraretMeshave />} />
+            <Route path="/famullia/oraret-meshes"   element={<OraretMeshave />} />
             <Route path="/famullia/kalendari" element={<Kalendari />} />
 
             {/* 4. KONTAKT & REGJISTRIMI */}

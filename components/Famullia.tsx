@@ -151,7 +151,7 @@ const Famullia: React.FC = () => {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                                <Link to="/famullia/ora-met" className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-[#9c252d] text-white font-bold uppercase tracking-widest text-[10px] sm:text-[11px] rounded-xl hover:bg-black transition-all duration-300 shadow-xl shadow-[#9c252d]/20 text-center">
+                                <Link to="/famullia/oraret-meshes" className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-[#9c252d] text-white font-bold uppercase tracking-widest text-[10px] sm:text-[11px] rounded-xl hover:bg-black transition-all duration-300 shadow-xl shadow-[#9c252d]/20 text-center">
                                     Oraret e Meshave
                                 </Link>
                             </div>
