@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { Link, useParams, Navigate } from 'react-router-dom';
+import { useNavigate, useParams, Navigate } from 'react-router-dom';
 import { BookOpen, Users, Heart, Shield, Calendar, ArrowLeft, CheckCircle, Download, FileText, Award } from 'lucide-react';
 
 const LEVEL_CONFIG: Record<string, { label: string; backHref: string }> = {
     fillore: { label: 'Shkolla Fillore Don Bosko', backHref: '/shkolla/fillore' },
     '9-vjecare': { label: 'Shkolla 9-vjeçare Don Bosko', backHref: '/shkolla/9-vjecare' },
-    gjimnaz: { label: 'Gjimnaz Don Bosko (i Përgjithshëm & Profesional)', backHref: '/shkolla/e-mesme' },
+    gjimnaz: { label: 'Gjimnaz Don Bosko (i Përgjithshëm & Profesional)', backHref: '/shkolla/mesme' },
 };
 
 // --- KOMPONENTI HERO I PERSONALIZUAR PËR PLANIN AKADEMIK ---
@@ -123,6 +123,7 @@ const PlaniAkademikHero: React.FC<{ level: string; config: any }> = ({ level, co
 
 const PlaniAkademik: React.FC = () => {
     const { level } = useParams<{ level: string }>();
+    const navigate = useNavigate();
     const config = level ? LEVEL_CONFIG[level] : null;
     const isGjimnaz = level === 'gjimnaz';
 
@@ -609,13 +610,13 @@ const PlaniAkademik: React.FC = () => {
 
                     {/* Back Button */}
                     <div className="flex justify-start pt-8">
-                        <Link 
-                            to={config.backHref} 
+                        <button 
+                            onClick={() => navigate(-1)}
                             className="inline-flex items-center gap-2 text-gray-400 hover:text-[#0f172a] transition-colors uppercase text-[10px] font-black tracking-widest"
                         >
                             <ArrowLeft size={14} />
                             <span>MBRAPA</span>
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </section>
