@@ -4,7 +4,7 @@ import StaffHero from '../../components/StaffHero';
 
 // --- DATA SECTIONS ---
 const perfaqesuesiLigjor = [
-    { name: "Don Luigi Martucci", role: "Drejtori i Qendrës Sociale "Don Bosko"", image: "/stafi/Don_Luiggi_Martucci(Drejtori)-converted-from-jpeg.webp", level: 1 }
+    { name: "Don Luigi Martucci", role: "Drejtori i Qendrës Sociale 'Don Bosko'", image: "/stafi/Don_Luiggi_Martucci(Drejtori)-converted-from-jpeg.webp", level: 1 }
 ];
 
 const koordinatorSalezian = [
