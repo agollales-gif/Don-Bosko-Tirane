@@ -274,10 +274,10 @@ const draw = (delay: number, duration = 2.2): Variants => ({
 });
 
 const Hero: React.FC<{ config: typeof LEVEL_CONFIG[string] }> = ({ config }) => (
-  <section className="relative w-full min-h-[60vh] lg:min-h-[55vh] bg-primary-red overflow-hidden flex items-center pt-28 lg:pt-0">
+  <section className="relative w-full bg-primary-red overflow-hidden flex flex-col lg:flex-row lg:items-center pt-28 lg:pt-0 min-h-[100svh] lg:min-h-[55vh]">
 
-    {/* Left — text */}
-    <div className="flex-1 flex flex-col justify-center px-6 lg:px-16 container mx-auto relative z-10 lg:w-1/2">
+    {/* Text */}
+    <div className="flex-1 flex flex-col justify-center px-6 lg:px-16 container mx-auto relative z-10 lg:w-1/2 py-10 lg:py-0">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-3xl">
         <span className="inline-block py-1.5 px-4 mb-4 lg:mb-6 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-white font-semibold uppercase tracking-widest text-[10px] sm:text-xs">
           {config.badge}
@@ -295,9 +295,9 @@ const Hero: React.FC<{ config: typeof LEVEL_CONFIG[string] }> = ({ config }) => 
       </motion.div>
     </div>
 
-    {/* Right — animated SVG silhouette (same on all 4 pages) */}
-    <div className="relative w-full h-[38vh] min-h-[240px] lg:absolute lg:right-0 lg:top-0 lg:w-1/2 lg:h-full flex items-center justify-center p-6 lg:p-16 pointer-events-none z-0 mt-auto lg:mt-0">
-      <svg viewBox="0 0 120 110" fill="none" className="w-full h-full max-h-[260px] lg:max-h-[58vh] max-w-[85%] lg:max-w-full text-white opacity-30 lg:opacity-20">
+    {/* Silhouette — below text on mobile, right side on desktop */}
+    <div className="w-full h-[52vw] min-h-[260px] max-h-[380px] lg:absolute lg:right-0 lg:top-0 lg:w-1/2 lg:h-full lg:max-h-none flex items-center justify-center px-8 pb-8 lg:p-16 pointer-events-none z-0">
+      <svg viewBox="0 0 120 110" fill="none" className="w-full h-full text-white opacity-40 lg:opacity-20">
 
         {/* ── Open book ── */}
         <motion.path d="M20 30 L20 80 Q60 72 60 72 Q100 72 100 80 L100 30 Q60 22 60 22 Q20 22 20 30 Z"
