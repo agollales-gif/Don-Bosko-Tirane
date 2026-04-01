@@ -149,7 +149,7 @@ const CoursesSection: React.FC = () => (
         </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-0 divide-y md:divide-y-0 md:divide-x divide-gray-100">
         {categories.map((cat, ci) => (
           <motion.div key={cat.id} {...fadeUp(ci * 0.12)} className="py-8 md:py-0 md:px-10 first:md:pl-0 last:md:pr-0 space-y-8">
             <div className="space-y-1">
@@ -200,7 +200,7 @@ const ScheduleSection: React.FC = () => (
         <div className="absolute top-0 right-0 w-72 h-72 bg-[#9c252d]/10 -mr-36 -mt-36 rounded-full blur-[80px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-56 h-56 bg-white/5 -ml-28 -mb-28 rounded-full blur-[60px] pointer-events-none" />
 
-        <div className="relative z-10 grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/5">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-white/5">
           <div className="p-10 md:p-12 flex flex-col justify-center space-y-3">
             <p className="text-[#9c252d] text-[10px] font-black uppercase tracking-[0.35em]">Informacion</p>
             <h3 className="text-3xl font-black uppercase tracking-tight text-white font-plus-jakarta leading-tight">

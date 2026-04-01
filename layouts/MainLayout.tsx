@@ -23,7 +23,7 @@ const MainLayout: React.FC = () => {
 
             <Header onToggleDrawer={() => setIsDrawerOpen(true)} />
 
-            <main className={`flex-grow ${location.pathname === '/' ? '' : 'pt-16 md:pt-20'}`}>
+            <main className={`flex-grow ${location.pathname === '/' ? '' : 'pt-20 md:pt-24'}`}>
                 <Outlet />
             </main>
 

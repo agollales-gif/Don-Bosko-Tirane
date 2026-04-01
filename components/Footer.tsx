@@ -9,11 +9,9 @@ const Footer: React.FC = () => {
   return (
     <footer id="contact" className="text-white overflow-hidden font-plus-jakarta">
       {/* Main Footer Section */}
-      <div className="bg-[#0f172a] pt-24 pb-16 px-6 md:px-12 relative border-t border-white/5">
-        {/* Background Accent Glow */}
+      <div className="bg-[#0f172a] pt-16 md:pt-24 pb-12 md:pb-16 px-5 md:px-12 relative border-t border-white/5">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary-red/5 -translate-y-1/2 translate-x-1/2 rounded-full blur-[120px] pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 relative z-10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 relative z-10">
           
           {/* Brand Column */}
           <div className="space-y-8">

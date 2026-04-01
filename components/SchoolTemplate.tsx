@@ -447,7 +447,7 @@ const SchoolTemplate: React.FC<SchoolTemplateProps> = ({
 
 
 
-                    <div className="flex gap-6 sm:gap-8 overflow-x-auto pb-4 lg:grid lg:grid-cols-4 lg:overflow-x-visible lg:pb-0">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
 
                         {valueCards.map((card) => {
 
@@ -461,7 +461,7 @@ const SchoolTemplate: React.FC<SchoolTemplateProps> = ({
 
                                     </div>
 
-                                    <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-[#0f172a] transition-colors">{card.title}</h3>
+                                    <h3 className="text-base sm:text-xl font-bold text-white group-hover:text-[#0f172a] transition-colors">{card.title}</h3>
 
                                     <p className="text-white/40 group-hover:text-gray-500 transition-colors text-sm leading-relaxed">
 
@@ -485,7 +485,7 @@ const SchoolTemplate: React.FC<SchoolTemplateProps> = ({
 
                                         key={card.id}
 
-                                        className="p-6 sm:p-10 hover:bg-white transition-all duration-500 group relative block cursor-pointer min-w-[280px] sm:min-w-[320px] lg:min-w-0 flex-shrink-0"
+                                        className="p-6 sm:p-10 hover:bg-white transition-all duration-500 group relative block cursor-pointer rounded-2xl"
 
                                         onClick={() => {
 
@@ -509,7 +509,7 @@ const SchoolTemplate: React.FC<SchoolTemplateProps> = ({
 
                             return (
 
-                                <div key={card.id} className="p-6 sm:p-10 hover:bg-white transition-all duration-500 group relative min-w-[280px] sm:min-w-[320px] lg:min-w-0 flex-shrink-0">
+                                <div key={card.id} className="p-6 sm:p-10 hover:bg-white transition-all duration-500 group relative rounded-2xl">
 
                                     <span className="absolute top-6 right-6 sm:top-8 sm:right-10 text-4xl sm:text-6xl font-black text-white/5 group-hover:text-primary-red/5 transition-colors">{card.id}</span>
 

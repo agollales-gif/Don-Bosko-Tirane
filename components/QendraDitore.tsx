@@ -99,7 +99,7 @@ const Hero: React.FC = () => {
 // ─── MISSION ──────────────────────────────────────────────────────────────────
 
 const Mission: React.FC = () => (
-  <section id="misioni" className="py-32 px-6 md:px-12 bg-white">
+  <section id="misioni" className="py-16 md:py-32 px-4 md:px-12 bg-white">
     <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
       {/* Text */}
       <motion.div {...fadeUp(0)} className="space-y-8">
@@ -163,7 +163,7 @@ const Mission: React.FC = () => (
 // ─── SERVICES ─────────────────────────────────────────────────────────────────
 
 const Services: React.FC = () => (
-  <section className="py-32 px-6 md:px-12 bg-[#fafaf8]">
+  <section className="py-16 md:py-32 px-4 md:px-12 bg-[#fafaf8]">
     <div className="max-w-7xl mx-auto space-y-16">
       <motion.div {...fadeUp(0)} className="text-center space-y-4 max-w-2xl mx-auto">
         <p className="text-primary-red text-xs font-black uppercase tracking-[0.3em]">Çfarë Ofrojmë</p>

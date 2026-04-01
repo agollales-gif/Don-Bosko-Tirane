@@ -17,14 +17,14 @@ const Home: React.FC = () => {
             {showPopup && <RegistrationPopup onClose={closePopup} />}
             
             {/* About Shortcut / CTA Section */}
-            <section id="about" className="py-32 md:py-48 px-6 bg-white relative">
+            <section id="about" className="py-16 md:py-32 px-4 md:px-6 bg-white relative">
                 {/* Subtle Decorative Gradient */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-red/5 rounded-full blur-[120px] pointer-events-none"></div>
 
                 <div className="max-w-[1500px] mx-auto relative z-10 px-4 md:px-12">
                     {/* Shortcut Grid */}
                     <OptimizedMotion>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 -mt-32 lg:-mt-64 mb-40 relative z-20">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-8 mt-8 md:-mt-16 lg:-mt-40 mb-20 md:mb-32 relative z-20">
                             {[
                                 { title: "Shkolla", image: "/public/shkolla_shortcut.jpg", link: "/shkolla" },
                                 { title: "Oratori", image: "/public/oratori_shortcut.png", link: "/oratori" },
@@ -39,8 +39,8 @@ const Home: React.FC = () => {
                                     className="group cursor-pointer"
                                 >
                                     <Link to={item.link} className="relative block">
-                                        <div className="absolute -inset-4 bg-primary-red/5 rounded-[56px] -rotate-1 group-hover:rotate-0 transition-transform duration-700"></div>
-                                        <div className="relative overflow-hidden rounded-[48px] shadow-3xl aspect-[16/9] z-10">
+                                        <div className="absolute -inset-2 md:-inset-4 bg-primary-red/5 rounded-[32px] md:rounded-[56px] -rotate-1 group-hover:rotate-0 transition-transform duration-700"></div>
+                                        <div className="relative overflow-hidden rounded-[28px] md:rounded-[48px] shadow-xl aspect-[16/9] z-10">
                                             <img
                                                 src={item.image}
                                                 alt={`${item.title} - Qendra Sociale Don Bosko Tiranë, program edukativ`}
@@ -49,19 +49,16 @@ const Home: React.FC = () => {
                                                 loading="lazy"
                                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                                             />
-                                            {/* Premium Overlay */}
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                                            {/* Card Content */}
-                                            <div className="absolute bottom-10 left-10 right-10 flex justify-between items-end">
-                                                <div className="space-y-2">
-                                                    <h2 className="text-white text-3xl md:text-5xl font-black uppercase tracking-tight font-plus-jakarta">
+                                            <div className="absolute bottom-5 left-5 right-5 md:bottom-10 md:left-10 md:right-10 flex justify-between items-end">
+                                                <div className="space-y-1.5 md:space-y-2">
+                                                    <h2 className="text-white text-2xl md:text-3xl lg:text-5xl font-black uppercase tracking-tight font-plus-jakarta">
                                                         {item.title}
                                                     </h2>
-                                                    <div className="w-12 h-1 bg-primary-red group-hover:w-24 transition-all duration-500 rounded-full"></div>
+                                                    <div className="w-8 md:w-12 h-1 bg-primary-red group-hover:w-16 md:group-hover:w-24 transition-all duration-500 rounded-full"></div>
                                                 </div>
-                                                <span className="text-white/70 text-sm font-bold uppercase tracking-widest hidden sm:block group-hover:text-white transition-colors">
-                                                    Zbulo më shumë →
+                                                <span className="text-white/70 text-xs font-bold uppercase tracking-widest hidden sm:block group-hover:text-white transition-colors">
+                                                    Zbulo →
                                                 </span>
                                             </div>
                                         </div>
