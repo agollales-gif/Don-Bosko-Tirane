@@ -29,6 +29,7 @@ export const GET_NAV_STRUCTURE = (t: Translation): NavItem[] => [
   { label: t.navOratori, href: "/oratori" },
   { label: t.navChurch, href: "/famullia" },
   { label: t.navDayCenter, href: "/qendra-ditore" },
+  { label: t.navCourses, href: "/kurset" },
   { label: t.navNews, href: "/contact" },
 ];
 
@@ -40,6 +41,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     navOratori: "Oratori",
     navChurch: "Famullia",
     navDayCenter: "Qendra Ditore",
+    navCourses: "Kurset",
     navContact: "Kontakt",
     searchPlaceholder: "Kërko në faqe...",
     searchButton: "Kërko",
@@ -62,6 +64,7 @@ export const TRANSLATIONS: Record<Language, Translation> = {
     navOratori: "Oratory",
     navChurch: "Parish",
     navDayCenter: "Day Center",
+    navCourses: "Courses",
     navContact: "Contact",
     searchPlaceholder: "Search the site...",
     searchButton: "Search",

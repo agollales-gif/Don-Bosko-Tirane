@@ -14,6 +14,7 @@ const Rregjistrohu     = lazy(() => import('./pages/Rregjistrohu'));
 const PrivacyPolicy    = lazy(() => import('./pages/privacy-policy'));
 const TermsOfUse       = lazy(() => import('./pages/terms-of-use'));
 const QendraDitore     = lazy(() => import('./pages/QendraDitore'));
+const Kurset           = lazy(() => import('./pages/Kurset'));
 
 // Shkolla
 const ShkollaFillore      = lazy(() => import('./pages/shkolla/ShkollaFillore'));
@@ -86,6 +87,7 @@ const App: React.FC = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-use"   element={<TermsOfUse />} />
             <Route path="/qendra-ditore"  element={<QendraDitore />} />
+            <Route path="/kurset"         element={<Kurset />} />
 
             {/* 5. PLACEHOLDERS */}
             <Route path="/te-tjera/komuniteti-salezian"      element={<PlaceholderPage title="Komuniteti Salezian" />} />

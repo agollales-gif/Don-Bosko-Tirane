@@ -8,6 +8,7 @@ export interface Translation {
   navOratori: string;
   navChurch: string;
   navDayCenter: string;
+  navCourses: string;
   navContact: string;
   searchPlaceholder: string;
   searchButton: string;

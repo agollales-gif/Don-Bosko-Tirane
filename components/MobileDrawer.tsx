@@ -10,6 +10,7 @@ import {
   Church,
   Users,
   Heart,
+  BookOpen,
   X,
   ChevronDown,
   Edit3
@@ -50,6 +51,7 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
       case t.navOratori: return <Users size={18} />;
       case t.navChurch: return <Church size={18} />;
       case t.navDayCenter: return <Heart size={18} />;
+      case t.navCourses: return <BookOpen size={18} />;
       case t.navContact: return <MessageSquare size={18} />;
       case "Komuniteti": return <Users size={18} />;
       case "Rregjistrim": return <Edit3 size={18} />;
