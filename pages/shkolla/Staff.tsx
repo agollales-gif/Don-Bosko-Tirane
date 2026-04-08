@@ -28,7 +28,7 @@ const personeliMesimdhenes = [
     { name: "Amarilda Cava", role: "Mësuese Kujdestare Fillore", image: "/stafi/Amarilda_Cava-converted-from-png.webp", level: 6 },
     { name: "Anila Maloku", role: "Mësuese Kujdestare Fillore", image: "/stafi/Anila_Maloku-converted-from-png.webp", level: 6 },
     { name: "Brunilda Mata", role: "Mësuese Kujdestare Fillore", image: "/stafi/Brunilda_Mata-fillore-converted-from-png.webp", level: 6 },
-    { name: "Eftimi Sylari", role: "Mësuese Anglisht", image: "/stafi/Eftimi_Sylari-fillore-anglisht-converted-from-png.webp", level: 6 },
+    { name: "Klaudia Nerhati", role: "Mësuese Anglisht", image: "/stafi/Eftimi_Sylari-fillore-anglisht-converted-from-png.webp", level: 6 },
     { name: "Elisabeta Xhanari", role: "Mësuese Kujdestare Fillore", image: "/stafi/Elisabeta_Xhanari-converted-from-png.webp", level: 6 },
     { name: "Elizabeta Methoxha", role: "Mësuese Kujdestare Fillore", image: "/stafi/Elizabeta_Methoxha-Fillore-converted-from-png.webp", level: 6 },
     { name: "Florida Lleshaj", role: "Mësuese Kujdestare Fillore", image: "/stafi/Florida_Lleshaj-fillore-converted-from-png.webp", level: 6 },
