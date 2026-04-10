@@ -25,6 +25,7 @@
     }
   ],
   "rewrites": [
+    { "source": "/sekretaria/:path*", "destination": "https://sekretaria.vercel.app/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
