@@ -191,18 +191,6 @@ Telefon: ${formData.telefonPrindit}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-center mb-8"
-            >
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">
-                Zgjidh klasën që doni të regjistroni fëmijën tuaj
-              </h2>
-              <p className="text-gray-500 mt-2 text-base">Plotësoni formularin më poshtë dhe ne do t'ju kontaktojmë sa më shpejt.</p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-white rounded-2xl shadow-xl p-8 md:p-12"
             >
@@ -376,10 +364,15 @@ Telefon: ${formData.telefonPrindit}
 
                 {/* Shkolla e interesuar */}
                 <div>
-                  <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
-                    <GraduationCap className="mr-3 text-red-600" size={28} />
-                    Shkolla e interesuar
-                  </h2>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-1">
+                    <h2 className="text-2xl font-semibold text-gray-900 flex items-center">
+                      <GraduationCap className="mr-3 text-red-600" size={28} />
+                      Shkolla e interesuar
+                    </h2>
+                    <span className="text-sm text-gray-500 italic sm:text-right">
+                      Zgjidh klasën që doni të regjistroni fëmijën tuaj
+                    </span>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="shkolla" className="block text-sm font-medium text-gray-700 mb-2">
