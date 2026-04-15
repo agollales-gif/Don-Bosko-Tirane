@@ -86,6 +86,7 @@ const Rregjistrohu: React.FC = () => {
     // Shkolla e interesuar
     shkolla: '',
     niveli: '',
+    klasa: '',
     
     // Mesazh shtesë
     mesazh: ''
@@ -135,6 +136,7 @@ Gjinia: ${formData.gjiniaFemijes === 'mashkull' ? 'Mashkull' : formData.gjiniaFe
 Interesi akademik:
 ------------------
 Lloji i Shkolles: ${formData.shkolla === '9-vjecare' ? 'Shkolle 9-vjecare' : formData.shkolla === 'e-mesme' ? 'Shkolle e Mesme' : formData.shkolla === 'profesionale' ? 'Shkolle Profesionale' : formData.shkolla}
+Klasa: ${formData.klasa || 'Nuk eshte specifikuar'}
 
 Data e dergimit: ${new Date().toLocaleDateString('sq-AL', { day: '2-digit', month: '2-digit', year: 'numeric' })}
 
@@ -170,6 +172,7 @@ Telefon: ${formData.telefonPrindit}
           gjiniaFemijes: '',
           shkolla: '',
           niveli: '',
+          klasa: '',
           mesazh: ''
         });
         setIsSubmitting(false);
@@ -383,7 +386,7 @@ Telefon: ${formData.telefonPrindit}
                         name="shkolla"
                         required
                         value={formData.shkolla}
-                        onChange={handleChange}
+                        onChange={(e) => { handleChange(e); setFormData(f => ({ ...f, klasa: '' })); }}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
                       >
                         <option value="">Zgjidh shkollën</option>
@@ -392,6 +395,45 @@ Telefon: ${formData.telefonPrindit}
                         <option value="profesionale">Shkolla Profesionale</option>
                       </select>
                     </div>
+                    {formData.shkolla && (
+                      <div>
+                        <label htmlFor="klasa" className="block text-sm font-medium text-gray-700 mb-2">
+                          Klasa *
+                        </label>
+                        <select
+                          id="klasa"
+                          name="klasa"
+                          required
+                          value={formData.klasa}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                        >
+                          <option value="">Zgjidh klasën</option>
+                          {formData.shkolla === '9-vjecare' && <>
+                            <option value="Klasa 1">Klasa 1</option>
+                            <option value="Klasa 2">Klasa 2</option>
+                            <option value="Klasa 3">Klasa 3</option>
+                            <option value="Klasa 4">Klasa 4</option>
+                            <option value="Klasa 5">Klasa 5</option>
+                            <option value="Klasa 6">Klasa 6</option>
+                            <option value="Klasa 7">Klasa 7</option>
+                            <option value="Klasa 8">Klasa 8</option>
+                            <option value="Klasa 9">Klasa 9</option>
+                          </>}
+                          {formData.shkolla === 'e-mesme' && <>
+                            <option value="Klasa 10">Klasa 10</option>
+                            <option value="Klasa 11">Klasa 11</option>
+                            <option value="Klasa 12">Klasa 12</option>
+                          </>}
+                          {formData.shkolla === 'profesionale' && <>
+                            <option value="Viti 1">Viti 1</option>
+                            <option value="Viti 2">Viti 2</option>
+                            <option value="Viti 3">Viti 3</option>
+                            <option value="Viti 4">Viti 4</option>
+                          </>}
+                        </select>
+                      </div>
+                    )}
                   </div>
                 </div>
 
