@@ -11,7 +11,7 @@ const VideoBackground: React.FC = () => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   return (
-    <div className="absolute inset-0 w-full h-full">
+    <div className="absolute inset-0 w-full h-full pointer-events-none">
       <LazyYouTube
         videoId={isMobile ? YT_MOBILE_ID : YT_DESKTOP_ID}
         si={isMobile ? undefined : YT_DESKTOP_SI}
