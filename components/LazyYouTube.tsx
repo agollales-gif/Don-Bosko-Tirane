@@ -41,7 +41,9 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({
     `disablekb=1&` +
     `iv_load_policy=3&` +
     `fs=0&` +
-    `cc_load_policy=0`;
+    `cc_load_policy=0&` +
+    `enablejsapi=0&` +
+    `origin=${typeof window !== 'undefined' ? window.location.origin : ''}`;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -74,14 +76,20 @@ const LazyYouTube: React.FC<LazyYouTubeProps> = ({
   // For autoplay (background video), skip all lazy/click gates and render immediately
   if (autoplay) {
     return (
-      <div className={`${className} pointer-events-none`}>
+      <div className={`${className} relative overflow-hidden`}>
         <iframe
           src={embedUrl}
           title={title}
-          className="w-full h-full pointer-events-none"
+          className="w-full h-full"
           style={{ pointerEvents: 'none' }}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        />
+        {/* Overlay to completely block any YouTube UI interaction */}
+        <div 
+          className="absolute inset-0 pointer-events-none" 
+          style={{ pointerEvents: 'none' }}
+          aria-hidden="true"
         />
       </div>
     );

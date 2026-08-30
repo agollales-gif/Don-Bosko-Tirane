@@ -11,15 +11,23 @@ const VideoBackground: React.FC = () => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
 
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none">
-      <LazyYouTube
-        videoId={isMobile ? YT_MOBILE_ID : YT_DESKTOP_ID}
-        si={isMobile ? undefined : YT_DESKTOP_SI}
-        title="Video promovuese e Qendrës Sociale Don Bosko Tiranë"
-        className="absolute inset-0 w-full h-full scale-[200%]"
-        autoplay={true}
-        mute={true}
-        loop={true}
+    <div className="absolute inset-0 w-full h-full overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <LazyYouTube
+          videoId={isMobile ? YT_MOBILE_ID : YT_DESKTOP_ID}
+          si={isMobile ? undefined : YT_DESKTOP_SI}
+          title="Video promovuese e Qendrës Sociale Don Bosko Tiranë"
+          className="absolute inset-0 w-full h-full scale-[200%]"
+          autoplay={true}
+          mute={true}
+          loop={true}
+        />
+      </div>
+      {/* Additional overlay to ensure no YouTube UI appears */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[1]" 
+        style={{ pointerEvents: 'none' }}
+        aria-hidden="true"
       />
     </div>
   );
