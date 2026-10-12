@@ -1,20 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
-import RegistrationPopup from '../components/RegistrationPopup';
 import { OptimizedMotion, motion, useStaggeredAnimation, useScrollAnimation } from '../utils/motion';
-import { useRegistrationPopup } from '../hooks/useRegistrationPopup';
 
 const Home: React.FC = () => {
-    const { showPopup, closePopup } = useRegistrationPopup();
-    
-    console.log('Home component: showPopup =', showPopup);
-    
     return (
         <>
             <Hero />
-            {/* Registration Popup */}
-            {showPopup && <RegistrationPopup onClose={closePopup} />}
             
             {/* About Shortcut / CTA Section */}
             <section id="about" className="py-16 md:py-32 px-4 md:px-6 bg-white relative">

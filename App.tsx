@@ -10,7 +10,6 @@ import Hero from './components/Hero';
 const DepartmentPage   = lazy(() => import('./pages/DepartmentPage'));
 const PlaceholderPage  = lazy(() => import('./pages/PlaceholderPage'));
 const DitetTona        = lazy(() => import('./pages/kontakt'));
-const Rregjistrohu     = lazy(() => import('./pages/Rregjistrohu'));
 const PrivacyPolicy    = lazy(() => import('./pages/privacy-policy'));
 const TermsOfUse       = lazy(() => import('./pages/terms-of-use'));
 const QendraDitore     = lazy(() => import('./pages/QendraDitore'));
@@ -22,7 +21,6 @@ const Shkolla9Vjecare     = lazy(() => import('./pages/shkolla/Shkolla9Vjecare')
 const ShkollaMesme        = lazy(() => import('./pages/shkolla/ShkollaMesme'));
 const ShkollaProfesionale = lazy(() => import('./pages/shkolla/ShkollaProfesionale'));
 const PlaniAkademik       = lazy(() => import('./pages/shkolla/PlaniAkademik'));
-const Staff               = lazy(() => import('./pages/shkolla/Staff'));
 
 // Oratori
 const Aktiviteti = lazy(() => import('./pages/oratori/Aktiviteti'));
@@ -56,8 +54,8 @@ const App: React.FC = () => {
             <Route path="/shkolla/9-vjecare"     element={<Shkolla9Vjecare />} />
             <Route path="/shkolla/mesme"         element={<ShkollaMesme />} />
             <Route path="/shkolla/profesionale"  element={<ShkollaProfesionale />} />
-            <Route path="/shkolla/stafi-yne-akademik" element={<Staff />} />
-            <Route path="/shkolla/staff"         element={<Navigate to="/shkolla/stafi-yne-akademik" replace />} />
+            <Route path="/shkolla/stafi-yne-akademik" element={<Navigate to="/shkolla" replace />} />
+            <Route path="/shkolla/staff"         element={<Navigate to="/shkolla" replace />} />
             <Route path="/shkolla/plani-akademik" element={<Navigate to="/shkolla/plani-akademik/9-vjecare" replace />} />
             <Route path="/shkolla/plani-akademik/:level" element={<PlaniAkademik />} />
 
@@ -76,14 +74,14 @@ const App: React.FC = () => {
             <Route path="/famullia/oraret-meshes"   element={<OraretMeshave />} />
             <Route path="/famullia/kalendari" element={<Kalendari />} />
 
-            {/* 4. KONTAKT & REGJISTRIMI */}
+            {/* 4. KONTAKT */}
             <Route path="/kontaktoni-me-ne"  element={<DitetTona />} />
             <Route path="/contact"           element={<Navigate to="/kontaktoni-me-ne" replace />} />
             <Route path="/ditet-tona"        element={<Navigate to="/kontaktoni-me-ne" replace />} />
-            <Route path="/rregjistrohu-tani" element={<Rregjistrohu />} />
-            <Route path="/rregjistrohu"      element={<Navigate to="/rregjistrohu-tani" replace />} />
+            <Route path="/rregjistrohu-tani" element={<Navigate to="/kontaktoni-me-ne" replace />} />
+            <Route path="/rregjistrohu"      element={<Navigate to="/kontaktoni-me-ne" replace />} />
 
-            <Route path="/stafi"        element={<Staff />} />
+            <Route path="/stafi"        element={<Navigate to="/shkolla" replace />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-of-use"   element={<TermsOfUse />} />
             <Route path="/qendra-ditore"  element={<QendraDitore />} />

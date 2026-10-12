@@ -18,9 +18,9 @@ const LEVEL_CONFIG: Record<string, {
     label: 'Shkolla Fillore Don Bosko',
     badge: 'Cikli Fillor',
     subtitle: 'Themelet e arsimit cilësor',
-    description: 'Programi formativ i Shkollës Fillore Don Bosko për vitin akademik 2025-2026, i bazuar në pedagogjinë saleziane.',
-    pdfPath: '/docs/PF Shkolla Fillore Don Bosko 2025-2026 Shtator 2025.pdf',
-    pdfName: 'PF Shkolla Fillore Don Bosko 2025-2026.pdf',
+    description: 'Programi formativ i Shkollës Fillore Don Bosko për vitin akademik 2026-2027, i bazuar në pedagogjinë saleziane.',
+    pdfPath: '/brochures/Plani formativ, shkolla 9 vjeçare 2026-2027, Shtator 2026.pdf',
+    pdfName: 'Plani formativ, shkolla 9 vjeçare 2026-2027, Shtator 2026.pdf',
     sections: [
       {
         title: 'Identiteti dhe Misioni',
@@ -74,9 +74,9 @@ const LEVEL_CONFIG: Record<string, {
     label: 'Shkolla 9-vjeçare Don Bosko',
     badge: 'Cikli 9-vjeçar',
     subtitle: 'Udhëzimi drejt suksesit',
-    description: 'Programi formativ i Shkollës 9-vjeçare Don Bosko për vitin akademik 2025-2026.',
-    pdfPath: '/docs/PF Shkolla 9-vjecare Don Bosko 2025-2026 Shtator 2025.pdf',
-    pdfName: 'PF Shkolla 9-vjecare Don Bosko 2025-2026.pdf',
+    description: 'Programi formativ i Shkollës 9-vjeçare Don Bosko për vitin akademik 2026-2027.',
+    pdfPath: '/brochures/Plani formativ, shkolla 9 vjeçare 2026-2027, Shtator 2026.pdf',
+    pdfName: 'Plani formativ, shkolla 9 vjeçare 2026-2027, Shtator 2026.pdf',
     sections: [
       {
         title: 'Identiteti dhe Misioni',
@@ -132,9 +132,9 @@ const LEVEL_CONFIG: Record<string, {
     label: 'Gjimnaz Don Bosko',
     badge: 'Arsimi i Mesëm',
     subtitle: 'Ekselencë dhe formim integral',
-    description: 'Programi formativ i Gjimnazit Don Bosko për vitin akademik 2025-2026, i bazuar në traditën saleziane.',
-    pdfPath: '/docs/PF Shkolla e Mesme Don Bosko 2025-2026 Shtator 2025.pdf',
-    pdfName: 'PF Shkolla e Mesme Don Bosko 2025-2026.pdf',
+    description: 'Programi formativ i Gjimnazit Don Bosko për vitin akademik 2026-2027, i bazuar në traditën saleziane.',
+    pdfPath: '/brochures/Plani formativ, shkolla e mesme 2026-2027, Shtator 2026.pdf',
+    pdfName: 'Plani formativ, shkolla e mesme 2026-2027, Shtator 2026.pdf',
     sections: [
       {
         title: 'Prezantimi dhe Identiteti',
@@ -199,9 +199,9 @@ const LEVEL_CONFIG: Record<string, {
     label: 'Gjimnazi Profesional TIK Don Bosko',
     badge: 'Arsimi Profesional',
     subtitle: 'Teknologji · Inovacion · Karrierë',
-    description: 'Programi formativ i Gjimnazit Profesional TIK Don Bosko për vitin akademik 2025-2026.',
-    pdfPath: '/docs/PF Shkolla e Mesme Don Bosko 2025-2026 Shtator 2025.pdf',
-    pdfName: 'PF Shkolla e Mesme Don Bosko 2025-2026.pdf',
+    description: 'Programi formativ i Gjimnazit Profesional TIK Don Bosko për vitin akademik 2026-2027.',
+    pdfPath: '/brochures/Plani formativ, shkolla e mesme 2026-2027, Shtator 2026.pdf',
+    pdfName: 'Plani formativ, shkolla e mesme 2026-2027, Shtator 2026.pdf',
     sections: [
       {
         title: 'Profili Profesional',
@@ -397,7 +397,7 @@ const PlaniAkademik: React.FC = () => {
           {/* Section header */}
           <motion.div {...fadeUp(0)} className="grid md:grid-cols-2 gap-8 items-end border-b border-gray-100 pb-10">
             <div className="space-y-3">
-              <p className="text-[#9c252d] text-[10px] font-black uppercase tracking-[0.35em]">Plani Formativ 2025 — 2026</p>
+              <p className="text-[#9c252d] text-[10px] font-black uppercase tracking-[0.35em]">Plani Formativ 2026 — 2027</p>
               <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-gray-900 font-plus-jakarta leading-tight">
                 {config.label}
               </h2>
@@ -406,7 +406,7 @@ const PlaniAkademik: React.FC = () => {
             {config.pdfPath && (
               <div className="md:text-right">
                 <a
-                  href={config.pdfPath}
+                  href={encodeURI(config.pdfPath)}
                   download={config.pdfName}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f172a] text-white text-xs font-black uppercase tracking-widest rounded-xl hover:bg-[#9c252d] transition-colors duration-200"
                 >

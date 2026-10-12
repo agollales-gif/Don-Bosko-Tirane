@@ -138,11 +138,9 @@ const ShkollaProfesionale: React.FC = () => {
                     }
                 ]}
                 ctaTitle="Dëshironi të bëheni ekspert i teknologjisë?"
-                ctaSubtitle="Siguroni vendin tuaj në një nga profilet më të kërkuara të kohës. Regjistrimet janë të hapura."
+                ctaSubtitle="Mësoni në një nga profilet më të kërkuara të kohës dhe zhvilloni aftësitë tuaja teknologjike."
                 ctaPlaniLink="/shkolla/plani-akademik/gjimnaz"
                 brochurePath="/brochures/Gjimnaz.pdf"
-                showStaff={true}
-                staffType="profesionale"
             />
         </div>
     );

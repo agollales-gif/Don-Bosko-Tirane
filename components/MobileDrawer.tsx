@@ -81,7 +81,15 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
           >
             <div className="p-8 flex items-center justify-between">
               <div className="flex items-center space-x-4">
-                <img src="/public/logo.png" alt="Logo" className="w-12 h-12 object-contain" />
+                <div className="relative">
+                  <img src="/public/logo.png" alt="Logo" className="w-12 h-12 object-contain" />
+                  <img
+                    src="/pink-ribbon.png"
+                    alt="Tetori Rozë"
+                    title="Tetori Rozë - Muaji i Ndërgjegjësimit për Gratë"
+                    className="absolute -top-1.5 -right-2 h-5.5 w-auto object-contain drop-shadow-sm select-none pointer-events-none"
+                  />
+                </div>
                 <div className="flex flex-col">
                   <span className="font-extrabold text-gray-900 text-base uppercase leading-none font-plus-jakarta">Don Bosko</span>
                   <span className="text-[10px] font-bold text-primary-red uppercase tracking-[0.2em]">Tiranë</span>
@@ -94,6 +102,19 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
               >
                 <X size={20} />
               </button>
+            </div>
+
+            {/* October Awareness Badge */}
+            <div className="mx-6 mb-2 px-3.5 py-2 rounded-2xl bg-pink-50 border border-pink-200/70 flex items-center gap-2.5 shadow-xs">
+              <img src="/pink-ribbon.png" alt="Tetori Rozë" className="h-5 w-auto object-contain" />
+              <div className="flex flex-col">
+                <span className="text-[10px] font-black uppercase tracking-wider text-pink-700 leading-tight font-plus-jakarta">
+                  Tetori Rozë
+                </span>
+                <span className="text-[9px] font-semibold text-pink-500 leading-tight">
+                  Muaji i Ndërgjegjësimit për Gratë
+                </span>
+              </div>
             </div>
 
             <nav className="flex-grow overflow-y-auto px-6 py-4">

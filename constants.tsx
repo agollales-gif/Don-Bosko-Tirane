@@ -22,8 +22,7 @@ export const GET_NAV_STRUCTURE = (t: Translation): NavItem[] => [
       { label: "Shkolla Fillore", href: "/shkolla/fillore" },
       { label: "Shkolla 9-Vjeçare", href: "/shkolla/9-vjecare" },
       { label: "Gjimnazi Përgjithshëm", href: "/shkolla/mesme" },
-      { label: "Gjimnazi Profesional TIK", href: "/shkolla/profesionale" },
-      { label: "Stafi Akademik", href: "/shkolla/staff" }
+      { label: "Gjimnazi Profesional TIK", href: "/shkolla/profesionale" }
     ]
   },
   { label: t.navOratori, href: "/oratori" },

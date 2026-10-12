@@ -83,13 +83,13 @@ const CardContent: React.FC<{ school: any }> = ({ school }) => (
         <div className="w-12 h-1 bg-primary-red mx-auto rounded-full opacity-80"></div>
       </div>
       
-      <button 
-        onClick={(e) => { e.preventDefault(); window.location.href = '/rregjistrohu'; }}
-        className="group/btn relative overflow-hidden w-full max-w-sm py-4 bg-primary-red text-white font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-xl shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] hover:-translate-y-0.5"
-      >
-        <span className="relative z-10">Rregjistrohu Tani</span>
+      <span className="group/btn relative inline-flex items-center justify-center overflow-hidden w-full max-w-sm py-4 bg-primary-red text-white font-bold uppercase tracking-widest text-sm transition-all duration-300 rounded-xl shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] group-hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)] group-hover:-translate-y-0.5">
+        <span className="relative z-10 flex items-center gap-2">
+          Eksploro Programin
+          <span className="text-base transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </span>
         <div className="absolute inset-0 bg-black/15 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out"></div>
-      </button>
+      </span>
     </div>
   </div>
 );

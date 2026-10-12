@@ -48,6 +48,13 @@ const Header: React.FC<HeaderProps> = ({ onToggleDrawer }) => {
               height={48}
               className="w-10 h-10 md:w-12 md:h-12 object-contain"
             />
+            {/* Minimalist Pink Ribbon Pin for October Awareness */}
+            <img
+              src="/pink-ribbon.png"
+              alt="Tetori Rozë"
+              title="Tetori Rozë - Muaji i Ndërgjegjësimit për Gratë"
+              className="absolute -top-1.5 -right-2 h-5.5 w-auto object-contain drop-shadow-sm select-none pointer-events-none"
+            />
           </motion.div>
           <div className="hidden sm:block">
             <span className="text-xs font-extrabold text-gray-900 uppercase tracking-tight font-plus-jakarta">
@@ -137,7 +144,22 @@ const Header: React.FC<HeaderProps> = ({ onToggleDrawer }) => {
         </nav>
 
         {/* Action Section */}
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-3 sm:space-x-4">
+          {/* October Pink Ribbon Badge */}
+          <div
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-pink-50/90 hover:bg-pink-100/90 border border-pink-200/80 shadow-[0_2px_8px_rgba(244,114,182,0.12)] transition-all duration-300 cursor-default group"
+            title="Tetori Rozë · Muaji i Ndërgjegjësimit për Gratë"
+          >
+            <img
+              src="/pink-ribbon.png"
+              alt="Tetori Rozë"
+              className="h-4.5 sm:h-5 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
+            />
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-pink-700 font-plus-jakarta hidden md:inline">
+              Tetori Rozë
+            </span>
+          </div>
+
           <button
             onClick={onToggleDrawer}
             className="p-2 text-gray-900 hover:text-primary-red transition-colors lg:hidden"

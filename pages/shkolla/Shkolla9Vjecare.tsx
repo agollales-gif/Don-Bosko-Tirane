@@ -117,11 +117,9 @@ const Shkolla9Vjecare: React.FC = () => {
                 ]}
 
                 ctaTitle="Gati për të vizituar shkollën?"
-                ctaSubtitle="Shkarkoni planin mësimor për vitin akademik 2024/25 dhe regjistrohuni sot."
+                ctaSubtitle="Shkarkoni planin mësimor për vitin akademik 2026/27 dhe bëhuni pjesë e familjes sonë."
                 ctaPlaniLink="/shkolla/plani-akademik/9-vjecare"
                 brochurePath="/brochures/9-vjecare.pdf"
-                showStaff={true}
-                staffType="9vjecare"
             />
         </div>
     );

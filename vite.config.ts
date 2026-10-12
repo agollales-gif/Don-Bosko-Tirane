@@ -35,7 +35,7 @@ export default defineConfig(({ mode }) => {
       cssMinify: true,
     },
     server: {
-      port: 9999,
+      port: 2009,
       host: '0.0.0.0',
     },
   };

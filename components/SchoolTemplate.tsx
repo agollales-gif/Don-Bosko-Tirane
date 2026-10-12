@@ -110,20 +110,6 @@ interface SchoolTemplateProps {
 
     brochurePath?: string;
 
-   
-
-    // Staff Link
-
-    staffLink?: string;
-
-   
-
-    // Show Staff Section
-
-    showStaff?: boolean;
-
-    staffType?: 'fillore' | 'mesme' | 'profesionale' | '9vjecare';
-
 }
 
 
@@ -166,13 +152,7 @@ const SchoolTemplate: React.FC<SchoolTemplateProps> = ({
 
     ctaPlaniLink,
 
-    brochurePath,
-
-    staffLink,
-
-    showStaff,
-
-    staffType
+    brochurePath
 
 }) => {
 
@@ -693,49 +673,7 @@ const SchoolTemplate: React.FC<SchoolTemplateProps> = ({
 
             </section>
 
-            {/* Staff Section */}
-            
-            {showStaff && (
-                <section className="py-20 sm:py-32 px-4 sm:px-6 md:px-12 lg:px-24 bg-gray-50">
-                    <div className="max-w-7xl mx-auto text-center space-y-8">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="space-y-6"
-                        >
-                            <h2 className="text-3xl sm:text-4xl md:text-6xl font-black uppercase text-[#0f172a]">
-                                Stafi <span className="text-primary-red font-script italic lowercase">Akademik</span>
-                            </h2>
-                            <p className="text-gray-400 font-bold tracking-widest uppercase text-xs">Ekipi ynë i përkushtuar</p>
-                            <div className="w-16 sm:w-20 h-1 bg-primary-red mx-auto"></div>
-                        </motion.div>
-                        
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.2 }}
-                            className="space-y-6"
-                        >
-                            <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                                Një ekip i mësuesve dhe profesionistëve të kualifikuar, të përkushtuar ndaj arsimimit dhe zhvillimit të studentëve tanë.
-                            </p>
-                            
-                            <Link
-                                to="/shkolla/staff"
-                                className="inline-flex items-center gap-3 px-8 py-4 bg-primary-red text-white font-black uppercase text-xs tracking-widest rounded-full hover:bg-[#0f172a] transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
-                                onClick={() => {
-                                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                                }}
-                            >
-                                Shiko Stafin e Plotë
-                                <span className="text-lg">→</span>
-                            </Link>
-                        </motion.div>
-                    </div>
-                </section>
-            )}
+
 
         </div>
 

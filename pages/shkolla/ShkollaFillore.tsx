@@ -101,11 +101,9 @@ const ShkollaFillore: React.FC = () => {
                     { id: "03", title: "Edukim Artistik", desc: "Zhvillimi i kreativitetit përmes pikturës, muzikës dhe lëvizjes skenike.", tags: ['Pikturë', 'Muzikë', 'Lëvizje'], icon: <span className="text-2xl">🎨</span> }
                 ]}
                 ctaTitle="Gati për të vizituar shkollën?"
-                ctaSubtitle="Shkarkoni planin mësimor 2024/25 dhe bëhuni pjesë e familjes sonë."
+                ctaSubtitle="Shkarkoni planin mësimor 2026/27 dhe bëhuni pjesë e familjes sonë."
                 ctaPlaniLink="/shkolla/plani-akademik/fillore"
                 brochurePath="/brochures/Fillore.pdf"
-                showStaff={true}
-                staffType="fillore"
             />
         </div>
     );

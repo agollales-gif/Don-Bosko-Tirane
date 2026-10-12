@@ -143,11 +143,9 @@ const ShkollaMesme: React.FC = () => {
         ]}
         
         ctaTitle="Gati për të ndërtuar të ardhmen?"
-        ctaSubtitle="Bëhuni pjesë e familjes sonë dhe siguroni një të ardhme të ndritur. Regjistrimet janë të hapura."
+        ctaSubtitle="Bëhuni pjesë e familjes sonë dhe siguroni një të ardhme të ndritur përmes formimit cilësor."
         ctaPlaniLink="/shkolla/plani-akademik/gjimnaz"
         brochurePath="/brochures/Gjimnaz.pdf"
-        showStaff={true}
-        staffType="mesme"
       />
     </div>
   );
