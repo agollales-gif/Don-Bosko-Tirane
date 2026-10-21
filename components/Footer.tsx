@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center space-x-2 text-[10px] font-black tracking-[0.1em]">
               <span className="text-white/50 uppercase">Realizuar nga</span>
               <a
-                href="https://alesjo-agolli.netlify.app/"
+                href="https://alesjoagolli.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary-red/80 hover:text-primary-red transition-colors underline-offset-4 hover:underline"
