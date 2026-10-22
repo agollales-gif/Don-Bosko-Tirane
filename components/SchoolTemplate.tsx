@@ -261,7 +261,7 @@ const SchoolTemplate: React.FC<SchoolTemplateProps> = ({
 
                         <div className="absolute -inset-2 sm:-inset-4 bg-primary-red/5 rounded-[40px] sm:rounded-[60px] -rotate-2"></div>
 
-                        <div className="relative aspect-[4/5] sm:aspect-[4/5] overflow-hidden rounded-tr-[60px] sm:rounded-tr-[120px] rounded-bl-[60px] sm:rounded-bl-[120px] rounded-tl-[20px] sm:rounded-tl-[40px] rounded-br-[20px] sm:rounded-br-[40px] shadow-3xl border-4 sm:border-8 border-white">
+                        <div className={`relative ${heroImage.includes('tia-1') ? 'aspect-[16/11]' : 'aspect-[4/5] sm:aspect-[4/5]'} overflow-hidden rounded-tr-[60px] sm:rounded-tr-[120px] rounded-bl-[60px] sm:rounded-bl-[120px] rounded-tl-[20px] sm:rounded-tl-[40px] rounded-br-[20px] sm:rounded-br-[40px] shadow-3xl border-4 sm:border-8 border-white`}>
 
                             <img
 

@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import MobileDrawer from '../components/MobileDrawer';
+import AirportPracticeModal from '../components/AirportPracticeModal';
 import { useState } from 'react';
 
 const MainLayout: React.FC = () => {
@@ -15,6 +16,9 @@ const MainLayout: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-white flex flex-col overflow-x-hidden font-montserrat">
+            {/* TIA Practice Welcome Modal */}
+            <AirportPracticeModal />
+
             {/* Mobile Navigation Drawer */}
             <MobileDrawer
                 isOpen={isDrawerOpen}
