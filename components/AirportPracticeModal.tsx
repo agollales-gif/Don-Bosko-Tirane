@@ -48,7 +48,7 @@ const AirportPracticeModal: React.FC = () => {
 
   return (
     <>
-      {/* 1. Floating Teaser Card — Page looks normal, this slides in & opens the modal when clicked */}
+      {/* 1. Floating Teaser Card — Available when modal is closed */}
       <AnimatePresence>
         {showTeaser && !isModalOpen && (
           <motion.div
@@ -85,7 +85,7 @@ const AirportPracticeModal: React.FC = () => {
                 <img
                   src="/praktika_tia/tia-1.jpg"
                   alt="Praktika në TIA"
-                  style={{ objectPosition: 'center 45%' }}
+                  style={{ objectPosition: 'center 68%' }}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -117,7 +117,7 @@ const AirportPracticeModal: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* 2. Compact Full Modal — Pops up when the teaser is clicked */}
+      {/* 2. Compact Full Modal */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
@@ -139,12 +139,12 @@ const AirportPracticeModal: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
               className="relative w-full max-w-[620px] bg-white rounded-[22px] shadow-[0_30px_80px_-15px_rgba(0,0,0,0.65)] overflow-hidden ring-1 ring-black/5 my-auto"
             >
-              {/* Trimmed Image Height — Cuts off the blank ceiling wall so the card fits comfortably on screen */}
+              {/* Trimmed Image Height — Focuses on the students in the lower portion of the photo */}
               <div className="relative w-full h-[220px] sm:h-[265px] bg-[#0f172a] overflow-hidden select-none">
                 <img
                   src="/praktika_tia/tia-1.jpg"
                   alt="Nxënësit e klasës XIII të shkollës profesionale Don Bosko në Aeroportin Ndërkombëtar të Tiranës"
-                  style={{ objectPosition: 'center 58%' }}
+                  style={{ objectPosition: 'center 68%' }}
                   className="w-full h-full object-cover"
                 />
 
