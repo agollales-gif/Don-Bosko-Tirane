@@ -84,10 +84,10 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
                 <div className="relative">
                   <img src="/public/logo.png" alt="Logo" className="w-12 h-12 object-contain" />
                   <img
-                    src="/pink-ribbon.png"
-                    alt="Tetori Rozë"
-                    title="Tetori Rozë - Muaji i Ndërgjegjësimit për Gratë"
-                    className="absolute -top-1.5 -right-2 h-5.5 w-auto object-contain drop-shadow-sm select-none pointer-events-none"
+                    src="/festat-nentorit-pin.svg"
+                    alt="Festat e Nëntorit"
+                    title="Festat e Nëntorit · Gëzuar 28-29 Nëntorin! 🇦🇱"
+                    className="absolute -top-1.5 -right-2 h-6 w-6 object-contain drop-shadow-md select-none pointer-events-none"
                   />
                 </div>
                 <div className="flex flex-col">
@@ -104,15 +104,18 @@ const MobileDrawer: React.FC<MobileDrawerProps> = ({ isOpen, onClose }) => {
               </button>
             </div>
 
-            {/* October Awareness Badge */}
-            <div className="mx-6 mb-2 px-3.5 py-2 rounded-2xl bg-pink-50 border border-pink-200/70 flex items-center gap-2.5 shadow-xs">
-              <img src="/pink-ribbon.png" alt="Tetori Rozë" className="h-5 w-auto object-contain" />
+            {/* Festat e Nëntorit Badge */}
+            <div className="mx-6 mb-2 px-3.5 py-2.5 rounded-2xl bg-gradient-to-r from-red-50 via-red-50/90 to-amber-50/40 border border-red-200/80 flex items-center gap-3 shadow-xs">
+              <img src="/festat-nentorit-pin.svg" alt="Festat e Nëntorit" className="h-6 w-6 object-contain shrink-0" />
               <div className="flex flex-col">
-                <span className="text-[10px] font-black uppercase tracking-wider text-pink-700 leading-tight font-plus-jakarta">
-                  Tetori Rozë
-                </span>
-                <span className="text-[9px] font-semibold text-pink-500 leading-tight">
-                  Muaji i Ndërgjegjësimit për Gratë
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-red-700 leading-tight font-plus-jakarta">
+                    Festat e Nëntorit
+                  </span>
+                  <span className="text-[10px] select-none">🇦🇱</span>
+                </div>
+                <span className="text-[9px] font-semibold text-red-600/90 leading-tight">
+                  Gëzuar Ditën e Flamurit & Çlirimit!
                 </span>
               </div>
             </div>

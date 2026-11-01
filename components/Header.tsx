@@ -48,12 +48,12 @@ const Header: React.FC<HeaderProps> = ({ onToggleDrawer }) => {
               height={48}
               className="w-10 h-10 md:w-12 md:h-12 object-contain"
             />
-            {/* Minimalist Pink Ribbon Pin for October Awareness */}
+            {/* Pin for Festat e Nëntorit */}
             <img
-              src="/pink-ribbon.png"
-              alt="Tetori Rozë"
-              title="Tetori Rozë - Muaji i Ndërgjegjësimit për Gratë"
-              className="absolute -top-1.5 -right-2 h-5.5 w-auto object-contain drop-shadow-sm select-none pointer-events-none"
+              src="/festat-nentorit-pin.svg"
+              alt="Festat e Nëntorit"
+              title="Festat e Nëntorit · Gëzuar 28-29 Nëntorin! 🇦🇱"
+              className="absolute -top-1.5 -right-2 h-6 w-6 object-contain drop-shadow-md select-none pointer-events-none group-hover:rotate-12 transition-transform duration-300"
             />
           </motion.div>
           <div className="hidden sm:block">
@@ -145,19 +145,20 @@ const Header: React.FC<HeaderProps> = ({ onToggleDrawer }) => {
 
         {/* Action Section */}
         <div className="flex items-center space-x-3 sm:space-x-4">
-          {/* October Pink Ribbon Badge */}
+          {/* Festat e Nëntorit Badge */}
           <div
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-pink-50/90 hover:bg-pink-100/90 border border-pink-200/80 shadow-[0_2px_8px_rgba(244,114,182,0.12)] transition-all duration-300 cursor-default group"
-            title="Tetori Rozë · Muaji i Ndërgjegjësimit për Gratë"
+            className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-gradient-to-r from-red-50 to-red-100/80 hover:from-red-100 hover:to-red-200/90 border border-red-200/90 shadow-[0_2px_8px_rgba(220,38,38,0.12)] transition-all duration-300 cursor-default group"
+            title="Festat e Nëntorit · Gëzuar 28 - 29 Nëntorin! 🇦🇱"
           >
             <img
-              src="/pink-ribbon.png"
-              alt="Tetori Rozë"
+              src="/festat-nentorit-pin.svg"
+              alt="Festat e Nëntorit"
               className="h-4.5 sm:h-5 w-auto object-contain group-hover:scale-110 transition-transform duration-300"
             />
-            <span className="text-[10px] font-extrabold uppercase tracking-wider text-pink-700 font-plus-jakarta hidden md:inline">
-              Tetori Rozë
+            <span className="text-[10px] font-extrabold uppercase tracking-wider text-red-700 font-plus-jakarta hidden md:inline">
+              Festat e Nëntorit
             </span>
+            <span className="text-[11px] hidden md:inline select-none">🇦🇱</span>
           </div>
 
           <button
