@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Users, MapPin, CheckCircle2 } from 'lucide-react';
+import { Calendar, Clock, MapPin, CheckCircle2 } from 'lucide-react';
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -11,7 +11,6 @@ interface CourseCategory {
   courses: {
     num: number;
     name: string;
-    coaches: string;
     detail?: string;
   }[];
 }
@@ -25,17 +24,14 @@ const categories: CourseCategory[] = [
       {
         num: 1,
         name: 'Futboll',
-        coaches: 'Rigers (U-11-13-14), Leorenc (U-9), Erglin (U-9), Demian (U-11-13), Miri (U-7-17), Igli (U-13-17)',
       },
       {
         num: 2,
         name: 'Basketboll',
-        coaches: 'Klevisi',
       },
       {
         num: 3,
         name: 'Volejboll',
-        coaches: 'Juna',
       },
     ],
   },
@@ -47,30 +43,25 @@ const categories: CourseCategory[] = [
       {
         num: 4,
         name: 'Kitarë',
-        coaches: 'Flori',
         detail: 'Grupe: Kitarë fillestare & Kitarë e avancuar',
       },
       {
         num: 5,
         name: 'Teatër',
-        coaches: 'Elona',
         detail: 'Grupe sipas klasave: kl 1–3 dhe kl 4–9',
       },
       {
         num: 6,
         name: 'Anglisht',
-        coaches: 'Eftemi',
       },
       {
         num: 7,
         name: 'Art Pamor',
-        coaches: 'Adi',
         detail: 'Grupe sipas klasave: kl 1–3 dhe kl 4–9',
       },
       {
         num: 8,
         name: 'Kërcim Modern',
-        coaches: 'Joana',
       },
     ],
   },
@@ -250,7 +241,7 @@ const CoursesSection: React.FC = () => (
 
               <div className="divide-y divide-gray-200/60">
                 {cat.courses.map((course) => (
-                  <div key={course.name} className="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-4">
+                  <div key={course.name} className="py-4">
                     <div className="space-y-0.5">
                       <div className="flex items-center gap-2">
                         <span className="w-5 h-5 rounded-full bg-primary-red/10 text-primary-red text-[11px] font-black flex items-center justify-center shrink-0">
@@ -263,13 +254,6 @@ const CoursesSection: React.FC = () => (
                       {course.detail && (
                         <p className="text-xs text-gray-500 pl-7">{course.detail}</p>
                       )}
-                    </div>
-
-                    <div className="sm:text-right pl-7 sm:pl-0">
-                      <div className="flex items-center sm:justify-end gap-1.5 text-xs text-gray-600 font-semibold">
-                        <Users className="w-3.5 h-3.5 text-primary-red shrink-0" />
-                        <span>{course.coaches}</span>
-                      </div>
                     </div>
                   </div>
                 ))}
